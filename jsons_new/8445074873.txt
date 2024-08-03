@@ -1,0 +1,1 @@
+{'book': {'publisher': 'Del Rey', 'language': 'es', 'image': 'https://images.isbndb.com/covers/48/79/9788445074879.jpg', 'title_long': 'Fahrenheit 451', 'date_published': '2004', 'authors': ['Ray Bradbury'], 'title': 'Fahrenheit 451', 'isbn13': '9788445074879', 'msrp': 14.95, 'binding': 'Paperback', 'isbn': '8445074873', 'isbn10': '8445074873'}}
