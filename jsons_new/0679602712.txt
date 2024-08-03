@@ -1,0 +1,1 @@
+{'book': {'publisher': 'Modern Library', 'language': 'en', 'image': 'https://images.isbndb.com/covers/27/12/9780679602712.jpg', 'title_long': "A Fan's Notes", 'edition': '1997', 'date_published': '1997', 'authors': ['Yardley', 'Jonathan'], 'title': "A Fan's Notes", 'isbn13': '9780679602712', 'msrp': 16.5, 'binding': 'Hardcover', 'isbn': '0679602712', 'isbn10': '0679602712'}}
