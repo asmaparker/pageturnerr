@@ -1,0 +1,1 @@
+{'book': {'publisher': 'Columbia Pictures Pubns', 'language': 'my', 'image': 'https://images.isbndb.com/covers/15/68/9789998691568.jpg', 'title_long': 'Stand By Me', 'date_published': '1986', 'authors': ['Stephen King', 'Raynold Gideon'], 'title': 'Stand By Me', 'isbn13': '9789998691568', 'msrp': 17, 'binding': 'Hardcover', 'isbn': '9998691567', 'isbn10': '9998691567'}}
