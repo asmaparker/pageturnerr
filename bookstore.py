@@ -71,7 +71,7 @@ except:
 
 try:
     print("Adding content to database...")
-    url = "https://raw.githubusercontent.com/asmaparker/CBSEProj/main/books.csv"
+    url = "https://raw.githubusercontent.com/asmaparker/pageturnerr/main/books.csv?token=GHSAT0AAAAAACU2SZQM3LQTJYCB566BUQZYZVOQEYQ"
     response = urllib.urlopen(url)
     # f = open("data.csv", "r")
     reader = csv.reader(response)
