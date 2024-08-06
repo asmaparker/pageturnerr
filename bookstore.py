@@ -62,16 +62,18 @@ except:
     sys.exit("Unable to connect to the database")
 
 try:
+    # TODO: Create the neceessary tables in the database
     print("Setting up database")
-    db.execute("CREATE TABLE IF NOT EXISTS ")
+    db.execute("CREATE TABLE IF NOT EXISTS users (name VARCHAR(255), email VARCHAR(255), phone_number VARCHAR(255), username VARCHAR(255))")
+    db.execute("CREATE TABLE IF NOT EXISTS auth (username VARCHAR(255), passhash VARCHAR(255))")    
 except:
     sys.exit("Unable to setup database")
 
 try:
     print("Adding content to database...")
-    url = "https://raw.githubusercontent.com/asmaparker/pageturnerr/main/books.csv?token=GHSAT0AAAAAACU2SZQM3LQTJYCB566BUQZYZVOQEYQ"
+    url = "https://raw.githubusercontent.com/asmaparker/CBSEProj/main/books.csv"
     response = urllib.urlopen(url)
-    # f = open("data.csv", "r") 
+    # f = open("data.csv", "r")
     reader = csv.reader(response)
     for row in reader:
         db.execute("INSERT INTO books (title, author, price, quantity) VALUES (%s, %s, %s, %s)", (row[0], row[1], row[2], row[3]))
