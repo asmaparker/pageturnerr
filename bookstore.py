@@ -41,7 +41,7 @@ try:
     import time  # Used for debugging purposes
     import termcolor  # Color the output in the terminal
     import random  # Used for generation of OTPs
-    import urllib # Used for URL encoding
+    import urllib.request # Used for URL encoding
     from getpass import getpass  # Mask passwords while they are being inputted
     from mysql.connector import connect  # Connect to MySQL Server
 except:
@@ -72,11 +72,11 @@ except:
 try:
     print("Adding content to database...")
     url = "https://raw.githubusercontent.com/asmaparker/pageturnerr/main/books.csv?token=GHSAT0AAAAAACU2SZQM3LQTJYCB566BUQZYZVOQEYQ"
-    response = urllib.urlopen(url)
+    response = urllib.request.urlopen(url)
     # f = open("data.csv", "r")
     reader = csv.reader(response)
     for row in reader:
-        db.execute("INSERT INTO books (title, author, price, quantity) VALUES (%s, %s, %s, %s)", (row[0], row[1], row[2], row[3]))
+        # db.execute("INSERT INTO books (title, author, price, quantity) VALUES (%s, %s, %s, %s)", (row[0], row[1], row[2], row[3]))
         cdb.commit()
 except:
     sys.exit("Fatal error occurred! Information text is unavailable.")
