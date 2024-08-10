@@ -65,9 +65,22 @@ try:
     # TODO: Create the neceessary tables in the database
     print("Setting up database")
     db.execute("CREATE TABLE IF NOT EXISTS users (name VARCHAR(255), email VARCHAR(255), phone_number VARCHAR(255), username VARCHAR(255))")
-    db.execute("CREATE TABLE IF NOT EXISTS auth (username VARCHAR(255), passhash VARCHAR(255))")    
+    db.execute("CREATE TABLE IF NOT EXISTS auth (username VARCHAR(255), passhash VARCHAR(255))") 
+    db.execute("CREATE TABLE IF NOT EXISTS inventory (title VARCHAR(255), author VARCHAR(255), price FLOAT, quantity INT)")
+    db.execute("CREATE TABLE IF NOT EXISTS transactions (username VARCHAR(255), book_title VARCHAR(255), quantity INT, total_price FLOAT, receipt_no INT order_date DATE)")
+    db.execute("CREATE TABLE IF NOT EXISTS cart (username VARCHAR(255), book_title VARCHAR(255), quantity(ISBN) INT)")
+    cdb.commit()
+
+    import csv
+    fobj=open("books.csv","r")
+    csv=csv.writer(fobj)    
+    csv.writerow(["title","author","price","quantity"])
+    fobj.close()
+
 except:
     sys.exit("Unable to setup database")
+
+
 
 try:
     print("Adding content to database...")
