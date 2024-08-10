@@ -70,13 +70,6 @@ try:
     db.execute("CREATE TABLE IF NOT EXISTS transactions (username VARCHAR(255), book_title VARCHAR(255), quantity INT, total_price FLOAT, receipt_no INT order_date DATE)")
     db.execute("CREATE TABLE IF NOT EXISTS cart (username VARCHAR(255), book_title VARCHAR(255), quantity(ISBN) INT)")
     cdb.commit()
-
-    import csv
-    fobj=open("books.csv","r")
-    csv=csv.writer(fobj)    
-    csv.writerow(["title","author","price","quantity"])
-    fobj.close()
-
 except:
     sys.exit("Unable to setup database")
 
