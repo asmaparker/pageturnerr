@@ -66,9 +66,9 @@ try:
     print("Setting up database")
     db.execute("CREATE TABLE IF NOT EXISTS users (name VARCHAR(255), email VARCHAR(255), phone_number VARCHAR(255), username VARCHAR(255))")
     db.execute("CREATE TABLE IF NOT EXISTS auth (username VARCHAR(255), passhash VARCHAR(255))") 
-    db.execute("CREATE TABLE IF NOT EXISTS inventory (title VARCHAR(255), author VARCHAR(255), price FLOAT, quantity INT)")
-    db.execute("CREATE TABLE IF NOT EXISTS transactions (username VARCHAR(255), book_title VARCHAR(255), quantity INT, total_price FLOAT, receipt_no INT order_date DATE)")
-    db.execute("CREATE TABLE IF NOT EXISTS cart (username VARCHAR(255), book_title VARCHAR(255), quantity(ISBN) INT)")
+    db.execute("CREATE TABLE IF NOT EXISTS inventory (title VARCHAR(255), author VARCHAR(255), price FLOAT, quantity INT)") # CHANGE TO CSV HEADER
+    db.execute("CREATE TABLE IF NOT EXISTS transactions (receipt_no INT UNIQUE NOT NULL AUTOINCREMENT, order_date DATE, username VARCHAR(255), isbn CHAR(10), total_price FLOAT)")
+    db.execute("CREATE TABLE IF NOT EXISTS cart (username VARCHAR(255), isbn CHAR(10))")
     cdb.commit()
 except:
     sys.exit("Unable to setup database")
