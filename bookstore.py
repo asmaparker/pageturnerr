@@ -66,7 +66,7 @@ try:
     print("Setting up database")
     db.execute("CREATE TABLE IF NOT EXISTS users (name VARCHAR(255), email VARCHAR(255), phone_number VARCHAR(255), username VARCHAR(255))")
     db.execute("CREATE TABLE IF NOT EXISTS auth (username VARCHAR(255), passhash VARCHAR(255))") 
-    db.execute("CREATE TABLE IF NOT EXISTS inventory (title VARCHAR(255), author VARCHAR(255), price FLOAT, quantity INT)") # CHANGE TO CSV HEADER
+    db.execute("CREATE TABLE IF NOT EXISTS inventory (isbn INT, isbn13 INT, title VARCHAR(302), synopsis VARCHAR (10000), publisher VARCHAR(255), authors(255), date_published DATE, language VARCHAR(255), price FLOAT, pages INT, avg_rating FLOAT)") # CHANGE TO CSV HEADER
     db.execute("CREATE TABLE IF NOT EXISTS transactions (receipt_no INT UNIQUE NOT NULL AUTOINCREMENT, order_date DATE, username VARCHAR(255), isbn CHAR(10), total_price FLOAT)")
     db.execute("CREATE TABLE IF NOT EXISTS cart (username VARCHAR(255), isbn CHAR(10))")
     cdb.commit()
@@ -78,11 +78,11 @@ except:
 try:
     print("Adding content to database...")
     url = "https://raw.githubusercontent.com/asmaparker/pageturnerr/main/books.csv?token=GHSAT0AAAAAACU2SZQM3LQTJYCB566BUQZYZVOQEYQ"
-    with requests.get(urlL, stream=True) as r:
+    with requests.get(url, stream=True) as r:
         lines = (line.decode('utf-8') for line in r.iter_lines())
         for row in csv.reader(lines):
             if row[9] != '0.00':
-                db.execute("INSERT INTO inventory") #TODO
+                db.execute("INSERT INTO inventory VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10]))
                 cdb.commit()
 except:
     sys.exit("Fatal error occurred! Information text is unavailable.")
