@@ -78,12 +78,12 @@ except:
 try:
     print("Adding content to database...")
     url = "https://raw.githubusercontent.com/asmaparker/pageturnerr/main/books.csv?token=GHSAT0AAAAAACU2SZQM3LQTJYCB566BUQZYZVOQEYQ"
-    response = urllib.request.urlopen(url)
-    # f = open("data.csv", "r")
-    reader = csv.reader(response)
-    for row in reader:
-        # db.execute("INSERT INTO books (title, author, price, quantity) VALUES (%s, %s, %s, %s)", (row[0], row[1], row[2], row[3]))
-        cdb.commit()
+    with requests.get(urlL, stream=True) as r:
+        lines = (line.decode('utf-8') for line in r.iter_lines())
+        for row in csv.reader(lines):
+            if row[9] != '0.00':
+                db.execute("INSERT INTO inventory") #TODO
+                cdb.commit()
 except:
     sys.exit("Fatal error occurred! Information text is unavailable.")
 
