@@ -4,9 +4,6 @@ login-> search for books, cart, acc mgmnt, credits, exit
     acc mgmnt-> update details, change password, delete account
     credits-> view credits
     exit-> exit the application
-    search by ISBN-> enter ISBN number
-    search by title-> enter title
-    search by language-> enter language 
     search by publisher-> enter publisher   
     search by author-> enter author 
     search by ratings-> enter ratings       
@@ -18,32 +15,3 @@ login-> search for books, cart, acc mgmnt, credits, exit
     change password-> enter password    
     delete account-> enter account  
     view credits-> view credits 
-`
-
-
-HOW WILL I SHOW THE INFO WHEN SOEONE PRESSES ON A books
-title
-synopsis
-author
-date published
-publisher
-ratings
-price
-language
-`isbn isbn13
-print length
-
-
-order
-
-title
-author
-ratings
-synopsis
-price
-length
-publisher
-date published 
-language
-isbn
-

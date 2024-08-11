@@ -294,6 +294,28 @@ def search_title(title):
                 return rs[ch-1][0]
             else:
                 print(termcolor.colored("Error! Choose a number from the list.", "red"))
+        
+
+def search_publisher(publisher):
+    db.execute("SELECT isbn, title FROM inventory WHERE publisher LIKE %{}% LIMIT 10".format(publisher))
+    rs = db.fetchall()
+    if len(rs) == 0:
+        return False
+    else:
+        j = 0
+        for i in rs:
+            j += 1
+            print("{}. {}".format(j, i[1]))
+        
+        while True:
+            try:
+                ch = int(input("Enter the number of the book you would like to select: "))
+            except:
+                print(termcolor.colored("Error! Choose a number from the list.", "red"))
+            if ch <= 9 and ch >= 1:
+                return rs[ch-1][0]
+            else:
+                print(termcolor.colored("Error! Choose a number from the list.", "red"))
 
 
 def cart(): 
@@ -325,7 +347,7 @@ def cart():
     elif ch == 2:
         total_price = 0
         for i in rs:
-            db.execute("SELECT price FROM inventory WHERE isbn = %s", (i[0],))
+            db.execute("SELECT price FROM inventory WHERE isbn = {}".format(i[0]))
             rs2 = db.fetchall()
             total_price += rs2[0][0]
         db.execute("INSERT INTO transactions (order_date, username, isbn, total_price) VALUES(%s, %s, %s, %s)", (datetime.datetime.now(), login_username, i[0], total_price))
