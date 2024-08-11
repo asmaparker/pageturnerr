@@ -29,6 +29,7 @@ try:  # Install all required modules
     os.system("pip3 install -qqq --disable-pip-version-check --no-cache-dir --no-color --no-warn-conflicts --user --no-python-version-warning --no-input --no-warn-script-location prettytable")
     os.system("pip3 install -qqq --disable-pip-version-check --no-cache-dir --no-color --no-warn-conflicts --user --no-python-version-warning --no-input --no-warn-script-location argon2-cffi")
     os.system("pip3 install -qqq --disable-pip-version-check --no-cache-dir --no-color --no-warn-conflicts --user --no-python-version-warning --no-input --no-warn-script-location termcolor")
+    os.system("pip3 install -qqq --disable-pip-version-check --no-cache-dir --no-color --no-warn-conflicts --user --no-python-version-warning --no-input --no-warn-script-location groq")
 except:
     sys.exit("Unable to install required dependencies!")  # Exit if modules cannot be installed
 
@@ -40,9 +41,8 @@ try:
     import requests
     import time  # Used for debugging purposes
     import termcolor  # Color the output in the terminal
-    import random  # Used for generation of OTPs
-    import urllib.request # Used for URL encoding
     from getpass import getpass  # Mask passwords while they are being inputted
+    from groq import Groq
     from mysql.connector import connect  # Connect to MySQL Server
 except:
     sys.exit("Unable to import required dependencies")  # Exit if modules cannot be imported
@@ -400,6 +400,11 @@ def search_yearofpublishing(year):
                 return rs[ch-1][0]
             else:
                 print(termcolor.colored("Error! Choose a number from the list.", "red"))
+
+def suggest_book(title, synopsis):
+    client = Groq(api_key="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")
+    completion = client.chat.completions.create(model="llama-3.1-8b-instant", messages=[{"role": "system", "content": "you are a helpful assistant, who informs people about similar books based on the title and the synopsis of the book given to you."}, {"role": "user", "content": f"The title of the book is {title}, the synopsis of the book is {synopsis}. What book do you recommend I read based on that information?"}])
+    return completion.choices[0].message.content
 
 
 def cart(): 
