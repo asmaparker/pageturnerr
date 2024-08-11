@@ -1,0 +1,34 @@
+login-> search for books, cart, acc mgmnt, credits, exit 
+    search for books-> search by ISBN, search by title, sb langaue, sb publisher, sb author, sb ratings(above345 star), sb yr of publishing, sb price, sb recommend a boiok for me]
+    cart-> items addded in Cart 
+    acc mgmnt-> update details, change password, delete account
+    credits-> view credits
+    exit-> exit the application
+    search by ISBN-> enter ISBN number
+    search by title-> enter title
+    search by language-> enter language 
+    search by publisher-> enter publisher   
+    search by author-> enter author 
+    search by ratings-> enter ratings       
+    search by yr of publishing-> enter yr of publishing 
+    search by price-> enter price   
+    search by recommend a book for me-> enter recommend a book for me       
+    items added in Cart-> view cart, add items, remove items, checkout      
+    update details-> enter details  
+    change password-> enter password    
+    delete account-> enter account  
+    view credits-> view credits 
+`
+
+
+HOW WILL I SHOW THE INFO WHEN SOEONE PRESSES ON A books
+title
+synopsis
+author
+date published
+publisher
+ratings
+price
+language
+`isbn isbn13
+print length
