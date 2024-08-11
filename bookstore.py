@@ -62,18 +62,15 @@ except:
     sys.exit("Unable to connect to the database")
 
 try:
-    # TODO: Create the neceessary tables in the database
     print("Setting up database")
     db.execute("CREATE TABLE IF NOT EXISTS users (name VARCHAR(255), email VARCHAR(255), phone_number VARCHAR(255), username VARCHAR(255))")
-    db.execute("CREATE TABLE IF NOT EXISTS auth (username VARCHAR(255), passhash VARCHAR(255))") 
-    db.execute("CREATE TABLE IF NOT EXISTS inventory (isbn INT, isbn13 INT, title VARCHAR(302), synopsis VARCHAR (10000), publisher VARCHAR(255), authors(255), date_published DATE, language VARCHAR(255), price FLOAT, pages INT, avg_rating FLOAT)") # CHANGE TO CSV HEADER
+    db.execute("CREATE TABLE IF NOT EXISTS auth (username VARCHAR(255), passhash LONGTEXT)") 
+    db.execute("CREATE TABLE IF NOT EXISTS inventory (isbn INT, isbn13 INT, title LONGTEXT, synopsis LONGTEXT, publisher LONGTEXT, authors LONGTEXT, date_published DATE, language CHAR(2), price FLOAT, pages INT, avg_rating FLOAT)") 
     db.execute("CREATE TABLE IF NOT EXISTS transactions (receipt_no INT UNIQUE NOT NULL AUTOINCREMENT, order_date DATE, username VARCHAR(255), isbn CHAR(10), total_price FLOAT)")
     db.execute("CREATE TABLE IF NOT EXISTS cart (username VARCHAR(255), isbn CHAR(10))")
     cdb.commit()
 except:
     sys.exit("Unable to setup database")
-
-
 
 try:
     print("Adding content to database...")
@@ -93,7 +90,6 @@ if os.name == "posix":
 else:
     # Clear the screen
     os.system("cls")
-
 
 login_status = False  # Check whether the user is logged in or not
 
@@ -290,3 +286,44 @@ def search_title(title):
                 return rs[ch-1][0]
             else:
                 print(termcolor.colored("Error! Choose a number from the list.", "red"))
+
+
+def cart(): 
+    print("Your cart:")
+    db.execute("SELECT DISTINCT isbn FROM cart WHERE username = %s", (login_username,))
+    rs = db.fetchall()
+    if len(rs) == 0:
+        print("Your cart is empty!")
+        print()
+        return
+
+    for i in rs:
+        db.execute("SELECT title, price FROM inventory WHERE isbn = %s", (i[0],))
+        rs2 = db.fetchall()
+        print("Title:", rs2[0][0])
+        print("Price:", rs2[0][1])
+        print()
+
+    print("1. Remove item from cart")
+    print("2. Checkout")
+    print("0. Go back")
+    ch = int(input("Enter your choice: "))
+    if ch == 1:
+        isbn = input("Enter the index of the book you want to remove: ")
+        db.execute("DELETE FROM cart WHERE username = %s AND isbn = %s", (login_username, isbn))
+        cdb.commit()
+        print("Item removed from cart!")
+        print()
+    elif ch == 2:
+        total_price = 0
+        for i in rs:
+            db.execute("SELECT price FROM inventory WHERE isbn = %s", (i[0],))
+            rs2 = db.fetchall()
+            total_price += rs2[0][0]
+        db.execute("INSERT INTO transactions (order_date, username, isbn, total_price) VALUES(%s, %s, %s, %s)", (datetime.datetime.now(), login_username, i[0], total_price))
+        cdb.commit()
+        print("Order placed successfully!")
+        print()
+    elif ch == 0:
+        return
+    
