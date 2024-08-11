@@ -134,7 +134,7 @@ def check_existing_username(username):
 def register_customer():  # Register a new customer
     global login_status
     global login_username
-    
+
     name = input("Enter your full name: ")
     email = input("Enter your email: ")
     phone_number = input("Enter your phone number in international format: ")
@@ -180,7 +180,7 @@ def login():  # Log in the user
 
             if i[0] == login_username and c == True:
                 login_status = True  # Set login status to True
-                os.system('cls')  # Clear terminal to remove personal information
+                clear()  # Clear terminal to remove personal information
                 print("Login successful!")
                 print("Hello,", login_username + "!" "\n")
                 return login_status
@@ -267,7 +267,7 @@ def list_info(isbn):
     rs = db.fetchall()
 
     print(termcolor.colored(rs[0][2], 'cyan', attrs=["bold", "underline"]))
-    print(termcolor.colored("Author:", 'cyan'), rs[0][5])
+    print(termcolor.colored("Author(s):", 'cyan'), [i for i in rs[0][5].split(",")])
     print(termcolor.colored("Average Rating:", 'cyan'), rs[0][10])
     print(termcolor.colored("Synopsis:", 'cyan'), rs[0][3])
     print(termcolor.colored("Price:", 'cyan'), rs[0][8])
@@ -287,7 +287,7 @@ def search_isbn(isbn):
         return rs[0][0]
 
 def search_title(title):
-    db.execute("SELECT isbn, title FROM inventory WHERE title LIKE %'{}'% LIMIT 10".format(title))
+    db.execute("SELECT isbn, title FROM inventory WHERE title LIKE '%{}%' LIMIT 10".format(title))
     rs = db.fetchall()
     if len(rs) == 0:
         return False
@@ -302,14 +302,14 @@ def search_title(title):
                 ch = int(input("Enter the number of the book you would like to select: "))
             except:
                 print(termcolor.colored("Error! Choose a number from the list.", "red"))
-            if ch <= 9 and ch >= 1:
+            if ch <= 10 and ch >= 1:
                 return rs[ch-1][0]
             else:
                 print(termcolor.colored("Error! Choose a number from the list.", "red"))
         
 
 def search_publisher(publisher):
-    db.execute("SELECT isbn, title FROM inventory WHERE publisher LIKE %'{}'% LIMIT 10".format(publisher))
+    db.execute("SELECT isbn, title FROM inventory WHERE publisher LIKE '%{}%' LIMIT 10".format(publisher))
     rs = db.fetchall()
     if len(rs) == 0:
         return False
@@ -324,13 +324,13 @@ def search_publisher(publisher):
                 ch = int(input("Enter the number of the book you would like to select: "))
             except:
                 print(termcolor.colored("Error! Choose a number from the list.", "red"))
-            if ch <= 9 and ch >= 1:
+            if ch <= 10 and ch >= 1:
                 return rs[ch-1][0]
             else:
                 print(termcolor.colored("Error! Choose a number from the list.", "red"))
 
 def search_author(author):
-    db.execute("SELECT isbn, title FROM inventory WHERE authors LIKE %'{}'% LIMIT 10".format(author))
+    db.execute("SELECT isbn, title FROM inventory WHERE authors LIKE '%{}%' LIMIT 10".format(author))
     rs = db.fetchall()
     if len(rs) == 0:
         return False
@@ -345,7 +345,7 @@ def search_author(author):
                 ch = int(input("Enter the number of the book you would like to select: "))
             except:
                 print(termcolor.colored("Error! Choose a number from the list.", "red"))
-            if ch <= 9 and ch >= 1:
+            if ch <= 10 and ch >= 1:
                 return rs[ch-1][0]
             else:
                 print(termcolor.colored("Error! Choose a number from the list.", "red"))
@@ -366,7 +366,7 @@ def search_ratings(ratings):
                 ch = int(input("Enter the number of the book you would like to select: "))
             except:
                 print(termcolor.colored("Error! Choose a number from the list.", "red"))
-            if ch <= 9 and ch >= 1:
+            if ch <= 10 and ch >= 1:
                 return rs[ch-1][0]
             else:
                 print(termcolor.colored("Error! Choose a number from the list.", "red"))
@@ -387,7 +387,7 @@ def search_price(maxprice, minprice):
                 ch = int(input("Enter the number of the book you would like to select: "))
             except:
                 print(termcolor.colored("Error! Choose a number from the list.", "red"))
-            if ch <= 9 and ch >= 1:
+            if ch <= 10 and ch >= 1:
                 return rs[ch-1][0]
             else:
                 print(termcolor.colored("Error! Choose a number from the list.", "red"))
@@ -408,7 +408,7 @@ def search_yearofpublishing(year):
                 ch = int(input("Enter the number of the book you would like to select: "))
             except:
                 print(termcolor.colored("Error! Choose a number from the list.", "red"))
-            if ch <= 9 and ch >= 1:
+            if ch <= 10 and ch >= 1:
                 return rs[ch-1][0]
             else:
                 print(termcolor.colored("Error! Choose a number from the list.", "red"))
@@ -416,7 +416,7 @@ def search_yearofpublishing(year):
 
 def cart(): 
     print("Your cart:")
-    db.execute("SELECT DISTINCT isbn FROM cart WHERE username = {}".format(login_username))
+    db.execute("SELECT DISTINCT isbn FROM cart WHERE username = '{}'".format(login_username))
     rs = db.fetchall()
     if len(rs) == 0:
         print("Your cart is empty!")
@@ -438,20 +438,20 @@ def cart():
     if ch == 1:
         ind = input("Enter the index of the book you want to remove: ")
         isbn = rs[ind-1][0]
-        db.execute("DELETE FROM cart WHERE username = {} AND isbn = {}".format(login_username, isbn))
+        db.execute("DELETE FROM cart WHERE username = '{}' AND isbn = '{}'".format(login_username, isbn))
         cdb.commit()
         print("Item removed from cart!")
         print()
 
     elif ch == 2:
-        db.execute("DELETE FROM cart WHERE username = {}".format(login_username))
+        db.execute("DELETE FROM cart WHERE username = '{}'".format(login_username))
         cdb.commit()
         print("Cart emptied!")
         print()
 
     elif ch == 3:
         for i in rs:
-            db.execute("SELECT price FROM inventory WHERE isbn = {}".format(i[0]))
+            db.execute("SELECT price FROM inventory WHERE isbn = '{}'".format(i[0]))
             rs2 = db.fetchall()
             db.execute("INSERT INTO transactions (order_date, username, isbn, total_price) VALUES({}, {}, {}, {})".format(datetime.datetime.now(), login_username, i[0], rs2[0][0]))
             cdb.commit()
@@ -463,15 +463,26 @@ def cart():
 def delete_account():
     ch = input("Are you sure you want to delete your account? (y/n): ")
     if ch.lower() == 'y':
-        db.execute("DELETE FROM users WHERE username = {}".format(login_username))
-        cdb.commit()
-        db.execute("DELETE FROM auth WHERE username = {}".format(login_username))
-        cdb.commit()
-        db.execute("DELETE FROM cart WHERE username = {}".format(login_username))
-        cdb.commit()
-        print("Account deleted successfully!")
-        print()
-        kill()
+        # Prompt for password as confirmation
+        password = getpass("Enter your password to confirm account deletion: ")
+        db.execute("SELECT passhash FROM auth WHERE username = '{}'".format(login_username))
+        rs = db.fetchall()
+        while True:
+            try:
+                pass_check = pass_verify(rs[0][0], password)  # Verify if current password matches the hash existing in the database
+                
+            except argon2.exceptions.VerifyMismatchError:
+                print(termcolor.colored("Incorrect password!", "red"))
+
+            if pass_check == True:
+                db.execute("DELETE FROM users WHERE username = '{}'".format(login_username))
+                cdb.commit()
+                db.execute("DELETE FROM auth WHERE username = '{}'".format(login_username))
+                cdb.commit()
+                db.execute("DELETE FROM cart WHERE username = '{}'".format(login_username))
+                cdb.commit()
+                print("Account deleted successfully!")
+                kill()
     else:
         return
     
@@ -479,6 +490,7 @@ def kill():
     sys.exit("Thank you for using Page Turner!")
 
 def search():
+    print()
     print("Search for a book")
     print("1. Search by ISBN")  # Search by ISBN
     print("2. Search by title")  # Search by title  
@@ -627,6 +639,7 @@ def search():
         return
     
 def start():
+    clear()
     print("Welcome to Page Turner!")
     print("1. Login")
     print("2. Register")
@@ -641,22 +654,23 @@ def start():
         kill()
 
 def main():
-    print("1. Search for a book")
-    print("2. Edit customer details")
-    print("3. View cart")
-    print("4. Delete account")
-    print("0. Logout")
-    ch = int(input("Enter your choice: "))
-    if ch == 1:
-        search()
-    elif ch == 2:
-        edit_customer()
-    elif ch == 3:
-        cart()
-    elif ch == 4:
-        delete_account()
-    elif ch == 0:
-        logout()
+    while True:
+        print("1. Search for a book")
+        print("2. Edit customer details")
+        print("3. View cart")
+        print("4. Delete account")
+        print("0. Logout")
+        ch = int(input("Enter your choice: "))
+        if ch == 1:
+            search()
+        elif ch == 2:
+            edit_customer()
+        elif ch == 3:
+            cart()
+        elif ch == 4:
+            delete_account()
+        elif ch == 0:
+            logout()
 
 if __name__ == "__main__":
     start()
