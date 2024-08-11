@@ -317,6 +317,72 @@ def search_publisher(publisher):
             else:
                 print(termcolor.colored("Error! Choose a number from the list.", "red"))
 
+def search_author(author):
+    db.execute("SELECT isbn, title FROM inventory WHERE authors LIKE %{}% LIMIT 10".format(author))
+    rs = db.fetchall()
+    if len(rs) == 0:
+        return False
+    else:
+        j = 0
+        for i in rs:
+            j += 1
+            print("{}. {}".format(j, i[1]))
+        
+        while True:
+            try:
+                ch = int(input("Enter the number of the book you would like to select: "))
+            except:
+                print(termcolor.colored("Error! Choose a number from the list.", "red"))
+            if ch <= 9 and ch >= 1:
+                return rs[ch-1][0]
+            else:
+                print(termcolor.colored("Error! Choose a number from the list.", "red"))
+
+def search_yearofpublishing():
+    year = input("Enter the year of publishing: ")
+    db.execute("SELECT isbn, title FROM inventory WHERE date_published LIKE %{}% LIMIT 10".format(year))
+    rs = db.fetchall()
+    if len(rs) == 0:
+        return False
+    else:
+        j = 0
+        for i in rs:
+            j += 1
+            print("{}. {}".format(j, i[1]))
+        
+        while True:
+            try:
+                ch = int(input("Enter the number of the book you would like to select: "))
+            except:
+                print(termcolor.colored("Error! Choose a number from the list.", "red"))
+            if ch <= 9 and ch >= 1:
+                return rs[ch-1][0]
+            else:
+                print(termcolor.colored("Error! Choose a number from the list.", "red"))
+
+def search_price():     
+    price = input("Enter the price of the book: ")
+    db.execute("SELECT isbn, title FROM inventory WHERE price LIKE %{}% LIMIT 10".format(price))
+    rs = db.fetchall()
+    if len(rs) == 0:
+        return False
+    else:
+        j = 0
+        for i in rs:
+            j += 1
+            print("{}. {}".format(j, i[1]))
+        
+        while True:
+            try:
+                ch = int(input("Enter the number of the book you would like to select: "))
+            except:
+                print(termcolor.colored("Error! Choose a number from the list.", "red"))
+            if ch <= 9 and ch >= 1:
+                return rs[ch-1][0]
+            else:
+                print(termcolor.colored("Error! Choose a number from the list.", "red"))
+
+
 
 def cart(): 
     print("Your cart:")
