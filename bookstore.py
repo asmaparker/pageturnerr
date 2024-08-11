@@ -87,12 +87,13 @@ except errors.DataError:
 except:
     sys.exit("Fatal error occurred! Information text is unavailable.")
 
-if os.name == "posix":
-    # Clear the screen
-    os.system("clear")  
-else:
-    # Clear the screen
-    os.system("cls")
+def clear():
+    if os.name == "posix":
+        # Clear the screen
+        os.system("clear")  
+    else:
+        # Clear the screen
+        os.system("cls")
 
 login_status = False  # Check whether the user is logged in or not
 
@@ -131,6 +132,9 @@ def check_existing_username(username):
     return True
 
 def register_customer():  # Register a new customer
+    global login_status
+    global login_username
+    
     name = input("Enter your full name: ")
     email = input("Enter your email: ")
     phone_number = input("Enter your phone number in international format: ")
@@ -149,7 +153,11 @@ def register_customer():  # Register a new customer
     db.execute("INSERT INTO auth VALUES(%s, %s)", (username, passhash))
     cdb.commit()
 
-    os.system("cls")  # Clear the terminal window to remove any personal data
+    login_username = username
+    login_status = True
+    print("Registration successful!")
+    print("Hello,", login_username + "!" "\n")
+    clear()  # Clear the terminal window to remove any personal data
     main()  # Go back to the main menu
 
 def login():  # Log in the user
