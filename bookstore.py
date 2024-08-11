@@ -338,9 +338,51 @@ def search_author(author):
             else:
                 print(termcolor.colored("Error! Choose a number from the list.", "red"))
 
+def search_ratings(ratings):
+    db.execute("SELECT isbn, title FROM inventory WHERE avg_rating BETWEEN {} AND {} LIMIT 10".format(ratings, ratings+1))
+    rs = db.fetchall()
+    if len(rs) == 0:
+        return False
+    else:
+        j = 0
+        for i in rs:
+            j += 1
+            print("{}. {}".format(j, i[1]))
+        
+        while True:
+            try:
+                ch = int(input("Enter the number of the book you would like to select: "))
+            except:
+                print(termcolor.colored("Error! Choose a number from the list.", "red"))
+            if ch <= 9 and ch >= 1:
+                return rs[ch-1][0]
+            else:
+                print(termcolor.colored("Error! Choose a number from the list.", "red"))
+
+def search_price(maxprice, minprice):
+    db.execute("SELECT isbn, title FROM inventory WHERE price BETWEEN {} AND {} LIMIT 10".format(minprice, maxprice))
+    rs = db.fetchall()
+    if len(rs) == 0:
+        return False
+    else:
+        j = 0
+        for i in rs:
+            j += 1
+            print("{}. {}".format(j, i[1]))
+        
+        while True:
+            try:
+                ch = int(input("Enter the number of the book you would like to select: "))
+            except:
+                print(termcolor.colored("Error! Choose a number from the list.", "red"))
+            if ch <= 9 and ch >= 1:
+                return rs[ch-1][0]
+            else:
+                print(termcolor.colored("Error! Choose a number from the list.", "red"))
+
 def search_yearofpublishing():
     year = input("Enter the year of publishing: ")
-    db.execute("SELECT isbn, title FROM inventory WHERE date_published LIKE %{}% LIMIT 10".format(year))
+    db.execute("SELECT isbn, title FROM inventory WHERE year(date_published) = {} LIMIT 10".format(year))
     rs = db.fetchall()
     if len(rs) == 0:
         return False
@@ -359,29 +401,6 @@ def search_yearofpublishing():
                 return rs[ch-1][0]
             else:
                 print(termcolor.colored("Error! Choose a number from the list.", "red"))
-
-def search_price():     
-    price = input("Enter the price of the book: ")
-    db.execute("SELECT isbn, title FROM inventory WHERE price LIKE %{}% LIMIT 10".format(price))
-    rs = db.fetchall()
-    if len(rs) == 0:
-        return False
-    else:
-        j = 0
-        for i in rs:
-            j += 1
-            print("{}. {}".format(j, i[1]))
-        
-        while True:
-            try:
-                ch = int(input("Enter the number of the book you would like to select: "))
-            except:
-                print(termcolor.colored("Error! Choose a number from the list.", "red"))
-            if ch <= 9 and ch >= 1:
-                return rs[ch-1][0]
-            else:
-                print(termcolor.colored("Error! Choose a number from the list.", "red"))
-
 
 
 def cart(): 
