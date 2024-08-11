@@ -1,18 +1,21 @@
-def search_title(title):
-    rs = [int(x) for x in range(1, 10)]
-    if len(rs) == 0:
-        return False
-    else:
-        j = 0
-        for i in rs:
-            j += 1
-            print("{}. {}".format(j, i))
-        
-        while True:
-            ch = int(input("Enter the number of the book you would like to select: "))
-            if ch <= 9 and ch >= 1:
-                return rs[ch-1]
-            else:
-                print("Error! Choose a number from the list.")
+import mysql.connector
 
-print(search_title("hello"))
+# Connect to the database
+conn = mysql.connector.connect(host="localhost", user="asma", password="mysql", database="bookstore")
+
+# Create a cursor object
+cursor = conn.cursor()
+
+# Execute a query
+cursor.execute('SELECT * FROM test')
+
+# Fetch all the results
+results = cursor.fetchall()
+
+# Print the results
+print(results[0][0])
+
+# Close the cursor and connection
+cursor.close()
+conn.close()
+

@@ -32,3 +32,18 @@ price
 language
 `isbn isbn13
 print length
+
+
+order
+
+title
+author
+ratings
+synopsis
+price
+length
+publisher
+date published 
+language
+isbn
+

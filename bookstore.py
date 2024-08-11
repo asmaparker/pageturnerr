@@ -254,9 +254,17 @@ def list_info(isbn):
     db.execute("SELECT isbn,isbn13,title,synopsis,publisher,authors,date_published,language,price,pages,avg_rating FROM inventory WHERE isbn = {isbn}".format(isbn=isbn))
     rs = db.fetchall()
 
-    print(termcolor.colored(rs[2], 'red', attrs=["bold", "underline"]))
-    #TODO: Add other information to print
-
+    print(termcolor.colored(rs[0][2], 'cyan', attrs=["bold", "underline"]))
+    print(termcolor.colored("Author:", 'cyan'), rs[0][5])
+    print(termcolor.colored("Average Rating:", 'cyan'), rs[0][10])
+    print(termcolor.colored("Synopsis:", 'cyan'), rs[0][3])
+    print(termcolor.colored("Price:", 'cyan'), rs[0][8])
+    print(termcolor.colored("Pages:", 'cyan'), rs[0][9])
+    print(termcolor.colored("Publisher:", 'cyan'), rs[0][4])
+    print(termcolor.colored("Date Published:", 'cyan'), rs[0][6])
+    print(termcolor.colored("Language:", 'cyan'), rs[0][7])
+    print(termcolor.colored("ISBNs:", 'cyan'), rs[0][0], rs[0][1])
+    print()
 
 def search_isbn(isbn):
     db.execute("SELECT isbn FROM inventory WHERE isbn = {}".format(isbn))
