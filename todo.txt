@@ -5,9 +5,6 @@ login-> search for books, cart, acc mgmnt, credits, exit
     credits-> view credits
     exit-> exit the application
     search by recommend a book for me-> enter recommend a book for me       
-
-    items added in Cart-> view cart, add items, remove items, checkout      
-    update details-> enter details  
-    change password-> enter password    
-    delete account-> enter account  
+      
+   delete account-> enter account  
     view credits-> view credits 

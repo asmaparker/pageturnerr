@@ -411,33 +411,39 @@ def cart():
         print()
         return
 
+    j = 0
     for i in rs:
-        db.execute("SELECT title, price FROM inventory WHERE isbn = {}".format(i[0]))
+        j += 1
+        db.execute("SELECT title FROM inventory WHERE isbn = {}".format(i[0]))
         rs2 = db.fetchall()
-        print("Title:", rs2[0][0])
-        print("Price:", rs2[0][1])
-        print()
+        print("{}. {}".format(j, rs2[0][0]))
 
     print("1. Remove item from cart")
-    print("2. Checkout")
+    print("2. Empty Cart")
+    print("3. Checkout")
     print("0. Go back")
     ch = int(input("Enter your choice: "))
     if ch == 1:
-        isbn = input("Enter the index of the book you want to remove: ")
-        db.execute("DELETE FROM cart WHERE username = {}} AND isbn = {}".format(login_username, isbn))
+        ind = input("Enter the index of the book you want to remove: ")
+        isbn = rs[ind-1][0]
+        db.execute("DELETE FROM cart WHERE username = {} AND isbn = {}".format(login_username, isbn))
         cdb.commit()
         print("Item removed from cart!")
         print()
+
     elif ch == 2:
-        total_price = 0
+        db.execute("DELETE FROM cart WHERE username = {}".format(login_username))
+        cdb.commit()
+        print("Cart emptied!")
+        print()
+
+    elif ch == 3:
         for i in rs:
             db.execute("SELECT price FROM inventory WHERE isbn = {}".format(i[0]))
             rs2 = db.fetchall()
-            total_price += rs2[0][0]
-        db.execute("INSERT INTO transactions (order_date, username, isbn, total_price) VALUES({}, {}, {}, {})".format(datetime.datetime.now(), login_username, i[0], total_price))
-        cdb.commit()
+            db.execute("INSERT INTO transactions (order_date, username, isbn, total_price) VALUES({}, {}, {}, {})".format(datetime.datetime.now(), login_username, i[0], rs2[0][0]))
+            cdb.commit()
         print("Order placed successfully!")
         print()
     elif ch == 0:
         return
-    
