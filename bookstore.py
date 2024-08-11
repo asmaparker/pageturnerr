@@ -11,7 +11,7 @@ else:
     # Clear the screen
     os.system("cls")
 
-print("BOOK STORE")
+print("PAGE TURNER")
 
 if not sys.warnoptions:
     import warnings
@@ -43,7 +43,7 @@ try:
     import random  # Used for generation of OTPs
     import urllib.request # Used for URL encoding
     from getpass import getpass  # Mask passwords while they are being inputted
-    from mysql.connector import connect  # Connect to MySQL Server
+    from mysql.connector import connect, errors  # Connect to MySQL Server
 except:
     sys.exit("Unable to import required dependencies")  # Exit if modules cannot be imported
 
@@ -80,9 +80,10 @@ try:
         next(lines)
         for row in csv.reader(lines):
             if row[9] != '0.00':
-                print(row[1])
                 db.execute("INSERT INTO inventory VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10]))
                 cdb.commit()
+except errors.DataError:
+    pass
 except:
     sys.exit("Fatal error occurred! Information text is unavailable.")
 
@@ -131,7 +132,7 @@ def check_existing_username(username):
 
 def register_customer():  # Register a new customer
     name = input("Enter your full name: ")
-    email = input(prompt="Enter your email: ")
+    email = input("Enter your email: ")
     phone_number = input("Enter your phone number in international format: ")
     username = input("Enter your username: ")
     password = getpass(prompt="Enter your password: ")  # Mask the password while it's being inputted
@@ -175,6 +176,7 @@ def login():  # Log in the user
                 print("Login successful!")
                 print("Hello,", login_username + "!" "\n")
                 return login_status
+            
             elif i[0] != login_username or c == False:
                 login_status = False
                 sys.exit("Username doesn't exist!")
@@ -188,7 +190,7 @@ def logout():  # Log out and exit the program
     global login_username
     login_status = False
     login_username = None
-    print("Thank You for using Book Store!")
+    print("Thank You for using Page Turner!")
     sys.exit("Successfully logged out!")
 
 def edit_customer():  # Edit customer details
@@ -277,7 +279,7 @@ def search_isbn(isbn):
         return rs[0][0]
 
 def search_title(title):
-    db.execute("SELECT isbn, title FROM inventory WHERE title LIKE %{}% LIMIT 10".format(title))
+    db.execute("SELECT isbn, title FROM inventory WHERE title LIKE %'{}'% LIMIT 10".format(title))
     rs = db.fetchall()
     if len(rs) == 0:
         return False
@@ -299,7 +301,7 @@ def search_title(title):
         
 
 def search_publisher(publisher):
-    db.execute("SELECT isbn, title FROM inventory WHERE publisher LIKE %{}% LIMIT 10".format(publisher))
+    db.execute("SELECT isbn, title FROM inventory WHERE publisher LIKE %'{}'% LIMIT 10".format(publisher))
     rs = db.fetchall()
     if len(rs) == 0:
         return False
@@ -320,7 +322,7 @@ def search_publisher(publisher):
                 print(termcolor.colored("Error! Choose a number from the list.", "red"))
 
 def search_author(author):
-    db.execute("SELECT isbn, title FROM inventory WHERE authors LIKE %{}% LIMIT 10".format(author))
+    db.execute("SELECT isbn, title FROM inventory WHERE authors LIKE %'{}'% LIMIT 10".format(author))
     rs = db.fetchall()
     if len(rs) == 0:
         return False
@@ -468,6 +470,154 @@ def delete_account():
 def kill():
     sys.exit("Thank you for using Page Turner!")
 
+def search():
+    print("Search for a book")
+    print("1. Search by ISBN")  # Search by ISBN
+    print("2. Search by title")  # Search by title  
+    print("3. Search by publisher")  # Search by publisher  
+    print("4. Search by author")  # Search by author    
+    print("5. Search by ratings")  # Search by ratings  
+    print("6. Search by price")  # Search by price  
+    print("7. Search by year of publishing")  # Search by year of publishing    
+    print("0. Go back")  # Go back to the main menu 
+
+    ch = int(input("Enter your choice: "))  # Input the choice
+    if ch == 1:  # If the choice is 1
+        isbn = input("Enter the ISBN of the book: ")  # Input the ISBN of the book
+        if search_isbn(isbn) == False:
+            print("Book not found!")
+            print()
+        else:
+            list_info(isbn)
+            print("1. Add to cart")
+            print("0. Go back")
+            ch = int(input("Enter your choice: "))
+            if ch == 1:
+                db.execute("INSERT INTO cart VALUES({}, {})".format(login_username, isbn))
+                cdb.commit()
+                print("Item added to cart!")
+                print()
+            elif ch == 0:
+                return
+
+    elif ch == 2:  # If the choice is 2
+        title = input("Enter the title of the book: ")  # Input the title of the book
+        if search_title(title) == False:
+            print("Book not found!")
+            print()
+        else:
+            isbn = search_title(title)
+            list_info(isbn)
+            print("1. Add to cart")
+            print("0. Go back")
+            ch = int(input("Enter your choice: "))
+            if ch == 1:
+                db.execute("INSERT INTO cart VALUES({}, {})".format(login_username, isbn))
+                cdb.commit()
+                print("Item added to cart!")
+                print()
+            elif ch == 0:
+                return
+
+    elif ch == 3:  # If the choice is 3
+        publisher = input("Enter the publisher of the book: ")  # Input the publisher of the book
+        if search_publisher(publisher) == False:
+            print("Book not found!")
+            print()
+        else:
+            isbn = search_publisher(publisher)
+            list_info(isbn)
+            print("1. Add to cart")
+            print("0. Go back")
+            ch = int(input("Enter your choice: "))
+            if ch == 1:
+                db.execute("INSERT INTO cart VALUES({}, {})".format(login_username, isbn))
+                cdb.commit()
+                print("Item added to cart!")
+                print()
+            elif ch == 0:
+                return
+
+    elif ch == 4:  # If the choice is 4
+        author = input("Enter the author of the book: ")  # Input the author of the book
+        if search_author(author) == False:
+            print("Book not found!")    
+
+        else:   
+            isbn = search_author(author)
+            list_info(isbn)
+            print("1. Add to cart")
+            print("0. Go back")
+            ch = int(input("Enter your choice: "))
+            if ch == 1:
+                db.execute("INSERT INTO cart VALUES({}, {})".format(login_username, isbn))
+                cdb.commit()
+                print("Item added to cart!")
+                print()
+            elif ch == 0:
+                return  
+        
+    elif ch == 5:  # If the choice is 5     
+        ratings = input("Enter the ratings of the book: ")
+        if search_ratings(ratings) == False:
+            print("Book not found!")
+            print()
+        else:
+            isbn = search_ratings(ratings)
+            list_info(isbn)
+            print("1. Add to cart")
+            print("0. Go back")
+            ch = int(input("Enter your choice: "))
+            if ch == 1:
+                db.execute("INSERT INTO cart VALUES({}, {})".format(login_username, isbn))
+                cdb.commit()
+                print("Item added to cart!")
+                print()
+            elif ch == 0:
+                return
+            
+    elif ch == 6:  # If the choice is 6 
+        maxprice = input("Enter the maximum price of the book: ")   
+        minprice = input("Enter the minimum price of the book: ")
+        if search_price(maxprice, minprice) == False:
+            print("Book not found!")
+            print()
+        else:
+            isbn = search_price(maxprice, minprice)
+            list_info(isbn)
+            print("1. Add to cart")
+            print("0. Go back")
+            ch = int(input("Enter your choice: "))
+            if ch == 1:
+                db.execute("INSERT INTO cart VALUES({}, {})".format(login_username, isbn))
+                cdb.commit()
+                print("Item added to cart!")
+                print()
+            elif ch == 0:
+                return
+            
+    elif ch == 7:  # If the choice is 7 
+        year = input("Enter the year of publishing of the book: ")   
+        if search_yearofpublishing(year) == False:
+            print("Book not found!")
+            print()
+        else:
+            isbn = search_yearofpublishing(year)
+            list_info(isbn)
+            print("1. Add to cart")
+            print("0. Go back")
+            ch = int(input("Enter your choice: "))
+            if ch == 1:
+                db.execute("INSERT INTO cart VALUES({}, {})".format(login_username, isbn))
+                cdb.commit()
+                print("Item added to cart!")
+                print()
+            elif ch == 0:
+                return
+            
+    elif ch == 0:  # If the choice is 0
+        return
+    
 def start():
     print("Welcome to Page Turner!")
     print("1. Login")
@@ -475,7 +625,8 @@ def start():
     print("0. Exit")
     ch = int(input("Enter your choice: "))
     if ch == 1:
-        login()
+        if login():
+            main()
     elif ch == 2:
         register_customer()
     elif ch == 0:
@@ -498,3 +649,6 @@ def main():
         delete_account()
     elif ch == 0:
         logout()
+
+if __name__ == "__main__":
+    start()
