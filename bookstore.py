@@ -29,7 +29,6 @@ try:  # Install all required modules
     os.system("pip3 install -qqq --disable-pip-version-check --no-cache-dir --no-color --no-warn-conflicts --user --no-python-version-warning --no-input --no-warn-script-location prettytable")
     os.system("pip3 install -qqq --disable-pip-version-check --no-cache-dir --no-color --no-warn-conflicts --user --no-python-version-warning --no-input --no-warn-script-location argon2-cffi")
     os.system("pip3 install -qqq --disable-pip-version-check --no-cache-dir --no-color --no-warn-conflicts --user --no-python-version-warning --no-input --no-warn-script-location termcolor")
-    os.system("pip3 install -qqq --disable-pip-version-check --no-cache-dir --no-color --no-warn-conflicts --user --no-python-version-warning --no-input --no-warn-script-location groq")
 except:
     sys.exit("Unable to install required dependencies!")  # Exit if modules cannot be installed
 
@@ -41,8 +40,9 @@ try:
     import requests
     import time  # Used for debugging purposes
     import termcolor  # Color the output in the terminal
+    import random  # Used for generation of OTPs
+    import urllib.request # Used for URL encoding
     from getpass import getpass  # Mask passwords while they are being inputted
-    from groq import Groq
     from mysql.connector import connect  # Connect to MySQL Server
 except:
     sys.exit("Unable to import required dependencies")  # Exit if modules cannot be imported
@@ -65,8 +65,8 @@ try:
     print("Setting up database")
     db.execute("CREATE TABLE IF NOT EXISTS users (name VARCHAR(255), email VARCHAR(255), phone_number VARCHAR(255), username VARCHAR(255))")
     db.execute("CREATE TABLE IF NOT EXISTS auth (username VARCHAR(255), passhash LONGTEXT)") 
-    db.execute("CREATE TABLE IF NOT EXISTS inventory (isbn INT, isbn13 INT, title LONGTEXT, synopsis LONGTEXT, publisher LONGTEXT, authors LONGTEXT, date_published DATE, language CHAR(2), price FLOAT, pages INT, avg_rating FLOAT)") 
-    db.execute("CREATE TABLE IF NOT EXISTS transactions (receipt_no INT UNIQUE NOT NULL AUTOINCREMENT, order_date DATE, username VARCHAR(255), isbn CHAR(10), total_price FLOAT)")
+    db.execute("CREATE TABLE IF NOT EXISTS inventory (isbn CHAR(10), isbn13 CHAR(13), title LONGTEXT, synopsis LONGTEXT, publisher LONGTEXT, authors LONGTEXT, date_published DATE, language CHAR(2), price FLOAT, pages INT, avg_rating FLOAT)") 
+    db.execute("CREATE TABLE IF NOT EXISTS transactions (receipt_no INT UNIQUE NOT NULL AUTO_INCREMENT, order_date DATE, username VARCHAR(255), isbn CHAR(10), total_price FLOAT)")
     db.execute("CREATE TABLE IF NOT EXISTS cart (username VARCHAR(255), isbn CHAR(10))")
     cdb.commit()
 except:
@@ -77,8 +77,10 @@ try:
     url = "https://raw.githubusercontent.com/asmaparker/pageturnerr/main/books.csv?token=GHSAT0AAAAAACU2SZQM3LQTJYCB566BUQZYZVOQEYQ"
     with requests.get(url, stream=True) as r:
         lines = (line.decode('utf-8') for line in r.iter_lines())
+        next(lines)
         for row in csv.reader(lines):
             if row[9] != '0.00':
+                print(row[1])
                 db.execute("INSERT INTO inventory VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10]))
                 cdb.commit()
 except:
@@ -401,11 +403,6 @@ def search_yearofpublishing(year):
             else:
                 print(termcolor.colored("Error! Choose a number from the list.", "red"))
 
-def suggest_book(title, synopsis):
-    client = Groq(api_key="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")
-    completion = client.chat.completions.create(model="llama-3.1-8b-instant", messages=[{"role": "system", "content": "you are a helpful assistant, who informs people about similar books based on the title and the synopsis of the book given to you."}, {"role": "user", "content": f"The title of the book is {title}, the synopsis of the book is {synopsis}. What book do you recommend I read based on that information?"}])
-    return completion.choices[0].message.content
-
 
 def cart(): 
     print("Your cart:")
@@ -469,5 +466,35 @@ def delete_account():
         return
     
 def kill():
-    sys.exit("Thank you for using Book Store!")
-    
+    sys.exit("Thank you for using Page Turner!")
+
+def start():
+    print("Welcome to Page Turner!")
+    print("1. Login")
+    print("2. Register")
+    print("0. Exit")
+    ch = int(input("Enter your choice: "))
+    if ch == 1:
+        login()
+    elif ch == 2:
+        register_customer()
+    elif ch == 0:
+        kill()
+
+def main():
+    print("1. Search for a book")
+    print("2. Edit customer details")
+    print("3. View cart")
+    print("4. Delete account")
+    print("0. Logout")
+    ch = int(input("Enter your choice: "))
+    if ch == 1:
+        search()
+    elif ch == 2:
+        edit_customer()
+    elif ch == 3:
+        cart()
+    elif ch == 4:
+        delete_account()
+    elif ch == 0:
+        logout()
