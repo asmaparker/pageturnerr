@@ -447,3 +447,22 @@ def cart():
         print()
     elif ch == 0:
         return
+
+def delete_account():
+    ch = input("Are you sure you want to delete your account? (y/n): ")
+    if ch.lower() == 'y':
+        db.execute("DELETE FROM users WHERE username = {}".format(login_username))
+        cdb.commit()
+        db.execute("DELETE FROM auth WHERE username = {}".format(login_username))
+        cdb.commit()
+        db.execute("DELETE FROM cart WHERE username = {}".format(login_username))
+        cdb.commit()
+        print("Account deleted successfully!")
+        print()
+        kill()
+    else:
+        return
+    
+def kill():
+    sys.exit("Thank you for using Book Store!")
+    
