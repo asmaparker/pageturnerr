@@ -264,7 +264,7 @@ def search_isbn(isbn):
     if len(rs) == 0:
         return False
     else:
-        return True
+        return rs[0][0]
 
 def search_title(title):
     db.execute("SELECT isbn, title FROM inventory WHERE title LIKE %{}% LIMIT 10".format(title))
