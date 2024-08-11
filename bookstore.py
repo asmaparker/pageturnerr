@@ -380,8 +380,7 @@ def search_price(maxprice, minprice):
             else:
                 print(termcolor.colored("Error! Choose a number from the list.", "red"))
 
-def search_yearofpublishing():
-    year = input("Enter the year of publishing: ")
+def search_yearofpublishing(year):
     db.execute("SELECT isbn, title FROM inventory WHERE year(date_published) = {} LIMIT 10".format(year))
     rs = db.fetchall()
     if len(rs) == 0:
@@ -405,7 +404,7 @@ def search_yearofpublishing():
 
 def cart(): 
     print("Your cart:")
-    db.execute("SELECT DISTINCT isbn FROM cart WHERE username = %s", (login_username,))
+    db.execute("SELECT DISTINCT isbn FROM cart WHERE username = {}".format(login_username))
     rs = db.fetchall()
     if len(rs) == 0:
         print("Your cart is empty!")
@@ -413,7 +412,7 @@ def cart():
         return
 
     for i in rs:
-        db.execute("SELECT title, price FROM inventory WHERE isbn = %s", (i[0],))
+        db.execute("SELECT title, price FROM inventory WHERE isbn = {}".format(i[0]))
         rs2 = db.fetchall()
         print("Title:", rs2[0][0])
         print("Price:", rs2[0][1])
@@ -425,7 +424,7 @@ def cart():
     ch = int(input("Enter your choice: "))
     if ch == 1:
         isbn = input("Enter the index of the book you want to remove: ")
-        db.execute("DELETE FROM cart WHERE username = %s AND isbn = %s", (login_username, isbn))
+        db.execute("DELETE FROM cart WHERE username = {}} AND isbn = {}".format(login_username, isbn))
         cdb.commit()
         print("Item removed from cart!")
         print()
@@ -435,7 +434,7 @@ def cart():
             db.execute("SELECT price FROM inventory WHERE isbn = {}".format(i[0]))
             rs2 = db.fetchall()
             total_price += rs2[0][0]
-        db.execute("INSERT INTO transactions (order_date, username, isbn, total_price) VALUES(%s, %s, %s, %s)", (datetime.datetime.now(), login_username, i[0], total_price))
+        db.execute("INSERT INTO transactions (order_date, username, isbn, total_price) VALUES({}, {}, {}, {})".format(datetime.datetime.now(), login_username, i[0], total_price))
         cdb.commit()
         print("Order placed successfully!")
         print()
