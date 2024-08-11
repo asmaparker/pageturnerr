@@ -247,3 +247,46 @@ def edit_customer():  # Edit customer details
 
         elif ch == 0:
             break
+
+def luhn(ccn): # Check if the credit card number entered is correct
+    c = [int(x) for x in str(ccn)[::-2]]
+    u2 = [(2*int(y))//10+(2*int(y)) % 10 for y in str(ccn)[-2::-2]]
+    return sum(c+u2) % 10 == 0
+
+
+def list_info(isbn):
+    db.execute("SELECT isbn,isbn13,title,synopsis,publisher,authors,date_published,language,price,pages,avg_rating FROM inventory WHERE isbn = {isbn}".format(isbn=isbn))
+    rs = db.fetchall()
+
+    print(termcolor.colored(rs[2], 'red', attrs=["bold", "underline"]))
+    #TODO: Add other information to print
+
+
+def search_isbn(isbn):
+    db.execute("SELECT isbn FROM inventory WHERE isbn = {}".format(isbn))
+    rs = db.fetchall()
+    if len(rs) == 0:
+        return False
+    else:
+        return True
+
+def search_title(title):
+    db.execute("SELECT isbn, title FROM inventory WHERE title LIKE %{}% LIMIT 10".format(title))
+    rs = db.fetchall()
+    if len(rs) == 0:
+        return False
+    else:
+        j = 0
+        for i in rs:
+            j += 1
+            print("{}. {}".format(j, i[1]))
+        
+        while True:
+            try:
+                ch = int(input("Enter the number of the book you would like to select: "))
+            except:
+                print(termcolor.colored("Error! Choose a number from the list.", "red"))
+            if ch <= 9 and ch >= 1:
+                return rs[ch-1][0]
+            else:
+                print(termcolor.colored("Error! Choose a number from the list.", "red"))
