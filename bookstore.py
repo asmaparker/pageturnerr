@@ -82,6 +82,8 @@ try:
         next(lines)
         for row in csv.reader(lines):
             if row[8] != '0.00':
+                if len(row[6]) == 4:
+                    row[6] = row[6] + "-01-01"
                 db.execute("INSERT INTO inventory VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10]))
                 cdb.commit()
 except:
@@ -123,6 +125,8 @@ def get_book_info_external(isbn):
         msrp = data.get("book", {}).get("msrp", 0.0)
         pages = data.get("book", {}).get("pages", 0)
         if msrp != 0.0:
+            if len(date_published) == 4:
+                date_published = date_published + "-01-01"
             db.execute("INSERT INTO inventory VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (isbn, isbn13, title, synopsis, publisher, authors, date_published, language, msrp, pages, 0.0))
             cdb.commit()
             return True
