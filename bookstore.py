@@ -75,12 +75,14 @@ except:
 try:
     print("Adding content to database...")
     url = "https://raw.githubusercontent.com/asmaparker/pageturnerr/main/books.csv?token=GHSAT0AAAAAACU2SZQM3LQTJYCB566BUQZYZVOQEYQ"
+    db.execute("DELETE FROM inventory")
+    cdb.commit()
     with requests.get(url, stream=True) as r:
         lines = (line.decode('utf-8') for line in r.iter_lines())
         next(lines)
-        for row in csv.reader(lines):
-            if row[9] != '0.00':
-                db.execute("INSERT IGNORE INTO inventory VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10]))
+        for row in csv.reader(csvfile=lines):
+            if row[8] != '0.00':
+                db.execute("INSERT INTO inventory VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10]))
                 cdb.commit()
 except errors.DataError:
     pass
@@ -169,9 +171,10 @@ def register_customer():  # Register a new customer
 
     login_username = username
     login_status = True
+    clear()  # Clear the terminal window to remove any personal data
+
     print("Registration successful!")
     print("Hello,", login_username + "!" "\n")
-    clear()  # Clear the terminal window to remove any personal data
     main()  # Go back to the main menu
 
 def login():  # Log in the user
@@ -281,8 +284,15 @@ def list_info(isbn):
     rs = db.fetchall()
     print(rs)
     input()
+    # Make a string for authors that will iterate through all authors and add them to the string
+    authors = ""
+    for i in rs[0][5].split(","):
+        print(i)
+        input()
+        authors += i[0] + ", "
+    authors = authors[:-2]
     print(termcolor.colored(rs[0][2], 'cyan', attrs=["bold", "underline"]))
-    print(termcolor.colored("Author(s):", 'cyan'), [i for i in rs[0][5].split(",")])
+    print(termcolor.colored("Author(s):", 'cyan'), authors)
     print(termcolor.colored("Average Rating:", 'cyan'), rs[0][10])
     print(termcolor.colored("Synopsis:", 'cyan'), rs[0][3])
     print(termcolor.colored("Price:", 'cyan'), rs[0][8])
@@ -664,6 +674,23 @@ def search():
     elif ch == 0:  # If the choice is 0
         return
     
+def list_bought():
+    db.execute("SELECT isbn FROM transactions WHERE username = '{}'".format(login_username))
+    rs = db.fetchall()
+    if len(rs) == 0:
+        print("No books bought yet!")
+        print()
+        return
+
+    j = 0
+    for i in rs:
+        j += 1
+        db.execute("SELECT title FROM inventory WHERE isbn = '{}'".format(i[0]))
+        rs2 = db.fetchall()
+        print("{}. {}".format(j, rs2[0][0]))
+    print()
+
+
 def start():
     clear()
     print("Welcome to Page Turner!")
@@ -682,9 +709,10 @@ def start():
 def main():
     while True:
         print("1. Search for a book")
-        print("2. Edit customer details")
+        print("2. Account Management")
         print("3. View cart")
-        print("4. Delete account")
+        print("4. View bought books")
+        print("5. Delete account")
         print("0. Logout")
         ch = int(input("Enter your choice: "))
         if ch == 1:
@@ -694,6 +722,8 @@ def main():
         elif ch == 3:
             cart()
         elif ch == 4:
+            list_bought()
+        elif ch == 5:
             delete_account()
         elif ch == 0:
             logout()
