@@ -80,7 +80,7 @@ try:
         next(lines)
         for row in csv.reader(lines):
             if row[9] != '0.00':
-                db.execute("INSERT INTO inventory VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10]))
+                db.execute("INSERT IGNORE INTO inventory VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10]))
                 cdb.commit()
 except errors.DataError:
     pass
@@ -263,9 +263,10 @@ def luhn(ccn): # Check if the credit card number entered is correct
 
 
 def list_info(isbn):
-    db.execute("SELECT isbn,isbn13,title,synopsis,publisher,authors,date_published,language,price,pages,avg_rating FROM inventory WHERE isbn = {isbn}".format(isbn=isbn))
+    db.execute("SELECT isbn,isbn13,title,synopsis,publisher,authors,date_published,language,price,pages,avg_rating FROM inventory WHERE isbn = '{isbn}'".format(isbn=isbn))
     rs = db.fetchall()
-
+    print(rs)
+    input()
     print(termcolor.colored(rs[0][2], 'cyan', attrs=["bold", "underline"]))
     print(termcolor.colored("Author(s):", 'cyan'), [i for i in rs[0][5].split(",")])
     print(termcolor.colored("Average Rating:", 'cyan'), rs[0][10])
