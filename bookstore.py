@@ -80,12 +80,10 @@ try:
     with requests.get(url, stream=True) as r:
         lines = (line.decode('utf-8') for line in r.iter_lines())
         next(lines)
-        for row in csv.reader(csvfile=lines):
+        for row in csv.reader(lines):
             if row[8] != '0.00':
                 db.execute("INSERT INTO inventory VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10]))
                 cdb.commit()
-except errors.DataError:
-    pass
 except:
     sys.exit("Fatal error occurred! Information text is unavailable.")
 
@@ -287,9 +285,11 @@ def list_info(isbn):
     # Make a string for authors that will iterate through all authors and add them to the string
     authors = ""
     for i in rs[0][5].split(","):
-        print(i)
+        i = i.strip()
+        i = i.replace("['", "")
+        i = i.replace("']", "")
         input()
-        authors += i[0] + ", "
+        authors += i + ", "
     authors = authors[:-2]
     print(termcolor.colored(rs[0][2], 'cyan', attrs=["bold", "underline"]))
     print(termcolor.colored("Author(s):", 'cyan'), authors)
