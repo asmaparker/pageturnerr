@@ -287,14 +287,7 @@ def list_info(isbn):
     print(rs)
     input()
     # Make a string for authors that will iterate through all authors and add them to the string
-    authors = ""
-    for i in rs[0][5].split(","):
-        i = i.strip()
-        i = i.replace("['", "")
-        i = i.replace("']", "")
-        input()
-        authors += i + ", "
-    authors = authors[:-2]
+    authors = rs[0][5].replace("['", "").replace("['", "")
     print(termcolor.colored(rs[0][2], 'cyan', attrs=["bold", "underline"]))
     print(termcolor.colored("Author(s):", 'cyan'), authors)
     print(termcolor.colored("Average Rating:", 'cyan'), rs[0][10])
