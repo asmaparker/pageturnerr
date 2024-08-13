@@ -294,9 +294,10 @@ def list_info(isbn):
     print()
 
 def search_isbn(isbn):
-    db.execute("SELECT isbn FROM inventory WHERE isbn = {}".format(isbn))
+    db.execute("SELECT isbn FROM inventory WHERE isbn = '{}'".format(isbn))
     rs = db.fetchall()
     if len(rs) == 0:
+        print("Book not found in database! Searching online for book info...")
         add = get_book_info_external(isbn)
         if add == True:
             search_isbn(isbn)
@@ -309,6 +310,7 @@ def search_title(title):
     db.execute("SELECT isbn, title FROM inventory WHERE title LIKE '%{}%' LIMIT 10".format(title))
     rs = db.fetchall()
     if len(rs) == 0:
+        print("Books not found! Try searching by ISBN or try a different title.")    
         return False
     else:
         j = 0
@@ -331,6 +333,7 @@ def search_publisher(publisher):
     db.execute("SELECT isbn, title FROM inventory WHERE publisher LIKE '%{}%' LIMIT 10".format(publisher))
     rs = db.fetchall()
     if len(rs) == 0:
+        print("Books not found! Try searching by ISBN or try a different publisher.")    
         return False
     else:
         j = 0
@@ -352,6 +355,7 @@ def search_author(author):
     db.execute("SELECT isbn, title FROM inventory WHERE authors LIKE '%{}%' LIMIT 10".format(author))
     rs = db.fetchall()
     if len(rs) == 0:
+        print("Books not found! Try searching by ISBN or try a different author.")    
         return False
     else:
         j = 0
@@ -370,9 +374,10 @@ def search_author(author):
                 print(termcolor.colored("Error! Choose a number from the list.", "red"))
 
 def search_ratings(ratings):
-    db.execute("SELECT isbn, title FROM inventory WHERE avg_rating BETWEEN {} AND {} LIMIT 10".format(ratings, ratings+1))
+    db.execute("SELECT isbn, title FROM inventory WHERE avg_rating BETWEEN '{}' AND '{}' LIMIT 10".format(ratings, ratings+1))
     rs = db.fetchall()
     if len(rs) == 0:
+        print("No books found with the given ratings!")
         return False
     else:
         j = 0
@@ -391,9 +396,10 @@ def search_ratings(ratings):
                 print(termcolor.colored("Error! Choose a number from the list.", "red"))
 
 def search_price(maxprice, minprice):
-    db.execute("SELECT isbn, title FROM inventory WHERE price BETWEEN {} AND {} LIMIT 10".format(minprice, maxprice))
+    db.execute("SELECT isbn, title FROM inventory WHERE price BETWEEN '{}' AND '{}' LIMIT 10".format(minprice, maxprice))
     rs = db.fetchall()
     if len(rs) == 0:
+        print("No books found within the given price range!")
         return False
     else:
         j = 0
@@ -412,9 +418,10 @@ def search_price(maxprice, minprice):
                 print(termcolor.colored("Error! Choose a number from the list.", "red"))
 
 def search_yearofpublishing(year):
-    db.execute("SELECT isbn, title FROM inventory WHERE year(date_published) = {} LIMIT 10".format(year))
+    db.execute("SELECT isbn, title FROM inventory WHERE year(date_published) = '{}' LIMIT 10".format(year))
     rs = db.fetchall()
     if len(rs) == 0:
+        print("No books found with the given year of publishing!")
         return False
     else:
         j = 0
@@ -445,7 +452,7 @@ def cart():
     j = 0
     for i in rs:
         j += 1
-        db.execute("SELECT title FROM inventory WHERE isbn = {}".format(i[0]))
+        db.execute("SELECT title FROM inventory WHERE isbn = '{}'".format(i[0]))
         rs2 = db.fetchall()
         print("{}. {}".format(j, rs2[0][0]))
 
@@ -472,7 +479,7 @@ def cart():
         for i in rs:
             db.execute("SELECT price FROM inventory WHERE isbn = '{}'".format(i[0]))
             rs2 = db.fetchall()
-            db.execute("INSERT INTO transactions (order_date, username, isbn, total_price) VALUES({}, {}, {}, {})".format(datetime.datetime.now(), login_username, i[0], rs2[0][0]))
+            db.execute("INSERT INTO transactions (order_date, username, isbn, total_price) VALUES('{}', '{}', '{}', '{}')".format(datetime.datetime.now(), login_username, i[0], rs2[0][0]))
             cdb.commit()
         print("Order placed successfully!")
         print()
@@ -532,7 +539,7 @@ def search():
             print("0. Go back")
             ch = int(input("Enter your choice: "))
             if ch == 1:
-                db.execute("INSERT INTO cart VALUES({}, {})".format(login_username, isbn))
+                db.execute("INSERT INTO cart VALUES('{}', '{}')".format(login_username, isbn))
                 cdb.commit()
                 print("Item added to cart!")
                 print()
@@ -551,7 +558,7 @@ def search():
             print("0. Go back")
             ch = int(input("Enter your choice: "))
             if ch == 1:
-                db.execute("INSERT INTO cart VALUES({}, {})".format(login_username, isbn))
+                db.execute("INSERT INTO cart VALUES('{}', '{}')".format(login_username, isbn))
                 cdb.commit()
                 print("Item added to cart!")
                 print()
@@ -570,7 +577,7 @@ def search():
             print("0. Go back")
             ch = int(input("Enter your choice: "))
             if ch == 1:
-                db.execute("INSERT INTO cart VALUES({}, {})".format(login_username, isbn))
+                db.execute("INSERT INTO cart VALUES('{}', '{}')".format(login_username, isbn))
                 cdb.commit()
                 print("Item added to cart!")
                 print()
@@ -589,7 +596,7 @@ def search():
             print("0. Go back")
             ch = int(input("Enter your choice: "))
             if ch == 1:
-                db.execute("INSERT INTO cart VALUES({}, {})".format(login_username, isbn))
+                db.execute("INSERT INTO cart VALUES('{}', '{}')".format(login_username, isbn))
                 cdb.commit()
                 print("Item added to cart!")
                 print()
@@ -608,7 +615,7 @@ def search():
             print("0. Go back")
             ch = int(input("Enter your choice: "))
             if ch == 1:
-                db.execute("INSERT INTO cart VALUES({}, {})".format(login_username, isbn))
+                db.execute("INSERT INTO cart VALUES('{}', '{}')".format(login_username, isbn))
                 cdb.commit()
                 print("Item added to cart!")
                 print()
@@ -628,7 +635,7 @@ def search():
             print("0. Go back")
             ch = int(input("Enter your choice: "))
             if ch == 1:
-                db.execute("INSERT INTO cart VALUES({}, {})".format(login_username, isbn))
+                db.execute("INSERT INTO cart VALUES('{}', '{}')".format(login_username, isbn))
                 cdb.commit()
                 print("Item added to cart!")
                 print()
@@ -647,7 +654,7 @@ def search():
             print("0. Go back")
             ch = int(input("Enter your choice: "))
             if ch == 1:
-                db.execute("INSERT INTO cart VALUES({}, {})".format(login_username, isbn))
+                db.execute("INSERT INTO cart VALUES('{}', '{}')".format(login_username, isbn))
                 cdb.commit()
                 print("Item added to cart!")
                 print()
