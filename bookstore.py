@@ -112,8 +112,22 @@ def get_book_info_external(isbn):
     response = requests.get(url=url, headers=headers)
     if response.status_code == 200:
         data = response.json()
-        msrp = data['book']['msrp']
-        return msrp
+        isbn = data.get("book", {}).get("isbn10", "")
+        isbn13 = data.get("book", {}).get("isbn13", "")
+        title = data.get("book", {}).get("title_long", "")
+        synopsis = data.get("book", {}).get("synopsis", "")
+        publisher = data.get("book", {}).get("publisher", "")
+        authors = data.get("book", {}).get("authors", [])
+        date_published = data.get("book", {}).get("date_published", "")
+        language = data.get("book", {}).get("language", "")
+        msrp = data.get("book", {}).get("msrp", 0.0)
+        pages = data.get("book", {}).get("pages", 0)
+        if msrp != 0.0:
+            db.execute("INSERT INTO inventory VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (isbn, isbn13, title, synopsis, publisher, authors, date_published, language, msrp, pages, 0.0))
+            cdb.commit()
+            return True
+        else:
+            return False
     if response.status_code == 403:
         print("API rate limit exceeded. Waiting for 1 minute...")
         time.sleep(60)
@@ -283,7 +297,11 @@ def search_isbn(isbn):
     db.execute("SELECT isbn FROM inventory WHERE isbn = {}".format(isbn))
     rs = db.fetchall()
     if len(rs) == 0:
-        return False
+        add = get_book_info_external(isbn)
+        if add == True:
+            search_isbn(isbn)
+        else:
+            return False
     else:
         return rs[0][0]
 
