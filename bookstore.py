@@ -77,6 +77,7 @@ try:
     url = "https://raw.githubusercontent.com/asmaparker/pageturnerr/main/books.csv?token=GHSAT0AAAAAACU2SZQM3LQTJYCB566BUQZYZVOQEYQ"
     db.execute("DELETE FROM inventory")
     cdb.commit()
+    i = 0
     with requests.get(url, stream=True) as r:
         lines = (line.decode('utf-8') for line in r.iter_lines())
         next(lines)
@@ -86,6 +87,10 @@ try:
                     row[6] = row[6] + "-01-01"
                 db.execute("INSERT INTO inventory VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10]))
                 cdb.commit()
+                i += 1
+                print("Books added: {}".format(i), end="\r", flush=True)
+except errors.DataError:
+    pass
 except:
     sys.exit("Fatal error occurred! Information text is unavailable.")
 
