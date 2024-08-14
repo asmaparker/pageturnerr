@@ -73,22 +73,16 @@ except:
 
 try:
     print("Adding content to database...")
-    url = "https://raw.githubusercontent.com/asmaparker/pageturnerr/main/books.csv?token=GHSAT0AAAAAACU2SZQM3LQTJYCB566BUQZYZVOQEYQ"
+    url = "https://raw.githubusercontent.com/asmaparker/pageturnerr/main/books.csv"
     db.execute("DELETE FROM inventory")
     cdb.commit()
-    i = 0
-    with requests.get(url=url, stream=True) as r:
+    with requests.get(url=url, stream=True, headers={'Cache-Control': 'no-cache'}) as r:
         lines = (line.decode('utf-8') for line in r.iter_lines())
         next(lines)
         for row in csv.reader(lines, delimiter='|'):
-            if row[8] != '0.00':
-                if len(row[6]) == 4:
-                    row[6] = row[6] + "-01-01"
-                db.execute("INSERT INTO inventory VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9]))
-                cdb.commit()
-                i += 1
-                print("Books added: {}".format(i), end="\r", flush=True)
-except errors.DataError:
+            db.execute("INSERT INTO inventory VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9]))
+            cdb.commit()
+except IndexError:
     pass
 except:
     sys.exit("Fatal error occurred! Information text is unavailable.")
@@ -232,13 +226,9 @@ def luhn(ccn): # Check if the credit card number entered is correct
 def list_info(isbn):
     db.execute("SELECT isbn,isbn13,title,synopsis,publisher,authors,date_published,language,price,pages,avg_rating FROM inventory WHERE isbn = '{isbn}'".format(isbn=isbn))
     rs = db.fetchall()
-    print(rs)
-    input()
     # Make a string for authors that will iterate through all authors and add them to the string
-    authors = rs[0][5].replace("['", "").replace("['", "")
     print(termcolor.colored(rs[0][2], 'cyan', attrs=["bold", "underline"]))
-    print(termcolor.colored("Author(s):", 'cyan'), authors)
-    print(termcolor.colored("Average Rating:", 'cyan'), rs[0][10])
+    print(termcolor.colored("Author(s):", 'cyan'), rs[0][5])
     print(termcolor.colored("Synopsis:", 'cyan'), rs[0][3])
     print(termcolor.colored("Price:", 'cyan'), rs[0][8])
     print(termcolor.colored("Pages:", 'cyan'), rs[0][9])
@@ -281,9 +271,8 @@ def search():
     print("2. Search by title")  # Search by title  
     print("3. Search by publisher")  # Search by publisher  
     print("4. Search by author")  # Search by author    
-    print("5. Search by ratings")  # Search by ratings  
-    print("6. Search by price")  # Search by price  
-    print("7. Search by year of publishing")  # Search by year of publishing    
+    print("5. Search by price")  # Search by price  
+    print("6. Search by year of publishing")  # Search by year of publishing    
     print("0. Go back")  # Go back to the main menu 
 
     ch = int(input("Enter your choice: "))  # Input the choice
@@ -361,27 +350,8 @@ def search():
                 print()
             elif ch == 0:
                 return  
-        
-    elif ch == 5:  # If the choice is 5     
-        ratings = input("Enter the ratings of the book: ")
-        if search_ratings(ratings) == False:
-            print("Book not found!")
-            print()
-        else:
-            isbn = search_ratings(ratings)
-            list_info(isbn)
-            print("1. Add to cart")
-            print("0. Go back")
-            ch = int(input("Enter your choice: "))
-            if ch == 1:
-                db.execute("INSERT INTO cart VALUES('{}', '{}')".format(login_username, isbn))
-                cdb.commit()
-                print("Item added to cart!")
-                print()
-            elif ch == 0:
-                return
-            
-    elif ch == 6:  # If the choice is 6 
+           
+    elif ch == 5:  # If the choice is 5
         maxprice = input("Enter the maximum price of the book: ")   
         minprice = input("Enter the minimum price of the book: ")
         if search_price(maxprice, minprice) == False:
@@ -401,7 +371,7 @@ def search():
             elif ch == 0:
                 return
             
-    elif ch == 7:  # If the choice is 7 
+    elif ch == 6:  # If the choice is 6
         year = input("Enter the year of publishing of the book: ")   
         if search_yearofpublishing(year) == False:
             print("Book not found!")
@@ -485,28 +455,6 @@ def search_author(author):
     rs = db.fetchall()
     if len(rs) == 0:
         print("Books not found! Try searching by ISBN or try a different author.")    
-        return False
-    else:
-        j = 0
-        for i in rs:
-            j += 1
-            print("{}. {}".format(j, i[1]))
-        
-        while True:
-            try:
-                ch = int(input("Enter the number of the book you would like to select: "))
-            except:
-                print(termcolor.colored("Error! Choose a number from the list.", "red"))
-            if ch <= 10 and ch >= 1:
-                return rs[ch-1][0]
-            else:
-                print(termcolor.colored("Error! Choose a number from the list.", "red"))
-
-def search_ratings(ratings):
-    db.execute("SELECT isbn, title FROM inventory WHERE avg_rating BETWEEN '{}' AND '{}' LIMIT 10".format(ratings, ratings+1))
-    rs = db.fetchall()
-    if len(rs) == 0:
-        print("No books found with the given ratings!")
         return False
     else:
         j = 0
