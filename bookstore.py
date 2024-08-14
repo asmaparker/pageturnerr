@@ -77,7 +77,7 @@ try:
     db.execute("DELETE FROM inventory")
     cdb.commit()
     i = 0
-    with requests.get(url, stream=True) as r:
+    with requests.get(url=url, stream=True) as r:
         lines = (line.decode('utf-8') for line in r.iter_lines())
         next(lines)
         for row in csv.reader(lines, delimiter='|'):
