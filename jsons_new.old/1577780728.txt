@@ -1,0 +1,1 @@
+{'book': {'publisher': 'Albury Pub.', 'language': 'en', 'image': 'https://images.isbndb.com/covers/07/24/9781577780724.jpg', 'title_long': 'Jesus Freaks', 'date_published': '1999', 'authors': ['Dc Talk (musical Group)', 'Voice Of The Martyrs (organization)'], 'title': 'Jesus Freaks', 'isbn13': '9781577780724', 'msrp': '0.00', 'isbn': '1577780728', 'isbn10': '1577780728'}}
