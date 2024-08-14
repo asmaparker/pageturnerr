@@ -26,9 +26,9 @@ if sys.version_info[0] < 3:
 try:  # Install all required modules
     print("Installing required dependencies...")
     os.system("pip3 install -qqq --disable-pip-version-check --no-cache-dir --no-color --no-warn-conflicts --user --no-python-version-warning --no-input --no-warn-script-location mysql-connector-python")
-    os.system("pip3 install -qqq --disable-pip-version-check --no-cache-dir --no-color --no-warn-conflicts --user --no-python-version-warning --no-input --no-warn-script-location prettytable")
     os.system("pip3 install -qqq --disable-pip-version-check --no-cache-dir --no-color --no-warn-conflicts --user --no-python-version-warning --no-input --no-warn-script-location argon2-cffi")
     os.system("pip3 install -qqq --disable-pip-version-check --no-cache-dir --no-color --no-warn-conflicts --user --no-python-version-warning --no-input --no-warn-script-location termcolor")
+    os.system("pip3 install -qqq --disable-pip-version-check --no-cache-dir --no-color --no-warn-conflicts --user --no-python-version-warning --no-input --no-warn-script-location groq")
 except:
     sys.exit("Unable to install required dependencies!")  # Exit if modules cannot be installed
 
@@ -40,9 +40,8 @@ try:
     import requests
     import time  # Used for debugging purposes
     import termcolor  # Color the output in the terminal
-    import random  # Used for generation of OTPs
-    import urllib.request # Used for URL encoding
     from getpass import getpass  # Mask passwords while they are being inputted
+    from groq import Groq # AI Assistant
     from mysql.connector import connect, errors  # Connect to MySQL Server
 except:
     sys.exit("Unable to import required dependencies")  # Exit if modules cannot be imported
@@ -225,66 +224,10 @@ def logout():  # Log out and exit the program
     print("Thank You for using Page Turner!")
     sys.exit("Successfully logged out!")
 
-def edit_customer():  # Edit customer details
-    print()
-    print("1. Change name")
-    print("2. Change email")
-    print("3. Change phone number")
-    print("4. Change password")
-    
-    ch = int(input("Enter your choice: "))
-    
-    while True:
-        if ch == 1:
-            name = input("Enter new name: ")
-            db.execute("UPDATE customers SET name = %s WHERE username = %s", (name, login_username))
-            cdb.commit()
-            print("Name changed successfully!")
-            print()
-            break
-            
-        elif ch == 2:
-            email = input("Enter new email: ")
-            db.execute("UPDATE customers SET email = %s WHERE username = %s", (email, login_username))
-            cdb.commit()
-            print("Email changed successfully!")
-            print()
-            break
-            
-        elif ch == 3:
-            phone_number = input("Enter new phone number in international format: ")
-            db.execute("UPDATE customers SET phone_number = %s WHERE username = %s", (phone_number, login_username))
-            cdb.commit()
-            print("Phone number changed successfully!")
-            print()
-            break
-        
-        elif ch == 4:
-            password = getpass("Enter your current password: ")
-            db.execute("SELECT passhash FROM auth WHERE username = %s", (login_username,))
-            rs = db.fetchall()[0][0]
-            try:
-                pass_check = pass_verify(rs, password)  # Verify if current password matches the hash existing in the database
-            except argon2.exceptions.VerifyMismatchError:
-                sys.exit(status="Incorrect password!")  # Exit the program if the password entered was incorrect
-            
-            if pass_check == True:
-                newpass = getpass("Enter new password: ")
-                passhash = pass_hasher(newpass)
-                db.execute("UPDATE auth SET passhash = %s WHERE username = %s", (passhash, login_username))
-                cdb.commit()
-                print("Password changed successfully!")
-                print()
-                break
-
-        elif ch == 0:
-            break
-
 def luhn(ccn): # Check if the credit card number entered is correct
     c = [int(x) for x in str(ccn)[::-2]]
     u2 = [(2*int(y))//10+(2*int(y)) % 10 for y in str(ccn)[-2::-2]]
     return sum(c+u2) % 10 == 0
-
 
 def list_info(isbn):
     db.execute("SELECT isbn,isbn13,title,synopsis,publisher,authors,date_published,language,price,pages,avg_rating FROM inventory WHERE isbn = '{isbn}'".format(isbn=isbn))
@@ -304,228 +247,32 @@ def list_info(isbn):
     print(termcolor.colored("Language:", 'cyan'), rs[0][7])
     print(termcolor.colored("ISBNs:", 'cyan'), rs[0][0], rs[0][1])
     print()
-
-def search_isbn(isbn):
-    db.execute("SELECT isbn FROM inventory WHERE isbn = '{}'".format(isbn))
-    rs = db.fetchall()
-    if len(rs) == 0:
-        print("Book not found in database! Searching online for book info...")
-        add = get_book_info_external(isbn)
-        if add == True:
-            search_isbn(isbn)
-        else:
-            return False
-    else:
-        return rs[0][0]
-
-def search_title(title):
-    db.execute("SELECT isbn, title FROM inventory WHERE title LIKE '%{}%' LIMIT 10".format(title))
-    rs = db.fetchall()
-    if len(rs) == 0:
-        print("Books not found! Try searching by ISBN or try a different title.")    
-        return False
-    else:
-        j = 0
-        for i in rs:
-            j += 1
-            print("{}. {}".format(j, i[1]))
-        
-        while True:
-            try:
-                ch = int(input("Enter the number of the book you would like to select: "))
-            except:
-                print(termcolor.colored("Error! Choose a number from the list.", "red"))
-            if ch <= 10 and ch >= 1:
-                return rs[ch-1][0]
-            else:
-                print(termcolor.colored("Error! Choose a number from the list.", "red"))
-        
-
-def search_publisher(publisher):
-    db.execute("SELECT isbn, title FROM inventory WHERE publisher LIKE '%{}%' LIMIT 10".format(publisher))
-    rs = db.fetchall()
-    if len(rs) == 0:
-        print("Books not found! Try searching by ISBN or try a different publisher.")    
-        return False
-    else:
-        j = 0
-        for i in rs:
-            j += 1
-            print("{}. {}".format(j, i[1]))
-        
-        while True:
-            try:
-                ch = int(input("Enter the number of the book you would like to select: "))
-            except:
-                print(termcolor.colored("Error! Choose a number from the list.", "red"))
-            if ch <= 10 and ch >= 1:
-                return rs[ch-1][0]
-            else:
-                print(termcolor.colored("Error! Choose a number from the list.", "red"))
-
-def search_author(author):
-    db.execute("SELECT isbn, title FROM inventory WHERE authors LIKE '%{}%' LIMIT 10".format(author))
-    rs = db.fetchall()
-    if len(rs) == 0:
-        print("Books not found! Try searching by ISBN or try a different author.")    
-        return False
-    else:
-        j = 0
-        for i in rs:
-            j += 1
-            print("{}. {}".format(j, i[1]))
-        
-        while True:
-            try:
-                ch = int(input("Enter the number of the book you would like to select: "))
-            except:
-                print(termcolor.colored("Error! Choose a number from the list.", "red"))
-            if ch <= 10 and ch >= 1:
-                return rs[ch-1][0]
-            else:
-                print(termcolor.colored("Error! Choose a number from the list.", "red"))
-
-def search_ratings(ratings):
-    db.execute("SELECT isbn, title FROM inventory WHERE avg_rating BETWEEN '{}' AND '{}' LIMIT 10".format(ratings, ratings+1))
-    rs = db.fetchall()
-    if len(rs) == 0:
-        print("No books found with the given ratings!")
-        return False
-    else:
-        j = 0
-        for i in rs:
-            j += 1
-            print("{}. {}".format(j, i[1]))
-        
-        while True:
-            try:
-                ch = int(input("Enter the number of the book you would like to select: "))
-            except:
-                print(termcolor.colored("Error! Choose a number from the list.", "red"))
-            if ch <= 10 and ch >= 1:
-                return rs[ch-1][0]
-            else:
-                print(termcolor.colored("Error! Choose a number from the list.", "red"))
-
-def search_price(maxprice, minprice):
-    db.execute("SELECT isbn, title FROM inventory WHERE price BETWEEN '{}' AND '{}' LIMIT 10".format(minprice, maxprice))
-    rs = db.fetchall()
-    if len(rs) == 0:
-        print("No books found within the given price range!")
-        return False
-    else:
-        j = 0
-        for i in rs:
-            j += 1
-            print("{}. {}".format(j, i[1]))
-        
-        while True:
-            try:
-                ch = int(input("Enter the number of the book you would like to select: "))
-            except:
-                print(termcolor.colored("Error! Choose a number from the list.", "red"))
-            if ch <= 10 and ch >= 1:
-                return rs[ch-1][0]
-            else:
-                print(termcolor.colored("Error! Choose a number from the list.", "red"))
-
-def search_yearofpublishing(year):
-    db.execute("SELECT isbn, title FROM inventory WHERE year(date_published) = '{}' LIMIT 10".format(year))
-    rs = db.fetchall()
-    if len(rs) == 0:
-        print("No books found with the given year of publishing!")
-        return False
-    else:
-        j = 0
-        for i in rs:
-            j += 1
-            print("{}. {}".format(j, i[1]))
-        
-        while True:
-            try:
-                ch = int(input("Enter the number of the book you would like to select: "))
-            except:
-                print(termcolor.colored("Error! Choose a number from the list.", "red"))
-            if ch <= 10 and ch >= 1:
-                return rs[ch-1][0]
-            else:
-                print(termcolor.colored("Error! Choose a number from the list.", "red"))
-
-
-def cart(): 
-    print("Your cart:")
-    db.execute("SELECT DISTINCT isbn FROM cart WHERE username = '{}'".format(login_username))
-    rs = db.fetchall()
-    if len(rs) == 0:
-        print("Your cart is empty!")
-        print()
-        return
-
-    j = 0
-    for i in rs:
-        j += 1
-        db.execute("SELECT title FROM inventory WHERE isbn = '{}'".format(i[0]))
-        rs2 = db.fetchall()
-        print("{}. {}".format(j, rs2[0][0]))
-
-    print("1. Remove item from cart")
-    print("2. Empty Cart")
-    print("3. Checkout")
+    print("1. Add to cart")
+    print("2. Buy now")
+    print("3. Get AI suggestions")
     print("0. Go back")
+
     ch = int(input("Enter your choice: "))
     if ch == 1:
-        ind = input("Enter the index of the book you want to remove: ")
-        isbn = rs[ind-1][0]
-        db.execute("DELETE FROM cart WHERE username = '{}' AND isbn = '{}'".format(login_username, isbn))
+        db.execute("INSERT INTO cart VALUES('{}', '{}')".format(login_username, isbn))
         cdb.commit()
-        print("Item removed from cart!")
+        print("Item added to cart!")
         print()
-
     elif ch == 2:
-        db.execute("DELETE FROM cart WHERE username = '{}'".format(login_username))
-        cdb.commit()
-        print("Cart emptied!")
+        # TODO
         print()
-
     elif ch == 3:
-        for i in rs:
-            db.execute("SELECT price FROM inventory WHERE isbn = '{}'".format(i[0]))
-            rs2 = db.fetchall()
-            db.execute("INSERT INTO transactions (order_date, username, isbn, total_price) VALUES('{}', '{}', '{}', '{}')".format(datetime.datetime.now(), login_username, i[0], rs2[0][0]))
-            cdb.commit()
-        print("Order placed successfully!")
+        print(ai_suggestions(rs[0][2], rs[0][3], rs[0][6][0:3], authors, rs[0][9]))
+        # Print AI Warning
+        print(termcolor.colored("Warning: The AI suggestions are generated by an AI model and may not be accurate. Please verify the suggestions before making a purchase.", "red"))
         print()
     elif ch == 0:
         return
-
-def delete_account():
-    ch = input("Are you sure you want to delete your account? (y/n): ")
-    if ch.lower() == 'y':
-        # Prompt for password as confirmation
-        password = getpass("Enter your password to confirm account deletion: ")
-        db.execute("SELECT passhash FROM auth WHERE username = '{}'".format(login_username))
-        rs = db.fetchall()
-        while True:
-            try:
-                pass_check = pass_verify(rs[0][0], password)  # Verify if current password matches the hash existing in the database
-                
-            except argon2.exceptions.VerifyMismatchError:
-                print(termcolor.colored("Incorrect password!", "red"))
-
-            if pass_check == True:
-                db.execute("DELETE FROM users WHERE username = '{}'".format(login_username))
-                cdb.commit()
-                db.execute("DELETE FROM auth WHERE username = '{}'".format(login_username))
-                cdb.commit()
-                db.execute("DELETE FROM cart WHERE username = '{}'".format(login_username))
-                cdb.commit()
-                print("Account deleted successfully!")
-                kill()
-    else:
-        return
     
-def kill():
-    sys.exit("Thank you for using Page Turner!")
+def ai_suggestions(title, synopsis, year, author, pages):
+    client = Groq(api_key="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")
+    completion = client.chat.completions.create(model="llama-3.1-8b-instant", messages=[{"role": "system", "content": "You are a helpful assistant, who informs people about similar books that they would be interested to read"}, {"role": "user", "content": f"The book is {title}. The synopsis of the book is {synopsis}. It was released in {year}. The authors of the book is/are {author}, and the book is {pages} pages long. Suggest three books similar to this one."}])
+    return completion.choices[0].message.content
 
 def search():
     print()
@@ -676,6 +423,252 @@ def search():
     elif ch == 0:  # If the choice is 0
         return
     
+def search_isbn(isbn):
+    db.execute("SELECT isbn FROM inventory WHERE isbn = '{}'".format(isbn))
+    rs = db.fetchall()
+    if len(rs) == 0:
+        print("Book not found in database! Searching online for book info...")
+        add = get_book_info_external(isbn)
+        if add == True:
+            search_isbn(isbn)
+        else:
+            return False
+    else:
+        return rs[0][0]
+
+def search_title(title):
+    db.execute("SELECT isbn, title FROM inventory WHERE title LIKE '%{}%' LIMIT 10".format(title))
+    rs = db.fetchall()
+    if len(rs) == 0:
+        print("Books not found! Try searching by ISBN or try a different title.")    
+        return False
+    else:
+        j = 0
+        for i in rs:
+            j += 1
+            print("{}. {}".format(j, i[1]))
+        
+        while True:
+            try:
+                ch = int(input("Enter the number of the book you would like to select: "))
+            except:
+                print(termcolor.colored("Error! Choose a number from the list.", "red"))
+            if ch <= 10 and ch >= 1:
+                return rs[ch-1][0]
+            else:
+                print(termcolor.colored("Error! Choose a number from the list.", "red"))
+        
+def search_publisher(publisher):
+    db.execute("SELECT isbn, title FROM inventory WHERE publisher LIKE '%{}%' LIMIT 10".format(publisher))
+    rs = db.fetchall()
+    if len(rs) == 0:
+        print("Books not found! Try searching by ISBN or try a different publisher.")    
+        return False
+    else:
+        j = 0
+        for i in rs:
+            j += 1
+            print("{}. {}".format(j, i[1]))
+        
+        while True:
+            try:
+                ch = int(input("Enter the number of the book you would like to select: "))
+            except:
+                print(termcolor.colored("Error! Choose a number from the list.", "red"))
+            if ch <= 10 and ch >= 1:
+                return rs[ch-1][0]
+            else:
+                print(termcolor.colored("Error! Choose a number from the list.", "red"))
+
+def search_author(author):
+    db.execute("SELECT isbn, title FROM inventory WHERE authors LIKE '%{}%' LIMIT 10".format(author))
+    rs = db.fetchall()
+    if len(rs) == 0:
+        print("Books not found! Try searching by ISBN or try a different author.")    
+        return False
+    else:
+        j = 0
+        for i in rs:
+            j += 1
+            print("{}. {}".format(j, i[1]))
+        
+        while True:
+            try:
+                ch = int(input("Enter the number of the book you would like to select: "))
+            except:
+                print(termcolor.colored("Error! Choose a number from the list.", "red"))
+            if ch <= 10 and ch >= 1:
+                return rs[ch-1][0]
+            else:
+                print(termcolor.colored("Error! Choose a number from the list.", "red"))
+
+def search_ratings(ratings):
+    db.execute("SELECT isbn, title FROM inventory WHERE avg_rating BETWEEN '{}' AND '{}' LIMIT 10".format(ratings, ratings+1))
+    rs = db.fetchall()
+    if len(rs) == 0:
+        print("No books found with the given ratings!")
+        return False
+    else:
+        j = 0
+        for i in rs:
+            j += 1
+            print("{}. {}".format(j, i[1]))
+        
+        while True:
+            try:
+                ch = int(input("Enter the number of the book you would like to select: "))
+            except:
+                print(termcolor.colored("Error! Choose a number from the list.", "red"))
+            if ch <= 10 and ch >= 1:
+                return rs[ch-1][0]
+            else:
+                print(termcolor.colored("Error! Choose a number from the list.", "red"))
+
+def search_price(maxprice, minprice):
+    db.execute("SELECT isbn, title FROM inventory WHERE price BETWEEN '{}' AND '{}' LIMIT 10".format(minprice, maxprice))
+    rs = db.fetchall()
+    if len(rs) == 0:
+        print("No books found within the given price range!")
+        return False
+    else:
+        j = 0
+        for i in rs:
+            j += 1
+            print("{}. {}".format(j, i[1]))
+        
+        while True:
+            try:
+                ch = int(input("Enter the number of the book you would like to select: "))
+            except:
+                print(termcolor.colored("Error! Choose a number from the list.", "red"))
+            if ch <= 10 and ch >= 1:
+                return rs[ch-1][0]
+            else:
+                print(termcolor.colored("Error! Choose a number from the list.", "red"))
+
+def search_yearofpublishing(year):
+    db.execute("SELECT isbn, title FROM inventory WHERE year(date_published) = '{}' LIMIT 10".format(year))
+    rs = db.fetchall()
+    if len(rs) == 0:
+        print("No books found with the given year of publishing!")
+        return False
+    else:
+        j = 0
+        for i in rs:
+            j += 1
+            print("{}. {}".format(j, i[1]))
+        
+        while True:
+            try:
+                ch = int(input("Enter the number of the book you would like to select: "))
+            except:
+                print(termcolor.colored("Error! Choose a number from the list.", "red"))
+            if ch <= 10 and ch >= 1:
+                return rs[ch-1][0]
+            else:
+                print(termcolor.colored("Error! Choose a number from the list.", "red"))
+
+def cart(): 
+    print("Your cart:")
+    db.execute("SELECT DISTINCT isbn FROM cart WHERE username = '{}'".format(login_username))
+    rs = db.fetchall()
+    if len(rs) == 0:
+        print("Your cart is empty!")
+        print()
+        return
+
+    j = 0
+    for i in rs:
+        j += 1
+        db.execute("SELECT title FROM inventory WHERE isbn = '{}'".format(i[0]))
+        rs2 = db.fetchall()
+        print("{}. {}".format(j, rs2[0][0]))
+
+    print("1. Remove item from cart")
+    print("2. Empty Cart")
+    print("3. Checkout")
+    print("0. Go back")
+    ch = int(input("Enter your choice: "))
+    if ch == 1:
+        ind = input("Enter the index of the book you want to remove: ")
+        isbn = rs[ind-1][0]
+        db.execute("DELETE FROM cart WHERE username = '{}' AND isbn = '{}'".format(login_username, isbn))
+        cdb.commit()
+        print("Item removed from cart!")
+        print()
+
+    elif ch == 2:
+        db.execute("DELETE FROM cart WHERE username = '{}'".format(login_username))
+        cdb.commit()
+        print("Cart emptied!")
+        print()
+
+    elif ch == 3:
+        for i in rs:
+            db.execute("SELECT price FROM inventory WHERE isbn = '{}'".format(i[0]))
+            rs2 = db.fetchall()
+            db.execute("INSERT INTO transactions (order_date, username, isbn, total_price) VALUES('{}', '{}', '{}', '{}')".format(datetime.datetime.now(), login_username, i[0], rs2[0][0]))
+            cdb.commit()
+        print("Order placed successfully!")
+        print()
+    elif ch == 0:
+        return
+
+def edit_customer():  # Edit customer details
+    print()
+    print("1. Change name")
+    print("2. Change email")
+    print("3. Change phone number")
+    print("4. Change password")
+    
+    ch = int(input("Enter your choice: "))
+    
+    while True:
+        if ch == 1:
+            name = input("Enter new name: ")
+            db.execute("UPDATE customers SET name = %s WHERE username = %s", (name, login_username))
+            cdb.commit()
+            print("Name changed successfully!")
+            print()
+            break
+            
+        elif ch == 2:
+            email = input("Enter new email: ")
+            db.execute("UPDATE customers SET email = %s WHERE username = %s", (email, login_username))
+            cdb.commit()
+            print("Email changed successfully!")
+            print()
+            break
+            
+        elif ch == 3:
+            phone_number = input("Enter new phone number in international format: ")
+            db.execute("UPDATE customers SET phone_number = %s WHERE username = %s", (phone_number, login_username))
+            cdb.commit()
+            print("Phone number changed successfully!")
+            print()
+            break
+        
+        elif ch == 4:
+            password = getpass("Enter your current password: ")
+            db.execute("SELECT passhash FROM auth WHERE username = %s", (login_username,))
+            rs = db.fetchall()[0][0]
+            try:
+                pass_check = pass_verify(rs, password)  # Verify if current password matches the hash existing in the database
+            except argon2.exceptions.VerifyMismatchError:
+                sys.exit(status="Incorrect password!")  # Exit the program if the password entered was incorrect
+            
+            if pass_check == True:
+                newpass = getpass("Enter new password: ")
+                passhash = pass_hasher(newpass)
+                db.execute("UPDATE auth SET passhash = %s WHERE username = %s", (passhash, login_username))
+                cdb.commit()
+                print("Password changed successfully!")
+                print()
+                break
+
+        elif ch == 0:
+            break
+
 def list_bought():
     db.execute("SELECT isbn FROM transactions WHERE username = '{}'".format(login_username))
     rs = db.fetchall()
@@ -692,6 +685,34 @@ def list_bought():
         print("{}. {}".format(j, rs2[0][0]))
     print()
 
+def delete_account():
+    ch = input("Are you sure you want to delete your account? (y/n): ")
+    if ch.lower() == 'y':
+        # Prompt for password as confirmation
+        password = getpass("Enter your password to confirm account deletion: ")
+        db.execute("SELECT passhash FROM auth WHERE username = '{}'".format(login_username))
+        rs = db.fetchall()
+        while True:
+            try:
+                pass_check = pass_verify(rs[0][0], password)  # Verify if current password matches the hash existing in the database
+                
+            except argon2.exceptions.VerifyMismatchError:
+                print(termcolor.colored("Incorrect password!", "red"))
+
+            if pass_check == True:
+                db.execute("DELETE FROM users WHERE username = '{}'".format(login_username))
+                cdb.commit()
+                db.execute("DELETE FROM auth WHERE username = '{}'".format(login_username))
+                cdb.commit()
+                db.execute("DELETE FROM cart WHERE username = '{}'".format(login_username))
+                cdb.commit()
+                print("Account deleted successfully!")
+                kill()
+    else:
+        return
+    
+def kill():
+    sys.exit("Thank you for using Page Turner!")
 
 def start():
     clear()
