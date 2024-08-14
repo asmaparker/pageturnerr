@@ -1,0 +1,1 @@
+{'book': {'publisher': 'Editions Du Seuil', 'language': 'fr', 'image': 'https://images.isbndb.com/covers/64/68/9782020336468.jpg', 'title_long': 'Trainspotting--french-edition-', 'date_published': '1995', 'authors': ['Irvine Welsh'], 'title': 'Trainspotting (french Edition)', 'isbn13': '9782020336468', 'msrp': '0.00', 'isbn': '2020336464', 'isbn10': '2020336464'}}
