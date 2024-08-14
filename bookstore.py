@@ -80,7 +80,7 @@ try:
     with requests.get(url, stream=True) as r:
         lines = (line.decode('utf-8') for line in r.iter_lines())
         next(lines)
-        for row in csv.reader(lines, delimiter=','):
+        for row in csv.reader(lines, delimiter='|'):
             if row[8] != '0.00':
                 if len(row[6]) == 4:
                     row[6] = row[6] + "-01-01"
