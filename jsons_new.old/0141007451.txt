@@ -1,1 +1,0 @@
-{'book': {'publisher': 'Penguin Uk', 'language': 'en', 'image': 'https://images.isbndb.com/covers/74/58/9780141007458.jpg', 'title_long': 'Stiff', 'date_published': '2004', 'authors': ['Roach', 'Mary'], 'title': 'Stiff', 'isbn13': '9780141007458', 'msrp': 16.5, 'binding': 'Paperback', 'isbn': '0141007451', 'isbn10': '0141007451'}}
