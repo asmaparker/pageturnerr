@@ -224,7 +224,7 @@ def luhn(ccn): # Check if the credit card number entered is correct
     return sum(c+u2) % 10 == 0
 
 def list_info(isbn):
-    db.execute("SELECT isbn,isbn13,title,synopsis,publisher,authors,date_published,language,price,pages,avg_rating FROM inventory WHERE isbn = '{isbn}'".format(isbn=isbn))
+    db.execute("SELECT isbn,isbn13,title,synopsis,publisher,authors,date_published,language,price,pages FROM inventory WHERE isbn = '{isbn}'".format(isbn=isbn))
     rs = db.fetchall()
     # Make a string for authors that will iterate through all authors and add them to the string
     print(termcolor.colored(rs[0][2], 'cyan', attrs=["bold", "underline"]))
@@ -421,10 +421,12 @@ def search_title(title):
         while True:
             try:
                 ch = int(input("Enter the number of the book you would like to select: "))
+                if ch <= 10 and ch >= 1:
+                  return rs[ch-1][0]
+                if ch == 0:
+                    return
             except:
                 print(termcolor.colored("Error! Choose a number from the list.", "red"))
-            if ch <= 10 and ch >= 1:
-                return rs[ch-1][0]
             else:
                 print(termcolor.colored("Error! Choose a number from the list.", "red"))
         
@@ -443,10 +445,12 @@ def search_publisher(publisher):
         while True:
             try:
                 ch = int(input("Enter the number of the book you would like to select: "))
+                if ch <= 10 and ch >= 1:
+                  return rs[ch-1][0]
+                if ch == 0:
+                    return
             except:
                 print(termcolor.colored("Error! Choose a number from the list.", "red"))
-            if ch <= 10 and ch >= 1:
-                return rs[ch-1][0]
             else:
                 print(termcolor.colored("Error! Choose a number from the list.", "red"))
 
@@ -465,10 +469,12 @@ def search_author(author):
         while True:
             try:
                 ch = int(input("Enter the number of the book you would like to select: "))
+                if ch <= 10 and ch >= 1:
+                  return rs[ch-1][0]
+                if ch == 0:
+                    return
             except:
                 print(termcolor.colored("Error! Choose a number from the list.", "red"))
-            if ch <= 10 and ch >= 1:
-                return rs[ch-1][0]
             else:
                 print(termcolor.colored("Error! Choose a number from the list.", "red"))
 
@@ -487,10 +493,12 @@ def search_price(maxprice, minprice):
         while True:
             try:
                 ch = int(input("Enter the number of the book you would like to select: "))
+                if ch <= 10 and ch >= 1:
+                  return rs[ch-1][0]
+                if ch == 0:
+                    return
             except:
                 print(termcolor.colored("Error! Choose a number from the list.", "red"))
-            if ch <= 10 and ch >= 1:
-                return rs[ch-1][0]
             else:
                 print(termcolor.colored("Error! Choose a number from the list.", "red"))
 
@@ -509,10 +517,12 @@ def search_yearofpublishing(year):
         while True:
             try:
                 ch = int(input("Enter the number of the book you would like to select: "))
+                if ch <= 10 and ch >= 1:
+                  return rs[ch-1][0]
+                if ch == 0:
+                    return
             except:
                 print(termcolor.colored("Error! Choose a number from the list.", "red"))
-            if ch <= 10 and ch >= 1:
-                return rs[ch-1][0]
             else:
                 print(termcolor.colored("Error! Choose a number from the list.", "red"))
 
