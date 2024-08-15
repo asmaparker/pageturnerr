@@ -1,0 +1,1802 @@
+<Response [200]>
+0060972637 added to database
+9780060972639
+
+Book added to database
+Books added: 1<Response [200]>
+0060972661 added to database
+9780060972660
+
+Book added to database
+Books added: 2<Response [200]>
+9780060972721
+
+Book price not found
+<Response [200]>
+0060972750 added to database
+9780060972752
+
+Book added to database
+Books added: 3<Response [200]>
+0060972777 added to database
+9780060972776
+
+Book added to database
+Books added: 4<Response [200]>
+9780060972783
+
+Book price not found
+<Response [200]>
+0060972807 added to database
+9780060972806
+
+Book added to database
+Books added: 5<Response [200]>
+9780060972844
+
+Book price not found
+<Response [200]>
+9780060972868
+
+Book price not found
+<Response [200]>
+0060972874 added to database
+9780060972875
+
+Book added to database
+Books added: 6<Response [200]>
+0060972882 added to database
+9780060972882
+
+Book added to database
+Books added: 7<Response [200]>
+9780060972912
+
+Book price not found
+<Response [200]>
+9780060972929
+
+Book price not found
+<Response [200]>
+006097298X added to database
+9780060972981
+
+Book added to database
+Books added: 8<Response [200]>
+9780060973094
+
+Book price not found
+<Response [200]>
+0060973153 added to database
+9780060973155
+
+Book added to database
+Books added: 9<Response [200]>
+0060973196 added to database
+9780060973193
+
+Book added to database
+Books added: 10<Response [200]>
+9780060973278
+
+Book price not found
+<Response [200]>
+0060973331 added to database
+9780060973339
+
+Book added to database
+Books added: 11<Response [200]>
+0060973463 added to database
+9780060973469
+
+Book added to database
+Books added: 12<Response [200]>
+0060974338 added to database
+9780060974336
+
+Book added to database
+Books added: 13<Response [200]>
+0060974362 added to database
+9780060974367
+
+Book added to database
+Books added: 14<Response [200]>
+0060974680 added to database
+9780060974688
+
+Book added to database
+Books added: 15<Response [200]>
+9780060974961
+
+Book price not found
+<Response [200]>
+9780060974992
+
+Book price not found
+<Response [200]>
+0060975091 added to database
+9780060975098
+
+Book added to database
+Books added: 16<Response [200]>
+0060975946 added to database
+9780060975944
+
+Book added to database
+Books added: 17<Response [200]>
+006097608X added to database
+9780060976088
+
+Book added to database
+Books added: 18<Response [200]>
+0060976098 added to database
+9780060976095
+
+Book added to database
+Books added: 19<Response [200]>
+0060976101 added to database
+9780060976101
+
+Book added to database
+Books added: 20<Response [200]>
+006097611X added to database
+9780060976118
+
+Book added to database
+Books added: 21<Response [200]>
+0060976810 added to database
+9780060976811
+
+Book added to database
+Books added: 22<Response [200]>
+0060977086 added to database
+9780060977085
+
+Book added to database
+Books added: 23<Response [200]>
+0060977108 added to database
+9780060977108
+
+Book added to database
+Books added: 24<Response [200]>
+0060977477 added to database
+9780060977474
+
+Book added to database
+Books added: 25<Response [200]>
+9780060977498
+
+Book price not found
+<Response [200]>
+006097754X added to database
+9780060977542
+
+Book added to database
+Books added: 26<Response [200]>
+006097771X added to database
+9780060977719
+
+Book added to database
+Books added: 27<Response [200]>
+9780060981075
+
+Book price not found
+<Response [200]>
+9780060984199
+
+Book price not found
+<Response [200]>
+0060984341 added to database
+9780060984342
+
+Book added to database
+Books added: 28<Response [200]>
+0060984384 added to database
+9780060984380
+
+Book added to database
+Books added: 29<Response [200]>
+0060984406 added to database
+9780060984403
+
+Book added to database
+Books added: 30<Response [200]>
+0060987073 added to database
+9780060987077
+
+Book added to database
+Books added: 31<Response [200]>
+0060987103 added to database
+9780060987107
+
+Book added to database
+Books added: 32<Response [200]>
+0060987111 added to database
+9780060987114
+
+Book added to database
+Books added: 33<Response [200]>
+006098712X added to database
+9780060987121
+
+Book added to database
+Books added: 34<Response [200]>
+9780060987169
+
+Book price not found
+<Response [200]>
+0060987197 added to database
+9780060987190
+
+Book added to database
+Books added: 35<Response [200]>
+0060987235 added to database
+9780060987237
+
+Book added to database
+Books added: 36<Response [200]>
+0060987243 added to database
+9780060987244
+
+Book added to database
+Books added: 37<Response [200]>
+0060987324 added to database
+9780060987329
+
+Book added to database
+Books added: 38<Response [200]>
+0060987332 added to database
+9780060987336
+
+Book added to database
+Books added: 39<Response [200]>
+0060987359 added to database
+9780060987350
+
+Book added to database
+Books added: 40<Response [200]>
+0060987375 added to database
+9780060987374
+
+Book added to database
+Books added: 41<Response [200]>
+0060987405 added to database
+9780060987404
+
+Book added to database
+Books added: 42<Response [200]>
+0060987464 added to database
+9780060987466
+
+Book added to database
+Books added: 43<Response [200]>
+0060987529 added to database
+9780060987527
+
+Book added to database
+Books added: 44<Response [200]>
+0060987537 added to database
+9780060987534
+
+Book added to database
+Books added: 45<Response [200]>
+9780060987565
+
+Book price not found
+<Response [200]>
+9780060988241
+
+Book price not found
+<Response [200]>
+0060988258 added to database
+9780060988258
+
+Book added to database
+Books added: 46<Response [200]>
+0060988312 added to database
+9780060988319
+
+Book added to database
+Books added: 47<Response [200]>
+0060988398 added to database
+9780060988395
+
+Book added to database
+Books added: 48<Response [200]>
+0060988487 added to database
+9780060988487
+
+Book added to database
+Books added: 49<Response [200]>
+0060988576 added to database
+9780060988579
+
+Book added to database
+Books added: 50<Response [200]>
+0060988649 added to database
+9780060988647
+
+Book added to database
+Books added: 51<Response [200]>
+0060988657 added to database
+9780060988654
+
+Book added to database
+Books added: 52<Response [200]>
+0060988754 added to database
+9780060988753
+
+Book added to database
+Books added: 53<Response [200]>
+0060988789 added to database
+9780060988784
+
+Book added to database
+Books added: 54<Response [200]>
+0060988894 added to database
+9780060988890
+
+Book added to database
+Books added: 55<Response [200]>
+0060988908 added to database
+9780060988906
+
+Book added to database
+Books added: 56<Response [200]>
+0060988940 added to database
+9780060988944
+
+Book added to database
+Books added: 57<Response [200]>
+0060988967 added to database
+9780060988968
+
+Book added to database
+Books added: 58<Response [200]>
+0060989033 added to database
+9780060989033
+
+Book added to database
+Books added: 59<Response [200]>
+0060989076 added to database
+9780060989071
+
+Book added to database
+Books added: 60<Response [200]>
+0060989114 added to database
+9780060989118
+
+Book added to database
+Books added: 61<Response [200]>
+0060989157 added to database
+9780060989156
+
+Book added to database
+Books added: 62<Response [200]>
+0060989165 added to database
+9780060989163
+
+Book added to database
+Books added: 63<Response [200]>
+006098919X added to database
+9780060989194
+
+Book added to database
+Books added: 64<Response [200]>
+9780060989217
+
+Book price not found
+<Response [200]>
+0060989289 added to database
+9780060989286
+
+Book added to database
+Books added: 65<Response [200]>
+0060989297 added to database
+9780060989293
+
+Book added to database
+Books added: 66<Response [200]>
+9780060994860
+
+Book price not found
+<Response [200]>
+9780060996475
+
+Book price not found
+<Response [200]>
+9780060997021
+
+Book price not found
+<Response [200]>
+0061001929 added to database
+9780061001925
+
+Book added to database
+Books added: 67<Response [200]>
+9780061002861
+
+Book price not found
+<Response [200]>
+9780061003035
+
+Book price not found
+<Response [200]>
+9780061003110
+
+Book price not found
+<Response [200]>
+9780061003318
+
+Book price not found
+<Response [200]>
+9780061003639
+
+Book price not found
+<Response [200]>
+0061003751 added to database
+9780061003752
+
+Book added to database
+Books added: 68<Response [200]>
+0061004561 added to database
+9780061004568
+
+Book added to database
+Books added: 69<Response [200]>
+0061007080 added to database
+9780061007088
+
+Book added to database
+Books added: 70<Response [200]>
+0061008656 added to database
+9780061008658
+
+Book added to database
+Books added: 71<Response [200]>
+9780061009051
+
+Book price not found
+<Response [200]>
+0061009482 added to database
+9780061009488
+
+Book added to database
+Books added: 72<Response [200]>
+0061011339 added to database
+9780061011337
+
+Book added to database
+Books added: 73<Response [200]>
+0061012351 added to database
+9780061012358
+
+Book added to database
+Books added: 74<Response [200]>
+0061013420 added to database
+9780061013423
+
+Book added to database
+Books added: 75<Response [200]>
+0061013439 added to database
+9780061013430
+
+Book added to database
+Books added: 76<Response [200]>
+9780061013515
+
+Book price not found
+<Response [200]>
+0061013668 added to database
+9780061013669
+
+Book added to database
+Books added: 77<Response [200]>
+0061013919 added to database
+9780061013911
+
+Book added to database
+Books added: 78<Response [200]>
+0061014095 added to database
+9780061014093
+
+Book added to database
+Books added: 79<Response [200]>
+0061014230 added to database
+9780061014239
+
+Book added to database
+Books added: 80<Response [200]>
+0061015520 added to database
+9780061015526
+
+Book added to database
+Books added: 81<Response [200]>
+0061015539 added to database
+9780061015533
+
+Book added to database
+Books added: 82<Response [200]>
+006101561X added to database
+9780061015618
+
+Book added to database
+Books added: 83<Response [200]>
+0061015628 added to database
+9780061015625
+
+Book added to database
+Books added: 84<Response [200]>
+0061020214 added to database
+9780061020216
+
+Book added to database
+Books added: 85<Response [200]>
+0061020265 added to database
+9780061020261
+
+Book added to database
+Books added: 86<Response [200]>
+0061020427 added to database
+9780061020421
+
+Book added to database
+Books added: 87<Response [200]>
+0061020443 added to database
+9780061020445
+
+Book added to database
+Books added: 88<Response [200]>
+0061020575 added to database
+9780061020575
+
+Book added to database
+Books added: 89<Response [200]>
+0061020583 added to database
+9780061020582
+
+Book added to database
+Books added: 90<Response [200]>
+0061020591 added to database
+9780061020599
+
+Book added to database
+Books added: 91<Response [200]>
+0061020613 added to database
+9780061020612
+
+Book added to database
+Books added: 92<Response [200]>
+9780061020667
+
+Book price not found
+<Response [200]>
+0061020702 added to database
+9780061020704
+
+Book added to database
+Books added: 93<Response [200]>
+0061020761 added to database
+9780061020766
+
+Book added to database
+Books added: 94<Response [200]>
+0061030015 added to database
+9780061030017
+
+Book added to database
+Books added: 95<Response [200]>
+006103021X added to database
+9780061030215
+
+Book added to database
+Books added: 96<Response [200]>
+0061030244 added to database
+9780061030246
+
+Book added to database
+Books added: 97<Response [200]>
+0061030295 added to database
+9780061030291
+
+Book added to database
+Books added: 98<Response [200]>
+0061030481 added to database
+9780061030482
+
+Book added to database
+Books added: 99<Response [200]>
+0061030651 added to database
+9780061030659
+
+Book added to database
+Books added: 100<Response [200]>
+0061030813 added to database
+9780061030819
+
+Book added to database
+Books added: 101<Response [200]>
+006103083X added to database
+9780061030833
+
+Book added to database
+Books added: 102<Response [200]>
+0061030848 added to database
+9780061030840
+
+Book added to database
+Books added: 103<Response [200]>
+0061030961 added to database
+9780061030963
+
+Book added to database
+Books added: 104<Response [200]>
+0061030996 added to database
+9780061030994
+
+Book added to database
+Books added: 105<Response [200]>
+0061031070 added to database
+9780061031076
+
+Book added to database
+Books added: 106<Response [200]>
+0061031089 added to database
+9780061031083
+
+Book added to database
+Books added: 107<Response [200]>
+0061031097 added to database
+9780061031090
+
+Book added to database
+Books added: 108<Response [200]>
+0061031100 added to database
+9780061031106
+
+Book added to database
+Books added: 109<Response [200]>
+0061031127 added to database
+9780061031120
+
+Book added to database
+Books added: 110<Response [200]>
+0061031151 added to database
+9780061031151
+
+Book added to database
+Books added: 111<Response [200]>
+006103116X added to database
+9780061031168
+
+Book added to database
+Books added: 112<Response [200]>
+0061031224 added to database
+9780061031229
+
+Book added to database
+Books added: 113<Response [200]>
+0061031232 added to database
+9780061031236
+
+Book added to database
+Books added: 114<Response [200]>
+0061031429 added to database
+9780061031427
+
+Book added to database
+Books added: 115<Response [200]>
+0061031534 added to database
+9780061031533
+
+Book added to database
+Books added: 116<Response [200]>
+0061031704 added to database
+9780061031700
+
+Book added to database
+Books added: 117<Response [200]>
+0061031755 added to database
+9780061031755
+
+Book added to database
+Books added: 118<Response [200]>
+0061031771 added to database
+9780061031779
+
+Book added to database
+Books added: 119<Response [200]>
+0061032085 added to database
+9780061032080
+
+Book added to database
+Books added: 120<Response [200]>
+0061032093 added to database
+9780061032097
+
+Book added to database
+Books added: 121<Response [200]>
+0061032212 added to database
+9780061032219
+
+Book added to database
+Books added: 122<Response [200]>
+0061032247 added to database
+9780061032240
+
+Book added to database
+Books added: 123<Response [200]>
+0061032425 added to database
+9780061032424
+
+Book added to database
+Books added: 124<Response [200]>
+0061032468 added to database
+9780061032462
+
+Book added to database
+Books added: 125<Response [200]>
+0061032484 added to database
+9780061032486
+
+Book added to database
+Books added: 126<Response [200]>
+006104153X added to database
+9780061041532
+
+Book added to database
+Books added: 127<Response [200]>
+0061041807 added to database
+9780061041808
+
+Book added to database
+Books added: 128<Response [200]>
+0061043893 added to database
+9780061043895
+
+Book added to database
+Books added: 129<Response [200]>
+0061043915 added to database
+9780061043918
+
+Book added to database
+Books added: 130<Response [200]>
+0061050040 added to database
+9780061050046
+
+Book added to database
+Books added: 131<Response [200]>
+9780061050275
+
+Book price not found
+<Response [200]>
+0061050342 added to database
+9780061050343
+
+Book added to database
+Books added: 132<Response [200]>
+0061050555 added to database
+9780061050558
+
+Book added to database
+Books added: 133<Response [200]>
+0061050687 added to database
+9780061050688
+
+Book added to database
+Books added: 134<Response [200]>
+9780061050701
+
+Book price not found
+<Response [200]>
+9780061050954
+
+Book price not found
+<Response [200]>
+9780061050985
+
+Book price not found
+<Response [200]>
+0061051101 added to database
+9780061051104
+
+Book added to database
+Books added: 135<Response [200]>
+0061051195 added to database
+9780061051197
+
+Book added to database
+Books added: 136<Response [200]>
+006105142X added to database
+9780061051425
+
+Book added to database
+Books added: 137<Response [200]>
+0061051438 added to database
+9780061051432
+
+Book added to database
+Books added: 138<Response [200]>
+0061051586 added to database
+9780061051586
+
+Book added to database
+Books added: 139<Response [200]>
+9780061051715
+
+Book price not found
+<Response [200]>
+0061051748 added to database
+9780061051746
+
+Book added to database
+Books added: 140<Response [200]>
+0061052205 added to database
+9780061052200
+
+Book added to database
+Books added: 141<Response [200]>
+0061052396 added to database
+9780061052392
+
+Book added to database
+Books added: 142<Response [200]>
+0061052450 added to database
+9780061052453
+
+Book added to database
+Books added: 143<Response [200]>
+9780061052606
+
+Book price not found
+<Response [200]>
+9780061052859
+
+Book price not found
+<Response [200]>
+0061053562 added to database
+9780061053566
+
+Book added to database
+Books added: 144<Response [200]>
+006105366X added to database
+9780061053665
+
+Book added to database
+Books added: 145<Response [200]>
+9780061053771
+
+Book price not found
+<Response [200]>
+0061054275 added to database
+9780061054273
+
+Book added to database
+Books added: 146<Response [200]>
+0061054658 added to database
+9780061054655
+
+Book added to database
+Books added: 147<Response [200]>
+0061054674 added to database
+9780061054679
+
+Book added to database
+Books added: 148<Response [200]>
+0061054682 added to database
+9780061054686
+
+Book added to database
+Books added: 149<Response [200]>
+0061054887 added to database
+9780061054884
+
+Book added to database
+Books added: 150<Response [200]>
+0061056006 added to database
+9780061056000
+
+Book added to database
+Books added: 151<Response [200]>
+0061056022 added to database
+9780061056024
+
+Book added to database
+Books added: 152<Response [200]>
+0061056235 added to database
+9780061056239
+
+Book added to database
+Books added: 153<Response [200]>
+0061056383 added to database
+9780061056383
+
+Book added to database
+Books added: 154<Response [200]>
+0061057428 added to database
+9780061057427
+
+Book added to database
+Books added: 155<Response [200]>
+0061057517 added to database
+9780061057519
+
+Book added to database
+Books added: 156<Response [200]>
+0061057762 added to database
+9780061057762
+
+Book added to database
+Books added: 157<Response [200]>
+0061057878 added to database
+9780061057878
+
+Book added to database
+Books added: 158<Response [200]>
+0061057916 added to database
+9780061057915
+
+Book added to database
+Books added: 159<Response [200]>
+0061057959 added to database
+9780061057953
+
+Book added to database
+Books added: 160<Response [200]>
+0061058068 added to database
+9780061058066
+
+Book added to database
+Books added: 161<Response [200]>
+0061058203 added to database
+9780061058202
+
+Book added to database
+Books added: 162<Response [200]>
+006105903X added to database
+9780061059032
+
+Book added to database
+Books added: 163<Response [200]>
+0061059048 added to database
+9780061059049
+
+Book added to database
+Books added: 164<Response [200]>
+0061059471 added to database
+9780061059476
+
+Book added to database
+Books added: 165<Response [200]>
+0061059889 added to database
+9780061059889
+
+Book added to database
+Books added: 166<Response [200]>
+0061059897 added to database
+9780061059896
+
+Book added to database
+Books added: 167<Response [200]>
+0061059919 added to database
+9780061059919
+
+Book added to database
+Books added: 168<Response [200]>
+0061061239 added to database
+9780061061233
+
+Book added to database
+Books added: 169<Response [200]>
+0061063290 added to database
+9780061063299
+
+Book added to database
+Books added: 170<Response [200]>
+0061064165 added to database
+9780061064166
+
+Book added to database
+Books added: 171<Response [200]>
+0061065757 added to database
+9780061065750
+
+Book added to database
+Books added: 172<Response [200]>
+0061065862 added to database
+9780061065866
+
+Book added to database
+Books added: 173<Response [200]>
+0061065919 added to database
+9780061065910
+
+Book added to database
+Books added: 174<Response [200]>
+0061066478 added to database
+9780061066474
+
+Book added to database
+Books added: 175<Response [200]>
+9780061074103
+
+Book price not found
+<Response [200]>
+0061075701 added to database
+9780061075704
+
+Book added to database
+Books added: 176<Response [200]>
+0061080632 added to database
+9780061080630
+
+Book added to database
+Books added: 177<Response [200]>
+0061081531 added to database
+9780061081538
+
+Book added to database
+Books added: 178<Response [200]>
+0061081973 added to database
+9780061081972
+
+Book added to database
+Books added: 179<Response [200]>
+0061083097 added to database
+9780061083099
+
+Book added to database
+Books added: 180<Response [200]>
+0061083453 added to database
+9780061083457
+
+Book added to database
+Books added: 181<Response [200]>
+0061083984 added to database
+9780061083983
+
+Book added to database
+Books added: 182<Response [200]>
+9780061084775
+
+Book price not found
+<Response [200]>
+0061087130 added to database
+9780061087134
+
+Book added to database
+Books added: 183<Response [200]>
+0061091561 added to database
+9780061091568
+
+Book added to database
+Books added: 184<Response [200]>
+0061091715 added to database
+9780061091711
+
+Book added to database
+Books added: 185<Response [200]>
+0061092401 added to database
+9780061092404
+
+Book added to database
+Books added: 186<Response [200]>
+0061093092 added to database
+9780061093098
+
+Book added to database
+Books added: 187<Response [200]>
+0061093580 added to database
+9780061093586
+
+Book added to database
+Books added: 188<Response [200]>
+9780061093982
+
+Book price not found
+<Response [200]>
+0061093998 added to database
+9780061093999
+
+Book added to database
+Books added: 189<Response [200]>
+0061094153 added to database
+9780061094156
+
+Book added to database
+Books added: 190<Response [200]>
+0061094226 added to database
+9780061094224
+
+Book added to database
+Books added: 191<Response [200]>
+0061094234 added to database
+9780061094231
+
+Book added to database
+Books added: 192<Response [200]>
+0061095982 added to database
+9780061095986
+
+Book added to database
+Books added: 193<Response [200]>
+0061096849 added to database
+9780061096846
+
+Book added to database
+Books added: 194<Response [200]>
+0061096857 added to database
+9780061096853
+
+Book added to database
+Books added: 195<Response [200]>
+9780061096976
+
+Book price not found
+<Response [200]>
+0061097160 added to database
+9780061097164
+
+Book added to database
+Books added: 196<Response [200]>
+0061097306 added to database
+9780061097300
+
+Book added to database
+Books added: 197<Response [200]>
+0061097462 added to database
+9780061097461
+
+Book added to database
+Books added: 198<Response [200]>
+0061097489 added to database
+9780061097485
+
+Book added to database
+Books added: 199<Response [200]>
+0061097624 added to database
+9780061097621
+
+Book added to database
+Books added: 200<Response [200]>
+0061097748 added to database
+9780061097744
+
+Book added to database
+Books added: 201<Response [200]>
+0061097888 added to database
+9780061097881
+
+Book added to database
+Books added: 202<Response [200]>
+0061097934 added to database
+9780061097935
+
+Book added to database
+Books added: 203<Response [200]>
+0061098000 added to database
+9780061098000
+
+Book added to database
+Books added: 204<Response [200]>
+0061098019 added to database
+9780061098017
+
+Book added to database
+Books added: 205<Response [200]>
+0061098027 added to database
+9780061098024
+
+Book added to database
+Books added: 206<Response [200]>
+0061098280 added to database
+9780061098284
+
+Book added to database
+Books added: 207<Response [200]>
+006109840X added to database
+9780061098406
+
+Book added to database
+Books added: 208<Response [200]>
+0061098620 added to database
+9780061098628
+
+Book added to database
+Books added: 209<Response [200]>
+0061098698 added to database
+9780061098697
+
+Book added to database
+Books added: 210<Response [200]>
+0061115754 added to database
+9780061115752
+
+Book added to database
+Books added: 211<Response [200]>
+0061115762 added to database
+9780061115769
+
+Book added to database
+Books added: 212<Response [200]>
+0061115770 added to database
+9780061115776
+
+Book added to database
+Books added: 213<Response [200]>
+0061116246 added to database
+9780061116247
+
+Book added to database
+Books added: 214<Response [200]>
+0061116742 added to database
+9780061116742
+
+Book added to database
+Books added: 215<Response [200]>
+0061116750 added to database
+9780061116759
+
+Book added to database
+Books added: 216<Response [200]>
+0061116858 added to database
+9780061116858
+
+Book added to database
+Books added: 217<Response [200]>
+9780061117039
+
+Book price not found
+<Response [200]>
+9780061117046
+
+Book price not found
+<Response [200]>
+0061117137 added to database
+9780061117138
+
+Book added to database
+Books added: 218<Response [200]>
+9780061117145
+
+Book price not found
+<Response [200]>
+0061118184 added to database
+9780061118180
+
+Book added to database
+Books added: 219<Response [200]>
+0061118451 added to database
+9780061118456
+
+Book added to database
+Books added: 220<Response [200]>
+006111846X added to database
+9780061118463
+
+Book added to database
+Books added: 221<Response [200]>
+9780061119033
+
+Book price not found
+<Response [200]>
+0061119075 added to database
+9780061119071
+
+Book added to database
+Books added: 222<Response [200]>
+0061119202 added to database
+9780061119200
+
+Book added to database
+Books added: 223<Response [200]>
+0061119849 added to database
+9780061119842
+
+Book added to database
+Books added: 224<Response [200]>
+0061119865 added to database
+9780061119866
+
+Book added to database
+Books added: 225<Response [200]>
+0061119873 added to database
+9780061119873
+
+Book added to database
+Books added: 226<Response [200]>
+006111989X added to database
+9780061119897
+
+Book added to database
+Books added: 227<Response [200]>
+0061120065 added to database
+9780061120060
+
+Book added to database
+Books added: 228<Response [200]>
+0061120073 added to database
+9780061120077
+
+Book added to database
+Books added: 229<Response [200]>
+006112009X added to database
+9780061120091
+
+Book added to database
+Books added: 230<Response [200]>
+0061120251 added to database
+9780061120251
+
+Book added to database
+Books added: 231<Response [200]>
+0061120278 added to database
+9780061120275
+
+Book added to database
+Books added: 232<Response [200]>
+0061120294 added to database
+9780061120299
+
+Book added to database
+Books added: 233<Response [200]>
+0061120383 added to database
+9780061120381
+
+Book added to database
+Books added: 234<Response [200]>
+9780061120589
+
+Book price not found
+<Response [200]>
+0061121061 added to database
+9780061121067
+
+Book added to database
+Books added: 235<Response [200]>
+9780061121074
+
+Book price not found
+<Response [200]>
+0061121088 added to database
+9780061121081
+
+Book added to database
+Books added: 236<Response [200]>
+0061121207 added to database
+9780061121203
+
+Book added to database
+Books added: 237<Response [200]>
+0061121363 added to database
+9780061121364
+
+Book added to database
+Books added: 238<Response [200]>
+006112138X added to database
+9780061121388
+
+Book added to database
+Books added: 239<Response [200]>
+0061121401 added to database
+9780061121401
+
+Book added to database
+Books added: 240<Response [200]>
+0061121762 added to database
+9780061121760
+
+Book added to database
+Books added: 241<Response [200]>
+0061121827 added to database
+9780061121821
+
+Book added to database
+Books added: 242<Response [200]>
+0061122092 added to database
+9780061122095
+
+Book added to database
+Books added: 243<Response [200]>
+0061122106 added to database
+9780061122101
+
+Book added to database
+Books added: 244<Response [200]>
+0061122181 added to database
+9780061122187
+
+Book added to database
+Books added: 245<Response [200]>
+9780061122194
+
+Book price not found
+<Response [200]>
+0061122300 added to database
+9780061122309
+
+Book added to database
+Books added: 246<Response [200]>
+0061122416 added to database
+9780061122415
+
+Book added to database
+Books added: 247<Response [200]>
+0061122696 added to database
+9780061122699
+
+Book added to database
+Books added: 248<Response [200]>
+0061122874 added to database
+9780061122873
+
+Book added to database
+Books added: 249<Response [200]>
+9780061122880
+
+Book price not found
+<Response [200]>
+0061122920 added to database
+9780061122927
+
+Book added to database
+Books added: 250<Response [200]>
+0061122939 added to database
+9780061122934
+
+Book added to database
+Books added: 251<Response [200]>
+0061123943 added to database
+9780061123948
+
+Book added to database
+Books added: 252<Response [200]>
+0061123951 added to database
+9780061123955
+
+Book added to database
+Books added: 253<Response [200]>
+006112396X added to database
+9780061123962
+
+Book added to database
+Books added: 254<Response [200]>
+0061123978 added to database
+9780061123979
+
+Book added to database
+Books added: 255<Response [200]>
+0061123994 added to database
+9780061123993
+
+Book added to database
+Books added: 256<Response [200]>
+0061124001 added to database
+9780061124006
+
+Book added to database
+Books added: 257<Response [200]>
+0061124192 added to database
+9780061124198
+
+Book added to database
+Books added: 258<Response [200]>
+0061124230 added to database
+9780061124235
+
+Book added to database
+Books added: 259<Response [200]>
+0061124265 added to database
+9780061124266
+
+Book added to database
+Books added: 260<Response [200]>
+0061124273 added to database
+9780061124273
+
+Book added to database
+Books added: 261<Response [200]>
+0061124281 added to database
+9780061124280
+
+Book added to database
+Books added: 262<Response [200]>
+0061124303 added to database
+9780061124303
+
+Book added to database
+Books added: 263<Response [200]>
+0061124311 added to database
+9780061124310
+
+Book added to database
+Books added: 264<Response [200]>
+9780061124327
+
+Book price not found
+<Response [200]>
+0061124338 added to database
+9780061124334
+
+Book added to database
+Books added: 265<Response [200]>
+0061124346 added to database
+9780061124341
+
+Book added to database
+Books added: 266<Response [200]>
+0061124370 added to database
+9780061124372
+
+Book added to database
+Books added: 267<Response [200]>
+9780061124389
+
+Book price not found
+<Response [200]>
+0061124397 added to database
+9780061124396
+
+Book added to database
+Books added: 268<Response [200]>
+9780061124402
+
+Book price not found
+<Response [200]>
+0061124451 added to database
+9780061124457
+
+Book added to database
+Books added: 269<Response [200]>
+006112446X added to database
+9780061124464
+
+Book added to database
+Books added: 270<Response [200]>
+0061124532 added to database
+9780061124532
+
+Book added to database
+Books added: 271<Response [200]>
+0061124567 added to database
+9780061124563
+
+Book added to database
+Books added: 272<Response [200]>
+0061124834 added to database
+9780061124839
+
+Book added to database
+Books added: 273<Response [200]>
+0061124974 added to database
+9780061124976
+
+Book added to database
+Books added: 274<Response [200]>
+0061125253 added to database
+9780061125256
+
+Book added to database
+Books added: 275<Response [200]>
+9780061125645
+
+Book price not found
+<Response [200]>
+0061125768 added to database
+9780061125768
+
+Book added to database
+Books added: 276<Response [200]>
+0061125938 added to database
+9780061125935
+
+Book added to database
+Books added: 277<Response [200]>
+0061126128 added to database
+9780061126123
+
+Book added to database
+Books added: 278<Response [200]>
+0061126136 added to database
+9780061126130
+
+Book added to database
+Books added: 279<Response [200]>
+0061126160 added to database
+9780061126161
+
+Book added to database
+Books added: 280<Response [200]>
+0061126241 added to database
+9780061126246
+
+Book added to database
+Books added: 281<Response [200]>
+0061126527 added to database
+9780061126529
+
+Book added to database
+Books added: 282<Response [200]>
+0061126578 added to database
+9780061126574
+
+Book added to database
+Books added: 283<Response [200]>
+0061127523 added to database
+9780061127526
+
+Book added to database
+Books added: 284<Response [200]>
+0061127531 added to database
+9780061127533
+
+Book added to database
+Books added: 285<Response [200]>
+0061127752 added to database
+9780061127755
+
+Book added to database
+Books added: 286<Response [200]>
+0061127760 added to database
+9780061127762
+
+Book added to database
+Books added: 287<Response [200]>
+0061127914 added to database
+9780061127915
+
+Book added to database
+Books added: 288<Response [200]>
+0061128503 added to database
+9780061128509
+
+Book added to database
+Books added: 289<Response [200]>
+0061128511 added to database
+9780061128516
+
+Book added to database
+Books added: 290<Response [200]>
+0061128570 added to database
+9780061128578
+
+Book added to database
+Books added: 291<Response [403]>
+{'message': 'Forbidden'}
+API rate limit exceeded. Waiting for 1 minute...
+<Response [403]>
+{'message': 'Forbidden'}
+API rate limit exceeded. Waiting for 1 minute...
+<Response [200]>
+0061128589 added to database
+9780061128585
+
+Book added to database
+Books added: 292<Response [200]>
+0061128635 added to database
+9780061128639
+
+Book added to database
+Books added: 293<Response [200]>
+0061128643 added to database
+9780061128646
+
+Book added to database
+Books added: 294<Response [200]>
+0061128651 added to database
+9780061128653
+
+Book added to database
+Books added: 295<Response [200]>
+9780061128677
+
+Book price not found
+<Response [200]>
+0061128694 added to database
+9780061128691
+
+Book added to database
+Books added: 296<Response [200]>
+0061128724 added to database
+9780061128721
+
+Book added to database
+Books added: 297<Response [200]>
+0061128872 added to database
+9780061128875
+
+Book added to database
+Books added: 298<Response [200]>
+0061128899 added to database
+9780061128899
+
+Book added to database
+Books added: 299<Response [200]>
+0061128988 added to database
+9780061128981
+
+Book added to database
+Books added: 300<Response [200]>
+0061129585 added to database
+9780061129582
+
+Book added to database
+Books added: 301<Response [200]>
+0061129593 added to database
+9780061129599
+
+Book added to database
+Books added: 302<Response [200]>
+0061129607 added to database
+9780061129605
+
+Book added to database
+Books added: 303<Response [200]>
+0061129704 added to database
+9780061129704
+
+Book added to database
+Books added: 304<Response [200]>
+0061129739 added to database
+9780061129735
+
+Book added to database
+Books added: 305<Response [200]>
+006112978X added to database
+9780061129780
+
+Book added to database
+Books added: 306<Response [200]>
+9780061130243
+
+Book price not found
+<Response [200]>
+9780061130298
+
+Book price not found
+<Response [200]>
+0061130354 added to database
+9780061130359
+
+Book added to database
+Books added: 307<Response [200]>
+0061130397 added to database
+9780061130397
+
+Book added to database
+Books added: 308<Response [200]>
+0061130400 added to database
+9780061130403
+
+Book added to database
+Books added: 309<Response [200]>
+0061130427 added to database
+9780061130427
+
+Book added to database
+Books added: 310<Response [200]>
+0061130478 added to database
+9780061130472
+
+Book added to database
+Books added: 311<Response [200]>
+0061130486 added to database
+9780061130489
+
+Book added to database
+Books added: 312<Response [200]>
+0061130494 added to database
+9780061130496
+
+Book added to database
+Books added: 313<Response [200]>
+0061130974 added to database
+9780061130977
+
+Book added to database
+Books added: 314<Response [200]>
+0061130982 added to database
+9780061130984
+
+Book added to database
+Books added: 315
