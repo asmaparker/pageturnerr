@@ -71,23 +71,23 @@ try:
     cdb.commit()
 except:
     sys.exit("Unable to setup database")
-"""
+
 try:
     print("Adding content to database...")
     url = "https://raw.githubusercontent.com/asmaparker/pageturnerr/main/books.csv"
-    db.execute("DELETE FROM inventory")
-    cdb.commit()
+    # db.execute("DELETE FROM inventory")
+    # cdb.commit()
     with requests.get(url=url, stream=True, headers={'Cache-Control': 'no-cache'}) as r:
         lines = (line.decode('utf-8') for line in r.iter_lines())
         next(lines)
         for row in csv.reader(lines, delimiter='|'):
-            db.execute("INSERT INTO inventory VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9]))
+            db.execute("INSERT IGNORE INTO inventory VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9]))
             cdb.commit()
 except IndexError:
     pass
 except:
     sys.exit("Fatal error occurred! Information text is unavailable.")
-"""
+
 def clear():
     if os.name == "posix":
         # Clear the screen
