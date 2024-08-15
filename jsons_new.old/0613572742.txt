@@ -1,1 +1,0 @@
-{'book': {'publisher': 'Bt Bound', 'language': 'en', 'image': 'https://images.isbndb.com/covers/27/43/9780613572743.jpg', 'title_long': 'Siddartha', 'date_published': '2003', 'authors': ['Hermann Hesse'], 'title': 'Siddartha', 'isbn13': '9780613572743', 'msrp': 15.3, 'binding': 'Library Binding', 'isbn': '0613572742', 'isbn10': '0613572742'}}
