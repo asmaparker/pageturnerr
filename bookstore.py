@@ -42,7 +42,7 @@ try:
     import termcolor  # Color the output in the terminal
     from getpass import getpass  # Mask passwords while they are being inputted
     from groq import Groq # AI Assistant
-    from mysql.connector import connect, errors  # Connect to MySQL Server
+    from mysql.connector import connect  # Connect to MySQL Server
 except:
     sys.exit("Unable to import required dependencies")  # Exit if modules cannot be imported
 
