@@ -1,0 +1,1945 @@
+<Response [404]>
+2910024779746
+
+Book not found
+<Response [404]>
+2910025142747
+
+Book not found
+<Response [404]>
+6781182123742
+
+Book not found
+<Response [200]>
+9780000001573
+
+Book price not found
+<Response [200]>
+9780000022226
+
+Book price not found
+<Response [200]>
+9780000186102
+
+Book price not found
+<Response [200]>
+9780000405685
+
+Book price not found
+<Response [200]>
+9780000884763
+
+Book price not found
+<Response [200]>
+9780001000391
+
+Book price not found
+<Response [200]>
+9780001001220
+
+Book price not found
+<Response [200]>
+9780001001244
+
+Book price not found
+<Response [200]>
+9780001001688
+
+Book price not found
+<Response [200]>
+9780001001787
+
+Book price not found
+<Response [200]>
+9780001001817
+
+Book price not found
+<Response [200]>
+9780001004320
+
+Book price not found
+<Response [200]>
+0001004484 added to database
+9780001004481
+
+Book added to database
+Books added: 1<Response [200]>
+9780001033320
+
+Book price not found
+<Response [200]>
+9780001061101
+
+Book price not found
+<Response [200]>
+9780001071834
+
+Book price not found
+<Response [200]>
+9780001211070
+
+Book price not found
+<Response [200]>
+9780001232075
+
+Book price not found
+<Response [200]>
+9780001232709
+
+Book price not found
+<Response [200]>
+9780001254220
+
+Book price not found
+<Response [200]>
+9780001360570
+
+Book price not found
+<Response [200]>
+9780001484641
+
+Book price not found
+<Response [200]>
+0001576739 added to database
+9780001576735
+
+Book added to database
+Books added: 2<Response [200]>
+9780001605459
+
+Book price not found
+<Response [200]>
+9780001700222
+
+Book price not found
+<Response [200]>
+9780001713192
+
+Book price not found
+<Response [200]>
+9780001714403
+
+Book price not found
+<Response [200]>
+9780001839069
+
+Book price not found
+<Response [200]>
+9780001841345
+
+Book price not found
+<Response [200]>
+9780001846036
+
+Book price not found
+<Response [200]>
+9780001851245
+
+Book price not found
+<Response [200]>
+9780001857285
+
+Book price not found
+<Response [200]>
+9780001857308
+
+Book price not found
+<Response [200]>
+9780001900714
+
+Book price not found
+<Response [200]>
+9780001900721
+
+Book price not found
+<Response [200]>
+9780001922464
+
+Book price not found
+<Response [200]>
+9780001933804
+
+Book price not found
+<Response [200]>
+9780001939950
+
+Book price not found
+<Response [200]>
+9780001941953
+
+Book price not found
+<Response [200]>
+9780001942097
+
+Book price not found
+<Response [200]>
+9780001942295
+
+Book price not found
+<Response [200]>
+9780001942615
+
+Book price not found
+<Response [200]>
+9780001950443
+
+Book price not found
+<Response [200]>
+9780001954434
+
+Book price not found
+<Response [200]>
+9780001955042
+
+Book price not found
+<Response [200]>
+9780001956506
+
+Book price not found
+<Response [200]>
+9780001979154
+
+Book price not found
+<Response [200]>
+9780001981300
+
+Book price not found
+<Response [200]>
+9780002005012
+
+Book price not found
+<Response [200]>
+9780002005456
+
+Book price not found
+<Response [200]>
+9780002005913
+
+Book price not found
+<Response [200]>
+0002008483 added to database
+9780002008488
+
+Book added to database
+Books added: 3<Response [200]>
+9780002110181
+
+Book price not found
+<Response [200]>
+9780002110907
+
+Book price not found
+<Response [200]>
+9780002111638
+
+Book price not found
+<Response [200]>
+9780002111720
+
+Book price not found
+<Response [200]>
+9780002111751
+
+Book price not found
+<Response [200]>
+9780002112253
+
+Book price not found
+<Response [200]>
+9780002112727
+
+Book price not found
+<Response [200]>
+9780002113564
+
+Book price not found
+<Response [200]>
+9780002113700
+
+Book price not found
+<Response [200]>
+9780002116251
+
+Book price not found
+<Response [200]>
+9780002118156
+
+Book price not found
+<Response [200]>
+0002118572 added to database
+9780002118576
+
+Book added to database
+Books added: 4<Response [200]>
+9780002119337
+
+Book price not found
+<Response [200]>
+9780002151238
+
+Book price not found
+<Response [200]>
+9780002151665
+
+Book price not found
+<Response [200]>
+9780002151719
+
+Book price not found
+<Response [200]>
+9780002152303
+
+Book price not found
+<Response [200]>
+9780002153331
+
+Book price not found
+<Response [200]>
+9780002154086
+
+Book price not found
+<Response [200]>
+0002154587 added to database
+9780002154581
+
+Book added to database
+Books added: 5<Response [200]>
+9780002154604
+
+Book price not found
+<Response [200]>
+9780002155304
+
+Book price not found
+<Response [200]>
+9780002156714
+
+Book price not found
+<Response [200]>
+9780002156769
+
+Book price not found
+<Response [200]>
+9780002156783
+
+Book price not found
+<Response [200]>
+9780002157285
+
+Book price not found
+<Response [200]>
+9780002157803
+
+Book price not found
+<Response [200]>
+0002157853 added to database
+9780002157858
+
+Book added to database
+Books added: 6<Response [200]>
+9780002157872
+
+Book price not found
+<Response [200]>
+9780002158688
+
+Book price not found
+<Response [200]>
+9780002158695
+
+Book price not found
+<Response [200]>
+0002159384 added to database
+9780002159388
+
+Book added to database
+Books added: 7<Response [200]>
+9780002159562
+
+Book price not found
+<Response [200]>
+9780002159913
+
+Book price not found
+<Response [200]>
+9780002160063
+
+Book price not found
+<Response [200]>
+9780002160322
+
+Book price not found
+<Response [200]>
+9780002161459
+
+Book price not found
+<Response [200]>
+9780002161947
+
+Book price not found
+<Response [200]>
+9780002162456
+
+Book price not found
+<Response [200]>
+9780002162630
+
+Book price not found
+<Response [200]>
+9780002163460
+
+Book price not found
+<Response [200]>
+0002164345 added to database
+9780002164344
+
+Book added to database
+Books added: 8<Response [200]>
+9780002165198
+
+Book price not found
+<Response [200]>
+9780002165433
+
+Book price not found
+<Response [200]>
+9780002166157
+
+Book price not found
+<Response [200]>
+0002166674 added to database
+9780002166676
+
+Book added to database
+Books added: 9<Response [200]>
+9780002166829
+
+Book price not found
+<Response [200]>
+9780002166867
+
+Book price not found
+<Response [200]>
+9780002166928
+
+Book price not found
+<Response [200]>
+9780002167420
+
+Book price not found
+<Response [200]>
+9780002167536
+
+Book price not found
+<Response [200]>
+9780002168021
+
+Book price not found
+<Response [200]>
+0002168154 added to database
+9780002168151
+
+Book added to database
+Books added: 10<Response [200]>
+9780002170314
+
+Book price not found
+<Response [200]>
+9780002171229
+
+Book price not found
+<Response [200]>
+9780002171892
+
+Book price not found
+<Response [200]>
+0002171902 added to database
+9780002171908
+
+Book added to database
+Books added: 11<Response [200]>
+9780002172196
+
+Book price not found
+<Response [200]>
+9780002172257
+
+Book price not found
+<Response [200]>
+0002172739 added to database
+9780002172738
+
+Book added to database
+Books added: 12<Response [200]>
+9780002172820
+
+Book price not found
+<Response [200]>
+9780002173452
+
+Book price not found
+<Response [200]>
+9780002173650
+
+Book price not found
+<Response [200]>
+0002173808 added to database
+9780002173803
+
+Book added to database
+Books added: 13<Response [200]>
+0002173948 added to database
+9780002173940
+
+Book added to database
+Books added: 14<Response [200]>
+9780002174336
+
+Book price not found
+<Response [200]>
+9780002174664
+
+Book price not found
+<Response [200]>
+9780002174688
+
+Book price not found
+<Response [200]>
+9780002175173
+
+Book price not found
+<Response [200]>
+9780002175319
+
+Book price not found
+<Response [200]>
+0002175363 added to database
+9780002175364
+
+Book added to database
+Books added: 15<Response [200]>
+9780002175555
+
+Book price not found
+<Response [200]>
+9780002176422
+
+Book price not found
+<Response [200]>
+9780002176514
+
+Book price not found
+<Response [200]>
+9780002176569
+
+Book price not found
+<Response [200]>
+9780002176637
+
+Book price not found
+<Response [200]>
+0002177056 added to database
+9780002177054
+
+Book added to database
+Books added: 16<Response [200]>
+9780002177511
+
+Book price not found
+<Response [200]>
+9780002177634
+
+Book price not found
+<Response [200]>
+9780002177931
+
+Book price not found
+<Response [200]>
+9780002178969
+
+Book price not found
+<Response [200]>
+9780002179034
+
+Book price not found
+<Response [200]>
+0002179083 added to database
+9780002179089
+
+Book added to database
+Books added: 17<Response [200]>
+9780002179096
+
+Book price not found
+<Response [200]>
+9780002179102
+
+Book price not found
+<Response [200]>
+9780002179195
+
+Book price not found
+<Response [200]>
+9780002179485
+
+Book price not found
+<Response [200]>
+0002179687 added to database
+9780002179683
+
+Book added to database
+Books added: 18<Response [200]>
+0002179695 added to database
+9780002179690
+
+Book added to database
+Books added: 19<Response [200]>
+9780002179812
+
+Book price not found
+<Response [200]>
+9780002179829
+
+Book price not found
+<Response [200]>
+9780002180481
+
+Book price not found
+<Response [200]>
+9780002184373
+
+Book price not found
+<Response [200]>
+9780002189200
+
+Book price not found
+<Response [200]>
+0002190699 added to database
+9780002190695
+
+Book added to database
+Books added: 20<Response [200]>
+0002191792 added to database
+9780002191791
+
+Book added to database
+Books added: 21<Response [200]>
+9780002192019
+
+Book price not found
+<Response [200]>
+9780002193436
+
+Book price not found
+<Response [200]>
+9780002197694
+
+Book price not found
+<Response [200]>
+9780002198271
+
+Book price not found
+<Response [200]>
+9780002211802
+
+Book price not found
+<Response [200]>
+0002218429 added to database
+9780002218429
+
+Book added to database
+Books added: 22<Response [200]>
+0002218844 added to database
+9780002218849
+
+Book added to database
+Books added: 23<Response [200]>
+9780002218931
+
+Book price not found
+<Response [200]>
+9780002219471
+
+Book price not found
+<Response [200]>
+9780002220316
+
+Book price not found
+<Response [200]>
+9780002220767
+
+Book price not found
+<Response [200]>
+9780002222020
+
+Book price not found
+<Response [200]>
+9780002222754
+
+Book price not found
+<Response [200]>
+9780002223928
+
+Book price not found
+<Response [200]>
+9780002224758
+
+Book price not found
+<Response [200]>
+9780002226349
+
+Book price not found
+<Response [200]>
+9780002226394
+
+Book price not found
+<Response [200]>
+9780002228053
+
+Book price not found
+<Response [200]>
+9780002228558
+
+Book price not found
+<Response [200]>
+9780002230865
+
+Book price not found
+<Response [200]>
+9780002231855
+
+Book price not found
+<Response [200]>
+9780002231930
+
+Book price not found
+<Response [200]>
+9780002232944
+
+Book price not found
+<Response [200]>
+9780002233521
+
+Book price not found
+<Response [200]>
+9780002235723
+
+Book price not found
+<Response [200]>
+9780002236515
+
+Book price not found
+<Response [200]>
+9780002236782
+
+Book price not found
+<Response [200]>
+0002237032 added to database
+9780002237031
+
+Book added to database
+Books added: 24<Response [200]>
+9780002240178
+
+Book price not found
+<Response [200]>
+9780002240246
+
+Book price not found
+<Response [200]>
+9780002241939
+
+Book price not found
+<Response [200]>
+9780002243018
+
+Book price not found
+<Response [200]>
+9780002245715
+
+Book price not found
+<Response [200]>
+9780002245753
+
+Book price not found
+<Response [200]>
+9780002246774
+
+Book price not found
+<Response [200]>
+0002250268 added to database
+9780002250269
+
+Book added to database
+Books added: 25<Response [200]>
+0002250292 added to database
+9780002250290
+
+Book added to database
+Books added: 26<Response [200]>
+0002250438 added to database
+9780002250436
+
+Book added to database
+Books added: 27<Response [200]>
+0002250500 added to database
+9780002250504
+
+Book added to database
+Books added: 28<Response [200]>
+0002250519 added to database
+9780002250511
+
+Book added to database
+Books added: 29<Response [200]>
+0002250535 added to database
+9780002250535
+
+Book added to database
+Books added: 30<Response [200]>
+0002250551 added to database
+9780002250559
+
+Book added to database
+Books added: 31<Response [200]>
+000225056X added to database
+9780002250566
+
+Book added to database
+Books added: 32<Response [200]>
+0002250667 added to database
+9780002250665
+
+Book added to database
+Books added: 33<Response [200]>
+0002250756 added to database
+9780002250757
+
+Book added to database
+Books added: 34<Response [200]>
+0002250780 added to database
+9780002250788
+
+Book added to database
+Books added: 35<Response [200]>
+0002250802 added to database
+9780002250801
+
+Book added to database
+Books added: 36<Response [200]>
+0002250837 added to database
+9780002250832
+
+Book added to database
+Books added: 37<Response [200]>
+0002250853 added to database
+9780002250856
+
+Book added to database
+Books added: 38<Response [200]>
+9780002250900
+
+Book price not found
+<Response [200]>
+9780002250955
+
+Book price not found
+<Response [200]>
+0002250985 added to database
+9780002250986
+
+Book added to database
+Books added: 39<Response [200]>
+0002251000 added to database
+9780002251006
+
+Book added to database
+Books added: 40<Response [200]>
+0002251043 added to database
+9780002251044
+
+Book added to database
+Books added: 41<Response [200]>
+9780002251112
+
+Book price not found
+<Response [200]>
+0002251183 added to database
+9780002251181
+
+Book added to database
+Books added: 42<Response [200]>
+0002251213 added to database
+9780002251211
+
+Book added to database
+Books added: 43<Response [200]>
+0002251485 added to database
+9780002251488
+
+Book added to database
+Books added: 44<Response [200]>
+0002251582 added to database
+9780002251587
+
+Book added to database
+Books added: 45<Response [200]>
+0002251736 added to database
+9780002251730
+
+Book added to database
+Books added: 46<Response [200]>
+0002251787 added to database
+9780002251785
+
+Book added to database
+Books added: 47<Response [200]>
+0002251892 added to database
+9780002251891
+
+Book added to database
+Books added: 48<Response [200]>
+0002252007 added to database
+9780002252003
+
+Book added to database
+Books added: 49<Response [200]>
+9780002252287
+
+Book price not found
+<Response [200]>
+9780002252317
+
+Book price not found
+<Response [200]>
+9780002253499
+
+Book price not found
+<Response [200]>
+9780002254373
+
+Book price not found
+<Response [200]>
+9780002257435
+
+Book price not found
+<Response [200]>
+9780002257534
+
+Book price not found
+<Response [200]>
+9780002257879
+
+Book price not found
+<Response [200]>
+9780002258531
+
+Book price not found
+<Response [200]>
+9780002258548
+
+Book price not found
+<Response [200]>
+0002259001 added to database
+9780002259002
+
+Book added to database
+Books added: 50<Response [200]>
+9780002259460
+
+Book price not found
+<Response [200]>
+0002259478 added to database
+9780002259477
+
+Book added to database
+Books added: 51<Response [200]>
+9780002259606
+
+Book price not found
+<Response [200]>
+9780002259835
+
+Book price not found
+<Response [200]>
+9780002261791
+
+Book price not found
+<Response [200]>
+0002310198 added to database
+9780002310192
+
+Book added to database
+Books added: 52<Response [200]>
+9780002314152
+
+Book price not found
+<Response [200]>
+9780002315395
+
+Book price not found
+<Response [200]>
+9780002317856
+
+Book price not found
+<Response [200]>
+9780002319331
+
+Book price not found
+<Response [200]>
+9780002320900
+
+Book price not found
+<Response [200]>
+9780002323659
+
+Book price not found
+<Response [200]>
+9780002324014
+
+Book price not found
+<Response [200]>
+9780002324281
+
+Book price not found
+<Response [200]>
+9780002326094
+
+Book price not found
+<Response [200]>
+9780002326209
+
+Book price not found
+<Response [200]>
+9780002326322
+
+Book price not found
+<Response [200]>
+9780002326346
+
+Book price not found
+<Response [200]>
+9780002326612
+
+Book price not found
+<Response [200]>
+0002326876 added to database
+9780002326872
+
+Book added to database
+Books added: 53<Response [200]>
+0002550563 added to database
+9780002550567
+
+Book added to database
+Books added: 54<Response [200]>
+9780002550581
+
+Book price not found
+<Response [200]>
+0002550814 added to database
+9780002550819
+
+Book added to database
+Books added: 55<Response [200]>
+0002551101 added to database
+9780002551106
+
+Book added to database
+Books added: 56<Response [200]>
+0002551195 added to database
+9780002551199
+
+Book added to database
+Books added: 57<Response [200]>
+9780002551441
+
+Book price not found
+<Response [200]>
+0002551489 added to database
+9780002551489
+
+Book added to database
+Books added: 58<Response [200]>
+0002551527 added to database
+9780002551526
+
+Book added to database
+Books added: 59<Response [200]>
+0002551667 added to database
+9780002551663
+
+Book added to database
+Books added: 60<Response [200]>
+0002552248 added to database
+9780002552240
+
+Book added to database
+Books added: 61<Response [200]>
+0002552264 added to database
+9780002552264
+
+Book added to database
+Books added: 62<Response [200]>
+9780002552271
+
+Book price not found
+<Response [200]>
+9780002552318
+
+Book price not found
+<Response [200]>
+0002552493 added to database
+9780002552493
+
+Book added to database
+Books added: 63<Response [200]>
+0002552515 added to database
+9780002552516
+
+Book added to database
+Books added: 64<Response [200]>
+0002552523 added to database
+9780002552523
+
+Book added to database
+Books added: 65<Response [200]>
+0002553368 added to database
+9780002553360
+
+Book added to database
+Books added: 66<Response [200]>
+0002553376 added to database
+9780002553377
+
+Book added to database
+Books added: 67<Response [200]>
+9780002553384
+
+Book price not found
+<Response [200]>
+0002553430 added to database
+9780002553438
+
+Book added to database
+Books added: 68<Response [200]>
+0002553457 added to database
+9780002553452
+
+Book added to database
+Books added: 69<Response [200]>
+000255366X added to database
+9780002553667
+
+Book added to database
+Books added: 70<Response [200]>
+0002553686 added to database
+9780002553681
+
+Book added to database
+Books added: 71<Response [200]>
+0002553953 added to database
+9780002553957
+
+Book added to database
+Books added: 72<Response [200]>
+9780002554046
+
+Book price not found
+<Response [200]>
+9780002554534
+
+Book price not found
+<Response [200]>
+0002554577 added to database
+9780002554572
+
+Book added to database
+Books added: 73<Response [200]>
+0002554593 added to database
+9780002554596
+
+Book added to database
+Books added: 74<Response [200]>
+0002554674 added to database
+9780002554671
+
+Book added to database
+Books added: 75<Response [200]>
+0002554682 added to database
+9780002554688
+
+Book added to database
+Books added: 76<Response [200]>
+0002554755 added to database
+9780002554756
+
+Book added to database
+Books added: 77<Response [200]>
+9780002554817
+
+Book price not found
+<Response [200]>
+0002554844 added to database
+9780002554848
+
+Book added to database
+Books added: 78<Response [200]>
+0002554909 added to database
+9780002554909
+
+Book added to database
+Books added: 79<Response [200]>
+0002554925 added to database
+9780002554923
+
+Book added to database
+Books added: 80<Response [200]>
+0002557231 added to database
+9780002557238
+
+Book added to database
+Books added: 81<Response [200]>
+000255917X added to database
+9780002559171
+
+Book added to database
+Books added: 82<Response [200]>
+9780002570800
+
+Book price not found
+<Response [200]>
+9780002570817
+
+Book price not found
+<Response [200]>
+9780002571364
+
+Book price not found
+<Response [200]>
+0002582023 added to database
+9780002582025
+
+Book added to database
+Books added: 83<Response [200]>
+0002613514 added to database
+9780002613514
+
+Book added to database
+Books added: 84<Response [200]>
+9780002615075
+
+Book price not found
+<Response [200]>
+9780002618205
+
+Book price not found
+<Response [200]>
+9780002622523
+
+Book price not found
+<Response [200]>
+9780002626118
+
+Book price not found
+<Response [200]>
+9780002710480
+
+Book price not found
+<Response [200]>
+0002710633 added to database
+9780002710633
+
+Book added to database
+Books added: 85<Response [200]>
+0002711192 added to database
+9780002711197
+
+Book added to database
+Books added: 86<Response [200]>
+0002711710 added to database
+9780002711715
+
+Book added to database
+Books added: 87<Response [200]>
+9780002711746
+
+Book price not found
+<Response [200]>
+0002712172 added to database
+9780002712170
+
+Book added to database
+Books added: 88<Response [200]>
+9780002712255
+
+Book price not found
+<Response [200]>
+9780002712279
+
+Book price not found
+<Response [200]>
+9780002712378
+
+Book price not found
+<Response [200]>
+9780002712897
+
+Book price not found
+<Response [200]>
+9780002713696
+
+Book price not found
+<Response [200]>
+9780002720861
+
+Book price not found
+<Response [200]>
+9780002721530
+
+Book price not found
+<Response [200]>
+0002721740 added to database
+9780002721745
+
+Book added to database
+Books added: 89<Response [200]>
+0002723115 added to database
+9780002723114
+
+Book added to database
+Books added: 90<Response [200]>
+9780002723381
+
+Book price not found
+<Response [200]>
+9780002724470
+
+Book price not found
+<Response [200]>
+9780002726870
+
+Book price not found
+<Response [200]>
+9780002730150
+
+Book price not found
+<Response [200]>
+9780002750660
+
+Book price not found
+<Response [200]>
+9780003020564
+
+Book price not found
+<Response [200]>
+9780003032222
+
+Book price not found
+<Response [200]>
+9780003032277
+
+Book price not found
+<Response [200]>
+9780003034066
+
+Book price not found
+<Response [200]>
+9780003187878
+
+Book price not found
+<Response [200]>
+9780003222692
+
+Book price not found
+<Response [200]>
+9780003252224
+
+Book price not found
+<Response [200]>
+9780003272161
+
+Book price not found
+<Response [200]>
+9780003293357
+
+Book price not found
+<Response [200]>
+0003293459 added to database
+9780003293456
+
+Book added to database
+Books added: 91<Response [200]>
+9780003293500
+
+Book price not found
+<Response [200]>
+9780003705218
+
+Book price not found
+<Response [200]>
+9780003705652
+
+Book price not found
+<Response [200]>
+9780004105512
+
+Book price not found
+<Response [200]>
+0004111176 added to database
+9780004111179
+
+Book added to database
+Books added: 92<Response [200]>
+9780004111186
+
+Book price not found
+<Response [200]>
+9780004115733
+
+Book price not found
+<Response [200]>
+9780004117768
+
+Book price not found
+<Response [200]>
+9780004120201
+
+Book price not found
+<Response [200]>
+9780004121130
+
+Book price not found
+<Response [200]>
+0004123298 added to database
+9780004123295
+
+Book added to database
+Books added: 93<Response [200]>
+9780004126296
+
+Book price not found
+<Response [200]>
+9780004126845
+
+Book price not found
+<Response [200]>
+9780004332055
+
+Book price not found
+<Response [200]>
+9780004334028
+
+Book price not found
+<Response [200]>
+9780004334219
+
+Book price not found
+<Response [200]>
+9780004334240
+
+Book price not found
+<Response [200]>
+0004334264 added to database
+9780004334264
+
+Book added to database
+Books added: 94<Response [200]>
+9780004334509
+
+Book price not found
+<Response [200]>
+9780004339030
+
+Book price not found
+<Response [200]>
+9780004339238
+
+Book price not found
+<Response [200]>
+0004351622 added to database
+9780004351629
+
+Book added to database
+Books added: 95<Response [200]>
+9780004356709
+
+Book price not found
+<Response [200]>
+9780004356792
+
+Book price not found
+<Response [200]>
+9780004356808
+
+Book price not found
+<Response [200]>
+9780004357836
+
+Book price not found
+<Response [200]>
+9780004358680
+
+Book price not found
+<Response [200]>
+9780004473208
+
+Book price not found
+<Response [200]>
+9780004473475
+
+Book price not found
+<Response [200]>
+9780004473734
+
+Book price not found
+<Response [200]>
+9780004474892
+
+Book price not found
+<Response [200]>
+0004502280 added to database
+9780004502281
+
+Book added to database
+Books added: 96<Response [200]>
+9780004586199
+
+Book price not found
+<Response [200]>
+0004587731 added to database
+9780004587738
+
+Book added to database
+Books added: 97<Response [200]>
+9780004593012
+
+Book price not found
+<Response [200]>
+9780004593357
+
+Book price not found
+<Response [200]>
+0004593391 added to database
+9780004593395
+
+Book added to database
+Books added: 98<Response [200]>
+9780004593401
+
+Book price not found
+<Response [200]>
+9780004601083
+
+Book price not found
+<Response [200]>
+9780004900193
+
+Book price not found
+<Response [200]>
+9780005235775
+
+Book price not found
+<Response [200]>
+9780005990766
+
+Book price not found
+<Response [200]>
+0005992176 added to database
+9780005992173
+
+Book added to database
+Books added: 99<Response [403]>
+{'message': 'Forbidden'}
+API rate limit exceeded. Waiting for 1 minute...
+<Response [403]>
+{'message': 'Forbidden'}
+API rate limit exceeded. Waiting for 1 minute...
+<Response [200]>
+9780005996317
+
+Book price not found
+<Response [200]>
+9780005996768
+
+Book price not found
+<Response [200]>
+9780005996812
+
+Book price not found
+<Response [200]>
+9780005997963
+
+Book price not found
+<Response [200]>
+0005998344 added to database
+9780005998342
+
+Book added to database
+Books added: 100<Response [200]>
+9780006122739
+
+Book price not found
+<Response [200]>
+9780006128960
+
+Book price not found
+<Response [200]>
+9780006130338
+
+Book price not found
+<Response [200]>
+9780006131595
+
+Book price not found
+<Response [200]>
+9780006132097
+
+Book price not found
+<Response [200]>
+9780006132912
+
+Book price not found
+<Response [200]>
+9780006137443
+
+Book price not found
+<Response [200]>
+0006143148 added to database
+9780006143147
+
+Book added to database
+Books added: 101<Response [200]>
+9780006143369
+
+Book price not found
+<Response [200]>
+0006151353 added to database
+9780006151357
+
+Book added to database
+Books added: 102<Response [200]>
+9780006152460
+
+Book price not found
+<Response [200]>
+9780006152477
+
+Book price not found
+<Response [200]>
+9780006156772
+
+Book price not found
+<Response [200]>
+9780006157502
+
+Book price not found
+<Response [200]>
+9780006161165
+
+Book price not found
+<Response [200]>
+0006161529 added to database
+9780006161523
+
+Book added to database
+Books added: 103<Response [200]>
+0006161820 added to database
+9780006161820
+
+Book added to database
+Books added: 104<Response [200]>
+9780006161950
+
+Book price not found
+<Response [200]>
+9780006162483
+
+Book price not found
+<Response [200]>
+9780006162957
+
+Book price not found
+<Response [200]>
+9780006162988
+
+Book price not found
+<Response [200]>
+9780006163282
+
+Book price not found
+<Response [200]>
+9780006163435
+
+Book price not found
+<Response [200]>
+9780006163817
+
+Book price not found
+<Response [200]>
+0006163831 added to database
+9780006163831
+
+Book added to database
+Books added: 105<Response [200]>
+0006164811 added to database
+9780006164814
+
+Book added to database
+Books added: 106<Response [200]>
+9780006165378
+
+Book price not found
+<Response [200]>
+9780006166535
+
+Book price not found
+<Response [200]>
+9780006166566
+
+Book price not found
+<Response [200]>
+9780006166726
+
+Book price not found
+<Response [200]>
+9780006166917
+
+Book price not found
+<Response [200]>
+0006167004 added to database
+9780006167006
+
+Book added to database
+Books added: 107<Response [200]>
+9780006168362
+
+Book price not found
+<Response [200]>
+9780006168959
+
+Book price not found
+<Response [200]>
+9780006169130
+
+Book price not found
+<Response [200]>
+9780006170266
+
+Book price not found
+<Response [200]>
+0006170749 added to database
+9780006170747
+
+Book added to database
+Books added: 108<Response [200]>
+9780006171348
+
+Book price not found
+<Response [200]>
+9780006171669
+
+Book price not found
+<Response [200]>
+9780006171782
+
+Book price not found
+<Response [200]>
+9780006173335
+
+Book price not found
+<Response [200]>
+0006174027 added to database
+9780006174028
+
+Book added to database
+Books added: 109<Response [200]>
+9780006174356
+
+Book price not found
+<Response [200]>
+0006174558 added to database
+9780006174554
+
+Book added to database
+Books added: 110<Response [200]>
+9780006174875
+
+Book price not found
+<Response [200]>
+9780006174943
+
+Book price not found
+<Response [200]>
+000617499X added to database
+9780006174998
+
+Book added to database
+Books added: 111<Response [200]>
+0006175279 added to database
+9780006175278
+
+Book added to database
+Books added: 112<Response [200]>
+9780006175322
+
+Book price not found
+<Response [200]>
+9780006176374
+
+Book price not found
+<Response [200]>
+9780006176954
+
+Book price not found
+<Response [200]>
+9780006177012
+
+Book price not found
+<Response [200]>
+9780006177265
+
+Book price not found
+<Response [200]>
+9780006177845
+
+Book price not found
+<Response [200]>
+9780006178453
+
+Book price not found
+<Response [200]>
+9780006178484
+
+Book price not found
+<Response [200]>
+0006178499 added to database
+9780006178491
+
+Book added to database
+Books added: 113<Response [200]>
+0006178731 added to database
+9780006178736
+
+Book added to database
+Books added: 114<Response [200]>
+9780006190219
+
+Book price not found
+<Response [200]>
+0006222471 added to database
+9780006222477
+
+Book added to database
+Books added: 115<Response [200]>
+9780006228394
+
+Book price not found
+<Response [200]>
+9780006232438
+
+Book price not found
+<Response [200]>
+9780006240686
+
+Book price not found
+<Response [200]>
+9780006244547
+
+Book price not found
+<Response [200]>
+9780006245681
+
+Book price not found
+<Response [200]>
+9780006254188
+
+Book price not found
+<Response [200]>
+9780006266389
+
+Book price not found
+<Response [200]>
+9780006266556
+
+Book price not found
+<Response [200]>
+9780006269786
+
+Book price not found
+<Response [200]>
+9780006269854
+
+Book price not found
+<Response [200]>
+0006269974 added to database
+9780006269977
+
+Book added to database
+Books added: 116<Response [200]>
+9780006274278
+
+Book price not found
+<Response [200]>
+9780006274414
+
+Book price not found
+<Response [200]>
+9780006274780
+
+Book price not found
+<Response [200]>
+9780006274797
+
+Book price not found
+<Response [200]>
+9780006275015
+
+Book price not found
+<Response [200]>
+0006276202 added to database
+9780006276203
+
+Book added to database
+Books added: 117<Response [200]>
+9780006276371
+
+Book price not found
+<Response [200]>
+0006278574 added to database
+9780006278573
+
+Book added to database
+Books added: 118<Response [200]>
+0006278825 added to database
+9780006278825
+
+Book added to database
+Books added: 119<Response [200]>
+9780006280026
+
+Book price not found
+<Response [200]>
+0006280544 added to database
+9780006280545
+
+Book added to database
+Books added: 120<Response [200]>
+0006280560 added to database
+9780006280569
+
+Book added to database
+Books added: 121<Response [200]>
+0006280897 added to database
+9780006280897
+
+Book added to database
+Books added: 122<Response [200]>
+0006281141 added to database
+9780006281146
+
+Book added to database
+Books added: 123<Response [404]>
+9780006290094
+
+Book not found
