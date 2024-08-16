@@ -730,7 +730,7 @@ def start():  # Start the program
         print("0. Exit")
         ch = int(input("Enter your choice: "))
         if ch == 1:
-            if login():
+            if login(): 
                 main()
         elif ch == 2:
             register_customer()
