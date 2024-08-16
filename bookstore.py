@@ -733,7 +733,7 @@ def start():  # Start the program
             if login(): # If the login is successful
                 main() # Go to the main menu
         elif ch == 2:
-            register_customer() 
+            register_customer() # Register a new customer
         elif ch == 0:
             kill()
         else:
