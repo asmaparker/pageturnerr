@@ -408,8 +408,6 @@ def search_yearofpublishing(year):  # Search for a book by year of publishing
                     return
             except:
                 print(termcolor.colored("Error! Choose a number from the list.", "red"))
-            else:
-                print(termcolor.colored("Error! Choose a number from the list.", "red"))
 
 
 # Get book information from ISBNDB API if the book is not found in the database
