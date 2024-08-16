@@ -501,7 +501,7 @@ def cart():  # View cart
         j += 1
         db.execute("SELECT title FROM inventory WHERE isbn = '{}'".format(i[0]))
         rs2 = db.fetchall()
-        print("{}. {}".format(j, rs2[0][0])) 
+        print("{}. {}".format(j, rs2[0][0])) # Print the title of the book
 
     print()
     print("Menu")
