@@ -397,7 +397,7 @@ def search_yearofpublishing(year):  # Search for a book by year of publishing
         j = 0
         for i in rs: # Iterate through the books found
             j += 1
-            print("{}. {}".format(j, i[1])) 
+            print("{}. {}".format(j, i[1])) # Print the title of the book
 
         while True:
             try:
