@@ -366,7 +366,7 @@ def search_author(author):  # Search for a book by author
 def search_price(maxprice, minprice):  # Search for a book by price
     db.execute("SELECT isbn, title FROM inventory WHERE price BETWEEN '{}' AND '{}' LIMIT 10".format(
         minprice, maxprice))
-    rs = db.fetchall()
+    rs = db.fetchall() 
     if len(rs) == 0:
         print("No books found within the given price range!")
         return False
