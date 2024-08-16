@@ -433,7 +433,7 @@ def get_book_info_external(isbn):
                   authors, date_published, language, msrp, pages) # List the information of the book
     if response.status_code == 403: # If the API rate limit is exceeded
         print("API rate limit exceeded. Waiting for 30 seconds...")
-        time.sleep(30) 
+        time.sleep(30) # Wait for 30 seconds
         return get_book_info_external(isbn)
     else:
         print("Book not found!")
