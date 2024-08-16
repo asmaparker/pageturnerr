@@ -372,7 +372,7 @@ def search_price(maxprice, minprice):  # Search for a book by price
         return False
     else:
         j = 0
-        for i in rs:
+        for i in rs: 
             j += 1
             print("{}. {}".format(j, i[1]))
 
