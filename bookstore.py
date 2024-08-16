@@ -444,7 +444,7 @@ def get_book_info_external(isbn):
         time.sleep(30)
         return get_book_info_external(isbn)
     else:
-        return print("")
+        return print("Book not found!")
 
 
 def list_info(isbn, isbn13=None, title=None, synopsis=None, publisher=None, authors=None, date_published=None, language=None, price=None, pages=None):  # List the information of the book
