@@ -1,4 +1,5 @@
-# Book Store
+# Page Turner
+# Author: Asma Yaseen Parker
 
 import os
 import sys
