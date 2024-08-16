@@ -681,7 +681,7 @@ def check_if_bought(isbn):  # Check if the book has already been bought by the u
     db.execute("SELECT isbn FROM transactions WHERE username = '{}'".format(login_username))
     rs = db.fetchall()
     for i in rs: # Iterate through the books bought by the user
-        if i[0] == isbn:
+        if i[0] == isbn: 
             return True
     return False
 
