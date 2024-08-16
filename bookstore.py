@@ -594,7 +594,7 @@ def edit_customer():  # Edit customer details
                     break
                 passhash = pass_hasher(newpass) # Hash the new password
                 db.execute("UPDATE auth SET passhash = %s WHERE username = %s",
-                           (passhash, login_username))
+                           (passhash, login_username)) 
                 cdb.commit()
                 print("Password changed successfully!")
                 print()
