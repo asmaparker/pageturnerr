@@ -600,7 +600,7 @@ def edit_customer():  # Edit customer details
                 print()
                 break
         elif ch == 5:
-            delete_account() 
+            delete_account() # Delete the user account
             break
 
         elif ch == 0:
