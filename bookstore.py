@@ -585,7 +585,7 @@ def edit_customer():  # Edit customer details
                 # Go back if the password entered was incorrect
                 return
 
-            if pass_check == True:
+            if pass_check == True: 
                 newpass = getpass("Enter new password: ")
                 confirm = getpass("Confirm new password: ")
                 if newpass != confirm:
