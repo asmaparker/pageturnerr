@@ -752,6 +752,7 @@ def main():  # Main menu
         print("2. Cart")
         print("3. My Library")
         print("4. My Account")
+        print("5. Credits")
         print("0. Logout")
         ch = int(input("Enter your choice: "))
         if ch == 1:
@@ -782,6 +783,11 @@ __)(/_(_| | (_ | |
 | |/  | |(_(_(_)|_|| ||_
 """)
             edit_customer()
+        elif ch == 5:
+            # TODO: Acknowledgement
+            print("""
+Thank you!
+            """)
         elif ch == 0:
             logout()
         else:
