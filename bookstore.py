@@ -395,7 +395,7 @@ def search_yearofpublishing(year):  # Search for a book by year of publishing
         return False
     else:
         j = 0
-        for i in rs:
+        for i in rs: 
             j += 1
             print("{}. {}".format(j, i[1]))
 
