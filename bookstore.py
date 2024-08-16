@@ -313,7 +313,7 @@ def search_title(title):  # Search for a book by title
                     return rs[ch-1][0] # Return the ISBN of the book
                 elif ch == 0:
                     return
-            ex:
+            except:
                 print(termcolor.colored("Error! Choose a number from the list."), "red") # Print an error message if the number is not in the list
 
 
