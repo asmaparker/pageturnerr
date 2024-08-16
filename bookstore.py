@@ -510,7 +510,7 @@ def cart():  # View cart
     print("3. Checkout")
     print("0. Go back")
     ch = int(input("Enter your choice: "))
-    if ch == 1:
+    if ch == 1: 
         ind = int(input("Enter the serial number of the book you want to remove: "))
         isbn = rs[ind-1][0]
         db.execute("DELETE FROM cart WHERE username = '{}' AND isbn = '{}'".format(login_username, isbn))
