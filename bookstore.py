@@ -608,7 +608,7 @@ def edit_customer():  # Edit customer details
 
 
 def delete_account():  # Delete the user account
-    print()
+    print(termcolor)
     ch = input("Are you sure you want to delete your account? (y/n): ")
     if ch.lower() == 'y':
         # Prompt for password as confirmation
