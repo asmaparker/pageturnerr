@@ -575,7 +575,7 @@ def edit_customer():  # Edit customer details
             break
 
         elif ch == 4: # Change password
-            password = getpass("Enter your current password: ") 
+            password = getpass("Enter your current password: ") # Mask the password while it's being inputted
             db.execute("SELECT passhash FROM auth WHERE username = %s", (login_username,))
             rs = db.fetchall()[0][0]
             try:
