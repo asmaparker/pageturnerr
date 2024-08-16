@@ -429,7 +429,7 @@ def get_book_info_external(isbn):
         msrp = data.get("book", {}).get("msrp", 0.0)
         pages = data.get("book", {}).get("pages", 0)
         list_info(isbn, isbn13, title, synopsis, publisher,
-                  authors, date_published, language, msrp, pages) 
+                  authors, date_published, language, msrp, pages) # List the information of the book
     if response.status_code == 403:
         print("API rate limit exceeded. Waiting for 30 seconds...")
         time.sleep(30)
