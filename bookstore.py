@@ -709,7 +709,7 @@ def luhn(ccn):  # Check if the credit card number entered is correct
     return sum(c+u2) % 10 == 0 # The digits from both c and u2 are summed. If the total modulo 10 is equal to 0, the credit card number is considered valid. Otherwise, it is invalid.
 
 
-def check_cc_expiry(expiry):
+def check_cc_expiry(expiry): 
     month, year = str(expiry).split("/")
     if int(month) > 12 or int(month) < 1:
         return False
