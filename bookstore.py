@@ -669,7 +669,7 @@ def buy(isbn):
     db.execute("SELECT price FROM inventory WHERE isbn = '{}'".format(isbn))
     price = db.fetchall()[0][0]
     db.execute("INSERT INTO transactions (order_date, username, isbn, total_price) VALUES('{}', '{}', '{}', '{}')".format(
-        datetime.datetime.now(), login_username, isbn, price))
+        datetime.datetime.now(), login_username, isbn, price)) 
     cdb.commit()
 
     print(termcolor.colored("Payment successful!", "green"))
