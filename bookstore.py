@@ -689,7 +689,7 @@ def check_if_bought(isbn):  # Check if the book has already been bought by the u
 def list_bought():  # List the books bought by the user
     db.execute("SELECT isbn FROM transactions WHERE username = '{}'".format(login_username))
     rs = db.fetchall()
-    if len(rs) == 0:
+    if len(rs) == 0: 
         print("No books bought yet!")
         print()
         return
