@@ -704,7 +704,7 @@ def list_bought():  # List the books bought by the user
 
 
 def luhn(ccn):  # Check if the credit card number entered is correct
-    c = [int(x) for x in str(ccn)[::-2]] # Get the digits of the credit card number
+    c = [int(x) for x in str(ccn)[::-2]] 
     u2 = [(2*int(y))//10+(2*int(y)) % 10 for y in str(ccn)[-2::-2]] 
     return sum(c+u2) % 10 == 0
 
