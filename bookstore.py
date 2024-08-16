@@ -612,7 +612,7 @@ def delete_account():  # Delete the user account
     ch = input("Are you sure you want to delete your account? (y/n): ")
     if ch.lower() == 'y':
         # Prompt for password as confirmation
-        password = getpass("Enter your password to confirm account deletion: ")
+        password = getpass("Enter your password to confirm account deletion: ") 
         db.execute("SELECT passhash FROM auth WHERE username = '{}'".format(login_username))
         rs = db.fetchall()
         while True:
