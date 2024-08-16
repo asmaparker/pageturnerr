@@ -313,7 +313,7 @@ def search_title(title):  # Search for a book by title
             elif ch == 0:
                 return
             else:
-                print(termcolor.colored("Error! Choose a number from the list."), "red") # Print an error message
+                print(termcolor.colored("Error! Choose a number from the list."), "red") # Print an error 
 
 
 def search_publisher(publisher):  # Search for a book by publisher
