@@ -711,7 +711,7 @@ def luhn(ccn):  # Check if the credit card number entered is correct
 
 def check_cc_expiry(expiry): # Check if the credit card has expired
     month, year = str(expiry).split("/") # Split the expiry date into month and year
-    if int(month) > 12 or int(month) < 1: 
+    if int(month) > 12 or int(month) < 1: # If the month is invalid
         return False
     if int(year) + 2000 < datetime.datetime.now().year:
         return False
