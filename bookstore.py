@@ -650,7 +650,7 @@ def buy(isbn):
             print("Invalid credit card number!")
             continue
         else: # If the credit card number is valid
-            expiration_date = input("Enter the expiration date (MM/YY): ") 
+            expiration_date = input("Enter the expiration date (MM/YY): ")
             # Check expiration date
             if not check_cc_expiry(expiration_date):
                 print("Credit card expired!")
