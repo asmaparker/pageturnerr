@@ -549,7 +549,7 @@ def edit_customer():  # Edit customer details
     ch = int(input("Enter your choice: "))
 
     while True:
-        if ch == 1: 
+        if ch == 1: # Change name
             name = input("Enter new name: ")
             db.execute("UPDATE users SET name = %s WHERE username = %s", (name, login_username))
             cdb.commit()
