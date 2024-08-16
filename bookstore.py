@@ -735,7 +735,7 @@ def start():  # Start the program
         elif ch == 2:
             register_customer() # Register a new customer
         elif ch == 0:
-            kill()
+            kill() 
         else:
             print("Invalid choice! Please try again.")
 
