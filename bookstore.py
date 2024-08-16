@@ -390,7 +390,7 @@ def search_price(maxprice, minprice):  # Search for a book by price
 def search_yearofpublishing(year):  # Search for a book by year of publishing
     db.execute("SELECT isbn, title FROM inventory WHERE year(date_published) = '{}' LIMIT 10".format(year))
     rs = db.fetchall()
-    if len(rs) == 0: 
+    if len(rs) == 0: # If the book is not found
         print("No books found with the given year of publishing!")
         return False
     else:
