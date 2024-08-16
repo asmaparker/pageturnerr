@@ -290,8 +290,6 @@ def search_isbn(isbn):  # Search for a book by ISBN
     if len(rs) == 0:
         print("Book not found in database! Searching online for book info...")
         add = get_book_info_external(isbn) # Get book information from ISBNDB API if the book is not found in the database
-        if add == True: # If the book is found
-            search_isbn(isbn)
         else:
             return False
     else:
