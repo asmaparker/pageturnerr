@@ -623,7 +623,7 @@ def delete_account():  # Delete the user account
             except argon2.exceptions.VerifyMismatchError:
                 print(termcolor.colored("Incorrect password!", "red"))
 
-            if pass_check == True:
+            if pass_check == True: 
                 db.execute("DELETE FROM users WHERE username = '{}'".format(login_username))
                 cdb.commit()
                 db.execute("DELETE FROM auth WHERE username = '{}'".format(login_username))
