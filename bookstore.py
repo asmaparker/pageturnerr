@@ -338,8 +338,6 @@ def search_publisher(publisher):  # Search for a book by publisher
                     return
             except:
                 print(termcolor.colored("Error! Choose a number from the list.", "red")) # Print an error message if the number is not in the list
-            else:
-                print(termcolor.colored("Error! Choose a number from the list.", "red"))
 
 
 def search_author(author):  # Search for a book by author
