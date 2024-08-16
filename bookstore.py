@@ -415,7 +415,7 @@ def get_book_info_external(isbn):
     API_KEY = "" # API Key for ISBNDB API
     url = f'https: //api2.isbndb.com/book/{isbn}' # URL for the API
     headers = {'Authorization': API_KEY} # Headers for the API
-    response = requests.get(url=url, headers=headers) 
+    response = requests.get(url=url, headers=headers) # Request the data from the API
     if response.status_code == 200:
         data = response.json()
         isbn = data.get("book", {}).get("isbn10", "")
