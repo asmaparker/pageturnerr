@@ -122,7 +122,7 @@ def clear():  # Clear the terminal window
 
 
 def kill():  # Exit the program
-    sys.exit("Thank you for using Page Turner!")
+    sys.exit("Thank you for using PageTurner!")
 
 
 def check_existing_username(username):  # Check whether username already exists
@@ -234,7 +234,7 @@ def search():  # Search for a book
             print("Book not found!")
             print()
         else:
-            list_info(isbn)  # List the information of the book
+            list_info(isbn=isbn)  # List the information of the book
 
     elif ch == 2:  # If the choice is 2
         title = input("Enter the title of the book: ")  # Input the title of the book
@@ -298,7 +298,7 @@ def search_isbn(isbn):  # Search for a book by ISBN
     if len(rs) == 0:
         print("Book not found in database! Searching online for book info...")
         # Get book information from ISBNDB API if the book is not found in the database
-        get_book_info_external(isbn)
+        return get_book_info_external(isbn)
     else:
         return rs[0][0]
 
@@ -437,7 +437,7 @@ def get_book_info_external(isbn):
         response = requests.get(url=url, headers=headers) # Request the data from the API
     except:
         print("Error occurred while fetching data from the API!") # Print an error message if the data cannot be fetched
-        return
+        return False
     if response.status_code == 200: # If the response is successful
         data = response.json() # Get the data from the response
         isbn = data.get("book", {}).get("isbn10", "")
@@ -459,6 +459,7 @@ def get_book_info_external(isbn):
         return get_book_info_external(isbn)  # Get the book information from the API
     else:  # If the response is not successful
         print("Book not found!")
+        return False
 
 
 def list_info(isbn, isbn13=None, title=None, synopsis=None, publisher=None, authors=None, date_published=None, language=None, price=None, pages=None):  # List the information of the book
