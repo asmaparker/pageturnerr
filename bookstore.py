@@ -749,7 +749,7 @@ def main():  # Main menu
         print("5. Credits")
         print("0. Logout")
         ch = int(input("Enter your choice: "))
-        if ch == 1:
+        if ch == 1: 
             print("""
  __
 (_  _  _  __ _ |_
