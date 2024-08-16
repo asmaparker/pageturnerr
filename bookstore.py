@@ -319,7 +319,7 @@ def search_title(title):  # Search for a book by title
 def search_publisher(publisher):  # Search for a book by publisher
     db.execute("SELECT isbn, title FROM inventory WHERE publisher LIKE '%{}%' LIMIT 10".format(publisher))
     rs = db.fetchall()
-    if len(rs) == 0:
+    if len(rs) == 0: 
         print("Books not found! Try searching by ISBN or try a different publisher.")
         return False
     else:
