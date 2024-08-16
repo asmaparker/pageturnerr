@@ -302,7 +302,7 @@ def search_title(title):  # Search for a book by title
         return False
     else:
         j = 0
-        for i in rs:
+        for i in rs: 
             j += 1
             print("{}. {}".format(j, i[1]))
 
