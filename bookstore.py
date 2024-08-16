@@ -361,8 +361,6 @@ def search_author(author):  # Search for a book by author
                     return
             except:
                 print(termcolor.colored("Error! Choose a number from the list.", "red"))
-            else:
-                print(termcolor.colored("Error! Choose a number from the list.", "red"))
 
 
 def search_price(maxprice, minprice):  # Search for a book by price
