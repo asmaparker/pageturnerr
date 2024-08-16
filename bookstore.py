@@ -384,7 +384,7 @@ def search_price(maxprice, minprice):  # Search for a book by price
                 if ch == 0:
                     return
             except:
-                print(termcolor.colored("Error! Choose a number from the list.", "red"))
+                print(termcolor.colored("Error! Choose a number from the list.", "red")) 
 
 
 def search_yearofpublishing(year):  # Search for a book by year of publishing
