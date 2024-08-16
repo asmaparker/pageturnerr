@@ -717,7 +717,7 @@ def check_cc_expiry(expiry): # Check if the credit card has expired
         return False
     if int(year) + 2000 == datetime.datetime.now().year and int(month) < datetime.datetime.now().month: # If the year is the current year and the month is in the past
         return False
-    else: 
+    else: # If the credit card hasn't expired
         return True
 
 
