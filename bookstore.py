@@ -7,7 +7,6 @@ import sys
 # Check whether the OS is Linux/MacOS or Windows
 if os.name == "posix":
     # Clear the screen
-    os.system("sudo service mysql start")
     os.system("clear")
 else:
     # Clear the screen
