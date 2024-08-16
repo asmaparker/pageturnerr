@@ -789,4 +789,4 @@ Thank you!
 
 
 if __name__ == "__main__":
-    start() 
+    start() # Start the program
