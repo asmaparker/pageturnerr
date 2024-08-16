@@ -497,7 +497,7 @@ def cart():  # View cart
         return
 
     j = 0
-    for i in rs:
+    for i in rs: 
         j += 1
         db.execute("SELECT title FROM inventory WHERE isbn = '{}'".format(i[0]))
         rs2 = db.fetchall()
