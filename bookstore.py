@@ -325,7 +325,7 @@ def search_publisher(publisher):  # Search for a book by publisher
     else:
         j = 0
         for i in rs:
-            j += 1 
+            j += 1
             print("{}. {}".format(j, i[1]))
 
         while True:
