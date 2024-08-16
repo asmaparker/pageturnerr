@@ -336,7 +336,7 @@ def search_publisher(publisher):  # Search for a book by publisher
                 if ch == 0:
                     return
             except:
-                print(termcolor.colored("Error! Choose a number from the list.", "red"))
+                print(termcolor.colored("Error! Choose a number from the list.", "red")) 
             else:
                 print(termcolor.colored("Error! Choose a number from the list.", "red"))
 
