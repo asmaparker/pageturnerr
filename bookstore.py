@@ -583,7 +583,7 @@ def edit_customer():  # Edit customer details
                 pass_check = pass_verify(rs, password)
             except argon2.exceptions.VerifyMismatchError:
                 # Exit the program if the password entered was incorrect
-                retu
+                return
 
             if pass_check == True:
                 newpass = getpass("Enter new password: ")
