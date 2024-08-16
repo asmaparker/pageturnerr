@@ -656,7 +656,7 @@ def buy(isbn):
                 print("Credit card expired!")
                 continue
             else:
-                cvv = getpass("Enter the CVV: ") 
+                cvv = getpass("Enter the CVV: ") # Mask the CVV while it's being inputted
                 if len(cvv) != 3:
                     print("Invalid CVV!")
                     continue
