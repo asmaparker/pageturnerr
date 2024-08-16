@@ -582,7 +582,7 @@ def edit_customer():  # Edit customer details
                 # Verify if current password matches the hash existing in the database
                 pass_check = pass_verify(rs, password)
             except argon2.exceptions.VerifyMismatchError:
-                # Exit the program if the password entered was incorrect
+                # G if the password entered was incorrect
                 return
 
             if pass_check == True:
