@@ -57,13 +57,13 @@ try:
     print("Connecting to database...")
     cdb = connect(host="localhost", user="root", password="root")  # Connecting to the MySQL server
     db = cdb.cursor()  # Creating the cursor for the MySQL Server
-    db.execute("CREATE DATABASE IF NOT EXISTS bookstore")  # Create the database if it doesn't exist
+    db.execute("CREATE DATABASE IF NOT EXISTS pageturner")  # Create the database if it doesn't exist
     cdb.commit()  # Save changes
     db.close()  # Close the cursor and ensure that the cursor object has no reference to its original connection object
     cdb.close()  # Close the connection to the server
 
     cdb = connect(host="localhost", user="root", password="root",
-                  database="bookstore")  # Reopen connection to the MySQL server
+                  database="pageturner")  # Reopen connection to the MySQL server
     db = cdb.cursor()  # Creating the cursor for the MySQL Server
 except:
     sys.exit("Unable to connect to the database")
