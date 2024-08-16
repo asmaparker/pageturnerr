@@ -470,7 +470,7 @@ def list_info(isbn, isbn13=None, title=None, synopsis=None, publisher=None, auth
         db.execute("DELETE FROM cart WHERE username = '{}' AND isbn = '{}'".format(login_username, isbn)) # Delete the book from the cart
         cdb.commit()
         print()
-    elif ch == 3:
+    elif ch == 3: 
         print(termcolor.colored(ai_suggestions(rs[0][2], rs[0][3], str(
             rs[0][6])[0:3], rs[0][5], rs[0][9]), "yellow", attrs=["blink"]))
         # Print AI Warning
