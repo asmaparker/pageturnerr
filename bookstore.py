@@ -524,7 +524,7 @@ def cart():  # View cart
         print("Cart emptied!")
         print()
 
-    elif ch == 3: 
+    elif ch == 3: # Checkout
         for i in rs:
             db.execute("SELECT price FROM inventory WHERE isbn = '{}'".format(i[0]))
             rs2 = db.fetchall()
