@@ -697,7 +697,7 @@ def list_bought():  # List the books bought by the user
     j = 0
     for i in rs: # Iterate through the books bought by the user
         j += 1
-        db.execute("SELECT title FROM inventory WHERE isbn = '{}'".format(i[0])) 
+        db.execute("SELECT title FROM inventory WHERE isbn = '{}'".format(i[0])) # Get the title of the book
         rs2 = db.fetchall()
         print("{}. {}".format(j, rs2[0][0]))
     print()
