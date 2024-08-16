@@ -731,7 +731,7 @@ def start():  # Start the program
         ch = int(input("Enter your choice: "))
         if ch == 1:
             if login(): # If the login is successful
-                main() 
+                main() # Go to the main menu
         elif ch == 2:
             register_customer()
         elif ch == 0:
