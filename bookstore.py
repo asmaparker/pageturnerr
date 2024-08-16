@@ -71,10 +71,10 @@ except:
 
 try:
     print("Setting up database")
-    db.execute("CREATE TABLE IF NOT EXISTS users (name VARCHAR(255), email VARCHAR(255), phone_number VARCHAR(255), username VARCHAR(255))")
-    db.execute("CREATE TABLE IF NOT EXISTS auth (username VARCHAR(255), passhash LONGTEXT)")
-    db.execute("CREATE TABLE IF NOT EXISTS books (isbn CHAR(10), isbn13 CHAR(13), title LONGTEXT, synopsis LONGTEXT, publisher LONGTEXT, authors LONGTEXT, date_published DATE, language CHAR(2), price FLOAT, pages INT)")
-    db.execute("CREATE TABLE IF NOT EXISTS transactions (receipt_no INT UNIQUE NOT NULL AUTO_INCREMENT, order_date DATE, username VARCHAR(255), isbn CHAR(10), total_price FLOAT)")
+    db.execute("CREATE TABLE IF NOT EXISTS users (name VARCHAR(255), email VARCHAR(255), phone_number VARCHAR(255), username VARCHAR(255) PRIMARY KEY)")
+    db.execute("CREATE TABLE IF NOT EXISTS auth (username VARCHAR(255) PRIMARY KEY, passhash LONGTEXT)")
+    db.execute("CREATE TABLE IF NOT EXISTS books (isbn CHAR(10) PRIMARY KEY, isbn13 CHAR(13), title LONGTEXT, synopsis LONGTEXT, publisher LONGTEXT, authors LONGTEXT, date_published DATE, language CHAR(2), price FLOAT, pages INT)")
+    db.execute("CREATE TABLE IF NOT EXISTS transactions (receipt_no INT PRIMARY KEY NOT NULL AUTO_INCREMENT, order_date DATE, username VARCHAR(255), isbn CHAR(10), total_price FLOAT)")
     db.execute("CREATE TABLE IF NOT EXISTS cart (username VARCHAR(255), isbn CHAR(10))")
     cdb.commit()
 except:
