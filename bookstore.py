@@ -12,7 +12,11 @@ else:
     # Clear the screen
     os.system("cls")
 
-print("PAGE TURNER")
+print("""
+╔═╗┌─┐┌─┐┌─┐╔╦╗┬ ┬┬─┐┌┐┌┌─┐┬─┐
+╠═╝├─┤│ ┬├┤  ║ │ │├┬┘│││├┤ ├┬┘
+╩  ┴ ┴└─┘└─┘ ╩ └─┘┴└─┘└┘└─┘┴└─
+""")
 
 if not sys.warnoptions:
     import warnings
@@ -49,14 +53,14 @@ except:
 
 try:
     print("Connecting to database...")
-    cdb = connect(host="localhost", user="asma", password="mysql")  # Connecting to the MySQL server
+    cdb = connect(host="localhost", user="root", password="root")  # Connecting to the MySQL server
     db = cdb.cursor()  # Creating the cursor for the MySQL Server
     db.execute("CREATE DATABASE IF NOT EXISTS bookstore")  # Create the database if it doesn't exist
     cdb.commit()  # Save changes
     db.close()  # Close the cursor and ensure that the cursor object has no reference to its original connection object
     cdb.close()  # Close the connection to the server
 
-    cdb = connect(host="localhost", user="asma", password="mysql", database="bookstore")  # Reopen connection to the MySQL server
+    cdb = connect(host="localhost", user="root", password="root", database="bookstore")  # Reopen connection to the MySQL server
     db = cdb.cursor()  # Creating the cursor for the MySQL Server
 except:
     sys.exit("Unable to connect to the database")
@@ -75,8 +79,8 @@ except:
 try:
     print("Adding content to database...")
     url = "https://raw.githubusercontent.com/asmaparker/pageturnerr/main/books.csv"
-    # db.execute("DELETE FROM inventory")
-    # cdb.commit()
+    db.execute("DELETE FROM inventory")
+    cdb.commit()
     with requests.get(url=url, stream=True, headers={'Cache-Control': 'no-cache'}) as r:
         lines = (line.decode('utf-8') for line in r.iter_lines())
         next(lines)
@@ -175,8 +179,7 @@ def logout():  # Log out and exit the program
     global login_username
     login_status = False
     login_username = None
-    print("Thank You for using Page Turner!")
-    sys.exit("Successfully logged out!")
+    kill()
 
 def pass_hasher(password):  # Hash a given password
     return argon2.PasswordHasher().hash(str(password))
@@ -493,8 +496,8 @@ def cart(): # View cart
             db.execute("SELECT price FROM inventory WHERE isbn = '{}'".format(i[0]))
             rs2 = db.fetchall()
             buy(i[0])
-        db.execute("DELETE FROM cart WHERE username = '{}' AND isbn = '{}'".format(login_username, isbn))
-        cdb.commit()
+            db.execute("DELETE FROM cart WHERE username = '{}' AND isbn = '{}'".format(login_username, i[0]))
+            cdb.commit()
         print("Order(s) placed successfully!")
         print()
     elif ch == 0:
@@ -565,6 +568,7 @@ def edit_customer():  # Edit customer details
             break
 
 def delete_account(): # Delete the user account
+    print("Deleting your account will remove all books from My Library!")
     ch = input("Are you sure you want to delete your account? (y/n): ")
     if ch.lower() == 'y':
         # Prompt for password as confirmation
@@ -606,7 +610,7 @@ def buy(isbn):
         else:
             expiration_date = input("Enter the expiration date (MM/YY): ")
             # Check expiration date
-            if datetime.strptime(expiration_date, "%m/%y").replace(day=1).replace(month=(lambda x: x % 12 + 1)(int(expiration_date[:2])), year=lambda y: datetime.now().year) > datetime.now():
+            if not check_cc_expiry(expiration_date):
                 print("Credit card expired!")
                 continue
             else:
@@ -625,8 +629,8 @@ def buy(isbn):
     db.execute("INSERT INTO transactions (order_date, username, isbn, total_price) VALUES('{}', '{}', '{}', '{}')".format(datetime.datetime.now(), login_username, isbn, price))
     cdb.commit()       
     
-    print("Payment successful!")
-    print("Thank you for your purchase!")
+    print(termcolor.colored("Payment successful!", "green"))
+    print(termcolor.colored("Thank you for your purchase!", "green"))
     print()
 
 def check_if_bought(isbn): # Check if the book has already been bought by the user
@@ -658,6 +662,17 @@ def luhn(ccn): # Check if the credit card number entered is correct
     u2 = [(2*int(y))//10+(2*int(y)) % 10 for y in str(ccn)[-2::-2]]
     return sum(c+u2) % 10 == 0
 
+def check_cc_expiry(expiry):
+    month, year = str(expiry).split("/")
+    if int(month) > 12 or int(month) < 1:
+        return False
+    if int(year) + 2000 < datetime.datetime.now().year:
+        return False
+    if int(year) + 2000 == datetime.datetime.now().year and int(month) < datetime.datetime.now().month:
+        return False
+    else:
+        return True
+
 def start(): # Start the program
     while True:
         clear()
@@ -678,26 +693,44 @@ def start(): # Start the program
 
 def main(): # Main menu
     while True:
-        print("1. Search for a book")
-        print("2. Account Management")
-        print("3. View cart")
-        print("4. View bought books")
+        print("1. Search")
+        print("2. Cart")
+        print("3. My Library")
+        print("4. My Account")
         print("0. Logout")
         ch = int(input("Enter your choice: "))
         if ch == 1:
-            # TODO: Add pretty header
+            print("""
+ __               
+(_  _  _  __ _ |_ 
+__)(/_(_| | (_ | |
+            """)
             search()
         elif ch == 2:
-            # TODO: Add pretty header
-            edit_customer()
-        elif ch == 3:
-            # TODO: Add pretty header
+            print("""
+ __        
+/   _ ___|_
+\__(_||  |_
+""")
             cart()
-        elif ch == 4:
-            # TODO: Add pretty header
+        elif ch == 3:
+            print(""" 
+|V|\/ |  o|_ ___ __\/
+| |/  |__||_)|(_|| / 
+""")
             list_bought()
+
+        elif ch == 4:
+            print("""
+       _                
+|V|\/ |_| _ _ _    ___|_
+| |/  | |(_(_(_)|_|| ||_
+""")
+            edit_customer()
         elif ch == 0:
             logout()
+        else:
+            pass
 
 if __name__ == "__main__":
     start()
