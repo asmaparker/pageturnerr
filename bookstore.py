@@ -348,7 +348,7 @@ def search_author(author):  # Search for a book by author
         return False
     else:
         j = 0
-        for i in rs: 
+        for i in rs: # Iterate through the books found
             j += 1
             print("{}. {}".format(j, i[1]))
 
