@@ -565,7 +565,7 @@ def edit_customer():  # Edit customer details
             print()
             break
 
-        elif ch == 3: # Change phone number=
+        elif ch == 3: # Change phone number
             phone_number = input("Enter new phone number in international format: ")
             db.execute("UPDATE users SET phone_number = %s WHERE username = %s",
                        (phone_number, login_username))
@@ -574,7 +574,7 @@ def edit_customer():  # Edit customer details
             print()
             break
 
-        elif ch == 4:
+        elif ch == 4: 
             password = getpass("Enter your current password: ")
             db.execute("SELECT passhash FROM auth WHERE username = %s", (login_username,))
             rs = db.fetchall()[0][0]
