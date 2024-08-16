@@ -414,7 +414,7 @@ def search_yearofpublishing(year):  # Search for a book by year of publishing
 def get_book_info_external(isbn):
     API_KEY = "" # API Key for ISBNDB API
     url = f'https: //api2.isbndb.com/book/{isbn}' # URL for the API
-    headers = {'Authorization': API_KEY} 
+    headers = {'Authorization': API_KEY} # Headers for the API
     response = requests.get(url=url, headers=headers)
     if response.status_code == 200:
         data = response.json()
