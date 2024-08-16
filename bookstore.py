@@ -297,7 +297,7 @@ def search_isbn(isbn):  # Search for a book by ISBN
 def search_title(title):  # Search for a book by title
     db.execute("SELECT isbn, title FROM inventory WHERE title LIKE '%{}%' LIMIT 10".format(title))
     rs = db.fetchall()
-    if len(rs) == 0: 
+    if len(rs) == 0: # If the book is not found
         print("Books not found! Try searching by ISBN or try a different title.")
         return False
     else:
