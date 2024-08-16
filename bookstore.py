@@ -587,7 +587,7 @@ def edit_customer():  # Edit customer details
 
             if pass_check == True: # If the password is correct
                 newpass = getpass("Enter new password: ")
-                confirm = getpass("Confirm new password: ") # Mask the password while it's being inputted
+                confirm = getpass("Confirm new password: ") # Con
                 if newpass != confirm:
                     print("Passwords don't match!")
                     print()
