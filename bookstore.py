@@ -649,7 +649,7 @@ def buy(isbn):
         if luhn(card_number) == False: # Check the credit card number's validity
             print("Invalid credit card number!")
             continue
-        else:
+        else: 
             expiration_date = input("Enter the expiration date (MM/YY): ")
             # Check expiration date
             if not check_cc_expiry(expiration_date):
