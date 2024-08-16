@@ -646,7 +646,7 @@ def buy(isbn):
     while True:
         # Prompt for credit card details
         card_number = input("Enter your credit card number: ")
-        if luhn(card_number) == False: # Check the credit card number
+        if luhn(card_number) == False: # Check the credit card number;s
             print("Invalid credit card number!")
             continue
         else:
