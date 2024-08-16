@@ -706,7 +706,8 @@ def list_bought():  # List the books bought by the user
 def luhn(ccn):  # Check if the credit card number entered is correct
     c = [int(x) for x in str(ccn)[::-2]] # This line extracts every second digit from the right (starting from the last digit), reverses the credit card number, and converts those digits to integers.
     u2 = [(2*int(y))//10+(2*int(y)) % 10 for y in str(ccn)[-2::-2]] # This line processes every second digit starting from the second-to-last digit (from right to left). Each digit is doubled. If the result is a two-digit number, the two digits are added together.
-    return sum(c+u2) % 10 == 0 
+    return sum(c+u2) % 10 == 0 # The digits from both c and u2 are summed. If the total modulo 10 is equal to 0, the credit card number is considered valid.
+
 
 
 def check_cc_expiry(expiry):
