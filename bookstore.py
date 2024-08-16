@@ -460,7 +460,7 @@ def list_info(isbn, isbn13=None, title=None, synopsis=None, publisher=None, auth
     print("0. Go back")
 
     ch = int(input("Enter your choice: "))
-    if ch == 1:
+    if ch == 1: 
         db.execute("INSERT IGNORE INTO cart VALUES('{}', '{}')".format(login_username, isbn))
         cdb.commit()
         print("Item added to cart!")
