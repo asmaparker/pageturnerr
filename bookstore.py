@@ -72,7 +72,7 @@ try:
     print("Setting up database")
     db.execute("CREATE TABLE IF NOT EXISTS users (name VARCHAR(255), email VARCHAR(255), phone_number VARCHAR(255), username VARCHAR(255))")
     db.execute("CREATE TABLE IF NOT EXISTS auth (username VARCHAR(255), passhash LONGTEXT)")
-    db.execute("CREATE TABLE IF NOT EXISTS inventory (isbn CHAR(10), isbn13 CHAR(13), title LONGTEXT, synopsis LONGTEXT, publisher LONGTEXT, authors LONGTEXT, date_published DATE, language CHAR(2), price FLOAT, pages INT)")
+    db.execute("CREATE TABLE IF NOT EXISTS books (isbn CHAR(10), isbn13 CHAR(13), title LONGTEXT, synopsis LONGTEXT, publisher LONGTEXT, authors LONGTEXT, date_published DATE, language CHAR(2), price FLOAT, pages INT)")
     db.execute("CREATE TABLE IF NOT EXISTS transactions (receipt_no INT UNIQUE NOT NULL AUTO_INCREMENT, order_date DATE, username VARCHAR(255), isbn CHAR(10), total_price FLOAT)")
     db.execute("CREATE TABLE IF NOT EXISTS cart (username VARCHAR(255), isbn CHAR(10))")
     cdb.commit()
@@ -81,15 +81,13 @@ except:
 
 try:
     print("Adding content to database...")
-    db.execute("DELETE FROM inventory") # Delete all existing data in the inventory table
-    cdb.commit()
     try:
         f = open("books.csv", encoding='utf-8') # Open books data
         reader = csv.reader(f, delimiter='|') # Read the CSV file with custom delimiter
         next(reader) # Skip the header row
         for row in reader:
-            db.execute("INSERT IGNORE INTO inventory VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
-                       (row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9])) # Insert the data into the inventory table if it doesn't already exist
+            db.execute("INSERT IGNORE INTO books VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
+                       (row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9])) # Insert the data into the books table if it doesn't already exist
             cdb.commit()
     except:
         # If the books data is not available, download it from the GitHub repository
@@ -98,7 +96,7 @@ try:
             lines = (line.decode('utf-8') for line in r.iter_lines()) # Decode the data from the stream
             next(lines) # Skip the header row
             for row in csv.reader(lines, delimiter='|'): # Read the CSV file with custom delimiter
-                db.execute("INSERT IGNORE INTO inventory VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
+                db.execute("INSERT IGNORE INTO books VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
                            (row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9]))
                 cdb.commit()
 except IndexError: # If the data is missing, skip the row
@@ -284,7 +282,7 @@ def search():  # Search for a book
 
 
 def search_isbn(isbn):  # Search for a book by ISBN
-    db.execute("SELECT isbn FROM inventory WHERE isbn = '{}'".format(isbn)) # Search for the book by ISBN
+    db.execute("SELECT isbn FROM books WHERE isbn = '{}'".format(isbn)) # Search for the book by ISBN
     rs = db.fetchall()
     if len(rs) == 0:
         print("Book not found in database! Searching online for book info...")
@@ -294,7 +292,7 @@ def search_isbn(isbn):  # Search for a book by ISBN
 
 
 def search_title(title):  # Search for a book by title
-    db.execute("SELECT isbn, title FROM inventory WHERE title LIKE '%{}%' LIMIT 10".format(title))
+    db.execute("SELECT isbn, title FROM books WHERE title LIKE '%{}%' LIMIT 10".format(title))
     rs = db.fetchall()
     if len(rs) == 0: # If the book is not found
         print("Books not found! Try searching by ISBN or try a different title.")
@@ -317,7 +315,7 @@ def search_title(title):  # Search for a book by title
 
 
 def search_publisher(publisher):  # Search for a book by publisher
-    db.execute("SELECT isbn, title FROM inventory WHERE publisher LIKE '%{}%' LIMIT 10".format(publisher))
+    db.execute("SELECT isbn, title FROM books WHERE publisher LIKE '%{}%' LIMIT 10".format(publisher))
     rs = db.fetchall()
     if len(rs) == 0: # If the book is not found
         print("Books not found! Try searching by ISBN or try a different publisher.")
@@ -340,7 +338,7 @@ def search_publisher(publisher):  # Search for a book by publisher
 
 
 def search_author(author):  # Search for a book by author
-    db.execute("SELECT isbn, title FROM inventory WHERE authors LIKE '%{}%' LIMIT 10".format(author))
+    db.execute("SELECT isbn, title FROM books WHERE authors LIKE '%{}%' LIMIT 10".format(author))
     rs = db.fetchall()
     if len(rs) == 0: # If the book is not found
         print("Books not found! Try searching by ISBN or try a different author.")
@@ -363,7 +361,7 @@ def search_author(author):  # Search for a book by author
 
 
 def search_price(maxprice, minprice):  # Search for a book by price
-    db.execute("SELECT isbn, title FROM inventory WHERE price BETWEEN '{}' AND '{}' LIMIT 10".format(
+    db.execute("SELECT isbn, title FROM books WHERE price BETWEEN '{}' AND '{}' LIMIT 10".format(
         minprice, maxprice))
     rs = db.fetchall() 
     if len(rs) == 0: # If the book is not found
@@ -387,7 +385,7 @@ def search_price(maxprice, minprice):  # Search for a book by price
 
 
 def search_yearofpublishing(year):  # Search for a book by year of publishing
-    db.execute("SELECT isbn, title FROM inventory WHERE year(date_published) = '{}' LIMIT 10".format(year))
+    db.execute("SELECT isbn, title FROM books WHERE year(date_published) = '{}' LIMIT 10".format(year))
     rs = db.fetchall()
     if len(rs) == 0: # If the book is not found
         print("No books found with the given year of publishing!")
@@ -440,7 +438,7 @@ def get_book_info_external(isbn):
 
 def list_info(isbn, isbn13=None, title=None, synopsis=None, publisher=None, authors=None, date_published=None, language=None, price=None, pages=None):  # List the information of the book
     db.execute(
-        "SELECT isbn,isbn13,title,synopsis,publisher,authors,date_published,language,price,pages FROM inventory WHERE isbn = '{isbn}'".format(isbn=isbn))
+        "SELECT isbn,isbn13,title,synopsis,publisher,authors,date_published,language,price,pages FROM books WHERE isbn = '{isbn}'".format(isbn=isbn))
     rs = db.fetchall()
     # Make a string for authors that will iterate through all authors and add them to the string
     print(termcolor.colored(rs[0][2], 'cyan', attrs=["bold", "underline"]))
@@ -498,7 +496,7 @@ def cart():  # View cart
     j = 0
     for i in rs: # Iterate through the books in the cart
         j += 1
-        db.execute("SELECT title FROM inventory WHERE isbn = '{}'".format(i[0]))
+        db.execute("SELECT title FROM books WHERE isbn = '{}'".format(i[0]))
         rs2 = db.fetchall()
         print("{}. {}".format(j, rs2[0][0])) # Print the title of the book
 
@@ -525,7 +523,7 @@ def cart():  # View cart
 
     elif ch == 3: # Checkout
         for i in rs:
-            db.execute("SELECT price FROM inventory WHERE isbn = '{}'".format(i[0]))
+            db.execute("SELECT price FROM books WHERE isbn = '{}'".format(i[0]))
             rs2 = db.fetchall()
             buy(i[0])
             db.execute("DELETE FROM cart WHERE username = '{}' AND isbn = '{}'".format(
@@ -665,7 +663,7 @@ def buy(isbn):
                     break
 
     # Process the payment and complete the transaction
-    db.execute("SELECT price FROM inventory WHERE isbn = '{}'".format(isbn))
+    db.execute("SELECT price FROM books WHERE isbn = '{}'".format(isbn))
     price = db.fetchall()[0][0]
     db.execute("INSERT INTO transactions (order_date, username, isbn, total_price) VALUES('{}', '{}', '{}', '{}')".format(
         datetime.datetime.now(), login_username, isbn, price)) # Insert the transaction details into the transactions table
@@ -696,7 +694,7 @@ def list_bought():  # List the books bought by the user
     j = 0
     for i in rs: # Iterate through the books bought by the user
         j += 1
-        db.execute("SELECT title FROM inventory WHERE isbn = '{}'".format(i[0])) # Get the title of the book
+        db.execute("SELECT title FROM books WHERE isbn = '{}'".format(i[0])) # Get the title of the book
         rs2 = db.fetchall()
         print("{}. {}".format(j, rs2[0][0])) # Print the title of the book
     print()
