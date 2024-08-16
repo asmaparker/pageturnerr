@@ -401,7 +401,7 @@ def search_yearofpublishing(year):  # Search for a book by year of publishing
 
         while True:
             try:
-                ch = int(input("Enter the number of the book you would like to select: "))
+                ch = int(input("Enter the number of the book you would like to select: ")) 
                 if ch <= 10 and ch >= 1:
                     return rs[ch-1][0]
                 if ch == 0:
