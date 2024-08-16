@@ -565,7 +565,7 @@ def edit_customer():  # Edit customer details
             print()
             break
 
-        elif ch == 3: 
+        elif ch == 3: # Change phone number
             phone_number = input("Enter new phone number in international format: ")
             db.execute("UPDATE users SET phone_number = %s WHERE username = %s",
                        (phone_number, login_username))
