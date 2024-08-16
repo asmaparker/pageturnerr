@@ -466,7 +466,7 @@ def list_info(isbn, isbn13=None, title=None, synopsis=None, publisher=None, auth
         print("Item added to cart!")
         print()
     elif ch == 2:
-        buy(isbn)
+        buy(isbn) 
         db.execute("DELETE FROM cart WHERE username = '{}' AND isbn = '{}'".format(login_username, isbn))
         cdb.commit()
         print()
