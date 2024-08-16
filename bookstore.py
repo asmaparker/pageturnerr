@@ -78,15 +78,23 @@ except:
 
 try:
     print("Adding content to database...")
-    url = "https://raw.githubusercontent.com/asmaparker/pageturnerr/main/books.csv"
     db.execute("DELETE FROM inventory")
     cdb.commit()
-    with requests.get(url=url, stream=True, headers={'Cache-Control': 'no-cache'}) as r:
-        lines = (line.decode('utf-8') for line in r.iter_lines())
-        next(lines)
-        for row in csv.reader(lines, delimiter='|'):
+    try:
+        f = open("books.csv", encoding='utf-8')
+        reader = csv.reader(f, delimiter='|')
+        next(reader)
+        for row in reader:
             db.execute("INSERT IGNORE INTO inventory VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9]))
             cdb.commit()
+    except:
+        url = "https://raw.githubusercontent.com/asmaparker/pageturnerr/main/books.csv"
+        with requests.get(url=url, stream=True, headers={'Cache-Control': 'no-cache'}) as r:
+            lines = (line.decode('utf-8') for line in r.iter_lines())
+            next(lines)
+            for row in csv.reader(lines, delimiter='|'):
+                db.execute("INSERT IGNORE INTO inventory VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9]))
+                cdb.commit()
 except IndexError:
     pass
 except:
