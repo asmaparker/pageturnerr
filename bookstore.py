@@ -173,10 +173,10 @@ def login():  # Log in the user
     global login_username  # Set login username to global to be used in other functions
     login_username = input("Enter your username: ")
     password = getpass("Enter your password: ")  # Mask the password while it's being inputted
-    db.execute("SELECT * FROM auth")
+    db.execute("SELECT * FROM auth WHERE username = '{}'".format(login_username))
     rs = db.fetchall()
 
-    if check_existing_username(username=login_username) == True:  # Check if the username exists
+    if len(rs) == 0:  # Check if the username exists
         sys.exit("Username doesn't exist!")
 
     while True:
