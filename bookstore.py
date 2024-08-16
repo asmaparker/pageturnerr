@@ -624,7 +624,7 @@ def delete_account():  # Delete the user account
                 print(termcolor.colored("Incorrect password!", "red"))
 
             if pass_check == True: # If the password is correct
-                db.execute("DELETE FROM users WHERE username = '{}'".format(login_username)) 
+                db.execute("DELETE FROM users WHERE username = '{}'".format(login_username)) # Delete the user from the users table
                 cdb.commit()
                 db.execute("DELETE FROM auth WHERE username = '{}'".format(login_username))
                 cdb.commit()
