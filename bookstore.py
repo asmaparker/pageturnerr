@@ -723,7 +723,7 @@ def check_cc_expiry(expiry): # Check if the credit card has expired
 
 def start():  # Start the program
     while True:
-        clear()
+        clear() 
         print("Welcome to Page Turner!")
         print("1. Login")
         print("2. Register")
