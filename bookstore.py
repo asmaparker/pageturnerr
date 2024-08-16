@@ -19,10 +19,12 @@ print("""
 ╩  ┴ ┴└─┘└─┘ ╩ └─┘┴└─┘└┘└─┘┴└─
 """)
 
+# Ignore all warnings
 if not sys.warnoptions:
     import warnings
     warnings.simplefilter("ignore")
 
+# Check if Python 3 is installed
 if sys.version_info[0] < 3:
     print("Please download Python3 from the link below")
     print("https://www.python.org/downloads/")
@@ -80,31 +82,32 @@ except:
 
 try:
     print("Adding content to database...")
-    db.execute("DELETE FROM inventory")
+    db.execute("DELETE FROM inventory") # Delete all existing data in the inventory table
     cdb.commit()
     try:
-        f = open("books.csv", encoding='utf-8')
-        reader = csv.reader(f, delimiter='|')
-        next(reader)
+        f = open("books.csv", encoding='utf-8') # Open books data
+        reader = csv.reader(f, delimiter='|') # Read the CSV file with custom delimiter
+        next(reader) # Skip the header row
         for row in reader:
             db.execute("INSERT IGNORE INTO inventory VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
-                       (row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9]))
+                       (row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9])) # Insert the data into the inventory table if it doesn't already exist
             cdb.commit()
     except:
-        url = "https://raw.githubusercontent.com/asmaparker/pageturnerr/main/books.csv"
-        with requests.get(url=url, stream=True, headers={'Cache-Control': 'no-cache'}) as r:
-            lines = (line.decode('utf-8') for line in r.iter_lines())
-            next(lines)
-            for row in csv.reader(lines, delimiter='|'):
+        # If the books data is not available, download it from the GitHub repository
+        url = "https://raw.githubusercontent.com/asmaparker/pageturnerr/main/books.csv" 
+        with requests.get(url=url, stream=True, headers={'Cache-Control': 'no-cache'}) as r: # Request the data from the URL. Stream the data to avoid memory issues
+            lines = (line.decode('utf-8') for line in r.iter_lines()) # Decode the data from the stream
+            next(lines) # Skip the header row
+            for row in csv.reader(lines, delimiter='|'): # Read the CSV file with custom delimiter
                 db.execute("INSERT IGNORE INTO inventory VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
                            (row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9]))
                 cdb.commit()
-except IndexError:
+except IndexError: # If the data is missing, skip the row
     pass
 except:
-    sys.exit("Fatal error occurred! Information text is unavailable.")
+    sys.exit("Fatal error occurred! Information text is unavailable.") # If the data is not available, exit the program
 
-login_status = False  # Check whether the user is logged in or not
+login_status = False  # Set login status to not logged in
 
 
 def clear():  # Clear the terminal window
@@ -123,7 +126,7 @@ def kill():  # Exit the program
 def check_existing_username(username):  # Check whether username already exists
     db.execute("SELECT username FROM users")
     rs = db.fetchall()
-    for i in rs:
+    for i in rs: # Iterate through the usernames in the database
         if i[0] == username:
             print("Username already exists!")
             return False
@@ -131,55 +134,54 @@ def check_existing_username(username):  # Check whether username already exists
 
 
 def register_customer():  # Register a new customer
-    global login_status
-    global login_username
+    global login_status # Set the login status to global to be used in other functions
+    global login_username # Set the login username to global to be used in other functions
 
     name = input("Enter your full name: ")
     email = input("Enter your email: ")
     phone_number = input("Enter your phone number in international format: ")
     username = input("Enter your username: ")
-    # Mask the password while it's being inputted
-    password = getpass(prompt="Enter your password: ")
+    password = getpass(prompt="Enter your password: ") # Mask the password while it's being inputted
     passhash = pass_hasher(password=password)  # Hash the password
 
     # Check whether username already exists
     if check_existing_username(username=username) == False:
-        register_customer()
+        register_customer() # If the username already exists, register the customer again
 
     db.execute("INSERT INTO users VALUES(%s, %s, %s, %s)",
-               (name, email, phone_number, username))
+               (name, email, phone_number, username)) # Insert the user details into the users table
     cdb.commit()
 
-    db.execute("INSERT INTO auth VALUES(%s, %s)", (username, passhash))
+    db.execute("INSERT INTO auth VALUES(%s, %s)", (username, passhash)) # Insert the username and password hash into the auth table
     cdb.commit()
 
-    login_username = username
-    login_status = True
+    login_username = username # Set the login username to the username entered
+    login_status = True # Set the login status to logged in
     clear()  # Clear the terminal window to remove any personal data
 
     print("Registration successful!")
     print("Hello,", name + "!" "\n")
-    main()  # Go back to the main menu
+    main()  # Go to the main menu
 
 
 def login():  # Log in the user
-    global login_status
-    global login_username
+    global login_status # Set login status to global to be used in other functions
+    global login_username # Set login username to global to be used in other functions
     login_username = input("Enter your username: ")
-    password = getpass("Enter your password: ")
+    password = getpass("Enter your password: ") # Mask the password while it's being inputted
     db.execute("SELECT * FROM auth")
     rs = db.fetchall()
 
-    if len(rs) == 0:
+    if check_existing_username(username=login_username) == True: # Check if the username exists 
         sys.exit("Username doesn't exist!")
 
     while True:
         try:
-            c = pass_verify(hash=rs[0][1], inputpass=password)
+            c = pass_verify(hash=rs[0][1], inputpass=password) # Verify the password entered
         except argon2.exceptions.VerifyMismatchError:
             sys.exit("Incorrect password!")  # Exit if password is incorrect
 
-        if rs[0][0] == login_username and c == True:
+        if rs[0][0] == login_username and c == True: # If the username and password are correct
             name = db.execute("SELECT name FROM users WHERE username = '{}'".format(login_username))
             name = db.fetchall()[0][0]
             login_status = True  # Set login status to True
@@ -223,69 +225,72 @@ def search():  # Search for a book
     ch = int(input("Enter your choice: "))  # Input the choice
     if ch == 1:  # If the choice is 1
         isbn = input("Enter the ISBN of the book: ")  # Input the ISBN of the book
-        if search_isbn(isbn) == False:
+        isbn = search_isbn(isbn) # Search for the book by ISBN
+        if isbn == False: # If the book is not found
             print("Book not found!")
             print()
         else:
-            list_info(isbn)
+            list_info(isbn) # List the information of the book
 
     elif ch == 2:  # If the choice is 2
         title = input("Enter the title of the book: ")  # Input the title of the book
-        isbn = search_title(title)
-        if isbn == False:
+        isbn = search_title(title) # Search for the book by title
+        if isbn == False: # If the book is not found
             print("Book not found!")
             print()
         else:
-            list_info(isbn)
+            list_info(isbn) # List the information of the book
 
     elif ch == 3:  # If the choice is 3
         publisher = input("Enter the publisher of the book: ")  # Input the publisher of the book
-        isbn = search_publisher(publisher)
-        if isbn == False:
+        isbn = search_publisher(publisher) # Search for the book by publisher
+        if isbn == False: # If the book is not found
             print("Book not found!")
             print()
         else:
-            list_info(isbn)
+            list_info(isbn) # List the information of the book
 
     elif ch == 4:  # If the choice is 4
         author = input("Enter the author of the book: ")  # Input the author of the book
-        isbn = search_author(author)
-        if isbn == False:
+        isbn = search_author(author) # Search for the book by author
+        if isbn == False: # If the book is not found
             print("Book not found!")
-
+            print()
         else:
-            list_info(isbn)
+            list_info(isbn) # List the information of the book
 
     elif ch == 5:  # If the choice is 5
-        maxprice = input("Enter the maximum price of the book: ")
-        minprice = input("Enter the minimum price of the book: ")
-        isbn = search_price(maxprice, minprice)
-        if isbn == False:
+        maxprice = input("Enter the maximum price of the book: ")  # Input the maximum price of the book
+        minprice = input("Enter the minimum price of the book: ")  # Input the minimum price of the book
+        maxprice = max(maxprice, minprice) # Set the maximum price to the maximum of the two prices
+        minprice = min(maxprice, minprice) # Set the minimum price to the minimum of the two prices
+        isbn = search_price(maxprice, minprice) # Search for the book by price
+        if isbn == False: # If the book is not found
             print("Book not found!")
             print()
         else:
-            list_info(isbn)
+            list_info(isbn) # List the information of the book
 
     elif ch == 6:  # If the choice is 6
-        year = input("Enter the year of publishing of the book: ")
-        isbn = search_yearofpublishing(year)
-        if isbn == False:
+        year = input("Enter the year of publishing of the book: ") # Input the year of publishing of the book
+        isbn = search_yearofpublishing(year) # Search for the book by year of publishing
+        if isbn == False: # If the book is not found
             print("Book not found!")
             print()
         else:
-            list_info(isbn)
+            list_info(isbn) # List the information of the book
 
     elif ch == 0:  # If the choice is 0
-        return
+        return # Return to the main menu
 
 
 def search_isbn(isbn):  # Search for a book by ISBN
-    db.execute("SELECT isbn FROM inventory WHERE isbn = '{}'".format(isbn))
+    db.execute("SELECT isbn FROM inventory WHERE isbn = '{}'".format(isbn)) # Search for the book by ISBN
     rs = db.fetchall()
     if len(rs) == 0:
         print("Book not found in database! Searching online for book info...")
-        add = get_book_info_external(isbn)
-        if add == True:
+        add = get_book_info_external(isbn) # Get book information from ISBNDB API if the book is not found in the database
+        if add == True: # If the book is found
             search_isbn(isbn)
         else:
             return False
