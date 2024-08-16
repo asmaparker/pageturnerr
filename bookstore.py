@@ -518,7 +518,7 @@ def cart():  # View cart
         print("Item removed from cart!")
         print()
 
-    elif ch == 2: 
+    elif ch == 2: # Empty cart
         db.execute("DELETE FROM cart WHERE username = '{}'".format(login_username))
         cdb.commit()
         print("Cart emptied!")
