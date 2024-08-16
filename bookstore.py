@@ -557,7 +557,7 @@ def edit_customer():  # Edit customer details
             print()
             break
 
-        elif ch == 2:
+        elif ch == 2: 
             email = input("Enter new email: ")
             db.execute("UPDATE users SET email = %s WHERE username = %s", (email, login_username))
             cdb.commit()
