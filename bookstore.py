@@ -427,6 +427,7 @@ def get_book_info_external(isbn):
         date_published = data.get("book", {}).get("date_published", "")
         language = data.get("book", {}).get("language", "")
         msrp = data.get("book", {}).get("msrp", 0.0)
+        
         pages = data.get("book", {}).get("pages", 0)
         list_info(isbn, isbn13, title, synopsis, publisher,
                   authors, date_published, language, msrp, pages) # List the information of the book
