@@ -713,7 +713,7 @@ def check_cc_expiry(expiry): # Check if the credit card has expired
     month, year = str(expiry).split("/") # Split the expiry date into month and year
     if int(month) > 12 or int(month) < 1: # If the month is invalid
         return False
-    if int(year) + 2000 < datetime.datetime.now().year:
+    if int(year) + 2000 < datetime.datetime.now().year: 
         return False
     if int(year) + 2000 == datetime.datetime.now().year and int(month) < datetime.datetime.now().month:
         return False
