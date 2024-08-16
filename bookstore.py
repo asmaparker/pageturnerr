@@ -374,7 +374,7 @@ def search_price(maxprice, minprice):  # Search for a book by price
         j = 0
         for i in rs: # Iterate through the books found
             j += 1
-            print("{}. {}".format(j, i[1])) 
+            print("{}. {}".format(j, i[1])) # Print the title of the book
 
         while True:
             try:
