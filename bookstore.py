@@ -304,7 +304,7 @@ def search_title(title):  # Search for a book by title
         j = 0
         for i in rs: # Iterate through the books found
             j += 1
-            print("{}. {}".format(j, i[1])) 
+            print("{}. {}".format(j, i[1])) # Print the title of the book
 
         while True:
             ch = int(input("Enter the number of the book you would like to select: "))
