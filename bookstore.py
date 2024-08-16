@@ -628,7 +628,7 @@ def delete_account():  # Delete the user account
                 cdb.commit()
                 db.execute("DELETE FROM auth WHERE username = '{}'".format(login_username)) # Delete the user from the auth table
                 cdb.commit()
-                db.execute("DELETE FROM cart WHERE username = '{}'".format(login_username)) # Delete the user from the cart table
+                db.execute("DELETE FROM cart WHERE username = '{}'".format(login_username)) # Delete t
                 cdb.commit()
                 print("Account deleted successfully!")
                 kill()
