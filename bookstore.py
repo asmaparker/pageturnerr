@@ -430,8 +430,8 @@ def search_yearofpublishing(year):  # Search for a book by year of publishing
 
 # Get book information from ISBNDB API if the book is not found in the database
 def get_book_info_external(isbn):
-    API_KEY = ""  # API Key for ISBNDB API
-    url = f'https: //api2.isbndb.com/book/{isbn}'  # URL for the API
+    API_KEY = "54894_74349bb8001792ce6e5f0f441912f0ef"  # API Key for ISBNDB API
+    url = f'https://api2.isbndb.com/book/{isbn}'  # URL for the API
     headers = {'Authorization': API_KEY}  # Headers for the API
     try:
         response = requests.get(url=url, headers=headers)  # Request the data from the API
@@ -452,8 +452,12 @@ def get_book_info_external(isbn):
         msrp = data.get("book", {}).get("msrp", 0.0)
         msrp = float(msrp) * 3.67
         pages = data.get("book", {}).get("pages", 0)
-        list_info(isbn, isbn13, title, synopsis, publisher,
-                  authors, date_published, language, msrp, pages)  # List the information of the book
+        if msrp != 0.00:
+            list_info(isbn, isbn13, title, synopsis, publisher,
+                      authors, date_published, language, msrp, pages)  # List the information of the book
+        else:
+            print("Couldn't fetch price data")
+            return False
     if response.status_code == 403:  # If the API rate limit is exceeded
         print("API rate limit exceeded. Waiting for 30 seconds...")
         time.sleep(30)  # Wait for 30 seconds
@@ -464,19 +468,23 @@ def get_book_info_external(isbn):
 
 
 def list_info(isbn, isbn13=None, title=None, synopsis=None, publisher=None, authors=None, date_published=None, language=None, price=None, pages=None):  # List the information of the book
-    db.execute(
-        "SELECT isbn,isbn13,title,synopsis,publisher,authors,date_published,language,price,pages FROM books WHERE isbn = '{isbn}'".format(isbn=isbn))
-    rs = db.fetchall()
+    if isbn13 == None:  # If the ISBN13 is not None
+        db.execute(
+            "SELECT isbn,isbn13,title,synopsis,publisher,authors,date_published,language,price,pages FROM books WHERE isbn = '{isbn}'".format(isbn=isbn))
+        rs = db.fetchall()[0]
+        isbn, isbn13, title, synopsis, publisher, authors, date_published, language, price, pages = rs
+    else:
+        authors = authors.replace("[", "").replace("]", "").replace("'", "").replace(",", ", ")
     # Make a string for authors that will iterate through all authors and add them to the string
-    print(termcolor.colored(rs[0][2], 'cyan', attrs=["bold", "underline"]))
-    print(termcolor.colored("Author(s):", 'cyan'), rs[0][5])
-    print(termcolor.colored("Synopsis:", 'cyan'), rs[0][3])
-    print(termcolor.colored("Price: AED", 'cyan'), rs[0][8])
-    print(termcolor.colored("Pages:", 'cyan'), rs[0][9])
-    print(termcolor.colored("Publisher:", 'cyan'), rs[0][4])
-    print(termcolor.colored("Date Published:", 'cyan'), rs[0][6])
-    print(termcolor.colored("Language:", 'cyan'), rs[0][7])
-    print(termcolor.colored("ISBNs:", 'cyan'), rs[0][0], rs[0][1])
+    print(termcolor.colored(title, 'cyan', attrs=["bold", "underline"]))
+    print(termcolor.colored("Author(s):", 'cyan'), authors)
+    print(termcolor.colored("Synopsis:", 'cyan'), synopsis)
+    print(termcolor.colored("Price: AED", 'cyan'), price)
+    print(termcolor.colored("Pages:", 'cyan'), pages)
+    print(termcolor.colored("Publisher:", 'cyan'), publisher)
+    print(termcolor.colored("Date Published:", 'cyan'), date_published)
+    print(termcolor.colored("Language:", 'cyan'), language)
+    print(termcolor.colored("ISBNs:", 'cyan'), isbn, isbn13)
     print()
     print("1. Add to cart")
     print("2. Buy now")
